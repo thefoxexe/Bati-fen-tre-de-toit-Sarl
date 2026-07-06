@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 const placeholderProjects = [
-  { title: "Installation neuve", context: "Combles aménagés" },
-  { title: "Remplacement de fenêtre de toit", context: "Rénovation villa" },
-  { title: "Pose de volet roulant", context: "Fenêtre de toit existante" },
-  { title: "Étanchéité & finitions", context: "Reprise après sinistre" },
-  { title: "Dépannage", context: "Remplacement de vitrage" },
-  { title: "Installation neuve", context: "Chambre sous toiture" },
-];
+  { title: "Installation neuve", context: "Combles aménagés", variant: "single" },
+  { title: "Remplacement de fenêtre de toit", context: "Rénovation villa", variant: "twin" },
+  { title: "Pose de volet roulant", context: "Fenêtre de toit existante", variant: "dormer" },
+  { title: "Étanchéité & finitions", context: "Reprise après sinistre", variant: "twin" },
+  { title: "Dépannage", context: "Remplacement de vitrage", variant: "single" },
+  { title: "Installation neuve", context: "Chambre sous toiture", variant: "dormer" },
+] as const;
 
 export default function PortfolioPage() {
   return (
@@ -42,9 +42,9 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-6xl px-5 pb-20 md:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {placeholderProjects.map((project, i) => (
-            <div key={i} className="card overflow-hidden">
-              <div className="flex aspect-[4/3] items-center justify-center bg-[var(--color-bg-subtle)]">
-                <RoofWindowIllustration className="h-16 w-16 text-[var(--color-accent-dark)]/60" />
+            <div key={i} className="card card-hover overflow-hidden">
+              <div className="section-tinted flex aspect-[4/3] items-center justify-center">
+                <RoofWindowIllustration variant={project.variant} className="h-16 w-16 text-[var(--color-accent-dark)]/70" />
               </div>
               <div className="p-5">
                 <p className="text-sm font-bold text-[var(--color-ink)]">{project.title}</p>

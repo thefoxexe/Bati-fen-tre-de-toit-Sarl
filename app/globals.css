@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #ffffff;
+  --color-bg: #fffdfb;
   --color-bg-subtle: #fbeeec;
   --color-ink: #201b19;
   --color-ink-soft: #6b6059;
   --color-accent: #d8232a;
   --color-accent-dark: #a81a20;
   --color-line: #ecdedc;
-  --color-footer: #201b19;
-  --font-sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  --color-footer: #1c1815;
+  --shadow-color: 32, 20, 16;
 }
 
 @theme inline {
@@ -23,7 +21,8 @@
   --color-accent-dark: var(--color-accent-dark);
   --color-line: var(--color-line);
   --color-footer: var(--color-footer);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 * {
@@ -37,9 +36,14 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-sans);
-  line-height: 1.55;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .balance {
@@ -64,13 +68,16 @@ body {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.85rem 1.6rem;
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 1rem;
   white-space: nowrap;
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease,
-    opacity 0.15s ease;
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 .btn:active {
   transform: translateY(1px);
@@ -82,17 +89,19 @@ body {
     var(--color-accent-dark)
   );
   color: #fff;
-  box-shadow: 0 8px 20px -8px rgba(168, 26, 32, 0.55);
+  box-shadow: 0 10px 24px -12px rgba(var(--shadow-color), 0.55);
 }
 .btn-primary:hover {
-  box-shadow: 0 10px 24px -6px rgba(168, 26, 32, 0.6);
+  box-shadow: 0 14px 28px -10px rgba(var(--shadow-color), 0.5);
+  transform: translateY(-1px);
 }
 .btn-outline {
-  border: 1.5px solid var(--color-ink);
+  border: 1.5px solid var(--color-line);
   color: var(--color-ink);
   background: transparent;
 }
 .btn-outline:hover {
+  border-color: var(--color-ink);
   background: var(--color-ink);
   color: #fff;
 }
@@ -105,27 +114,40 @@ body {
 }
 .btn-sm {
   padding: 0.6rem 1.2rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .section-tinted {
-  background: var(--color-bg-subtle);
+  background:
+    radial-gradient(120% 140% at 15% 0%, rgba(216, 35, 42, 0.05), transparent 60%),
+    var(--color-bg-subtle);
 }
 
 .card {
   background: #fff;
   border: 1px solid var(--color-line);
-  border-radius: 18px;
-  box-shadow: 0 1px 2px rgba(32, 27, 25, 0.04);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(var(--shadow-color), 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+a.card:hover,
+.card.card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(216, 35, 42, 0.25);
+  box-shadow: 0 20px 32px -20px rgba(var(--shadow-color), 0.35);
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -163,11 +185,17 @@ details.faq[open] > summary .faq-icon {
   display: flex;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .btn {
+  .btn,
+  .card {
     transition: none;
   }
 }

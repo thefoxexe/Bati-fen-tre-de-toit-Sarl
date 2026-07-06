@@ -92,7 +92,7 @@ export default function HomePage() {
           />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {services.slice(0, 3).map((service) => (
-              <div key={service.slug} className="card p-6">
+              <div key={service.slug} className="card card-hover p-6">
                 <h3 className="text-base font-bold text-[var(--color-ink)]">{service.title}</h3>
                 <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
               </div>
@@ -114,9 +114,9 @@ export default function HomePage() {
           rest="avec rigueur, du premier appel à la dernière finition."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="card flex aspect-[4/3] items-center justify-center bg-[var(--color-bg-subtle)]">
-              <RoofWindowIllustration className="h-20 w-20 text-[var(--color-accent-dark)]/60" />
+          {(["single", "twin", "dormer"] as const).map((variant) => (
+            <div key={variant} className="card card-hover flex aspect-[4/3] items-center justify-center bg-[var(--color-bg-subtle)]">
+              <RoofWindowIllustration variant={variant} className="h-20 w-20 text-[var(--color-accent-dark)]/70" />
             </div>
           ))}
         </div>

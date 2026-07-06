@@ -1,3 +1,7 @@
+"use client";
+
+import { useId } from "react";
+
 type IconProps = { className?: string };
 
 export function PhoneIcon({ className }: IconProps) {
@@ -69,17 +73,89 @@ export function CloseIcon({ className }: IconProps) {
   );
 }
 
-/** Decorative line-art of a roof window, used in place of real project photography. */
-export function RoofWindowIllustration({ className }: IconProps) {
+type RoofVariant = "single" | "twin" | "dormer";
+
+/**
+ * Decorative line-art of a roof window, standing in for real project photography.
+ * Three compositions (single opening / twin openings / dormer with shutter) so the
+ * same graphic isn't just stamped repeatedly across cards.
+ */
+export function RoofWindowIllustration({
+  className,
+  variant = "single",
+}: IconProps & { variant?: RoofVariant }) {
+  const uid = useId();
+  const glowId = `roof-glow-${uid}`;
+
   return (
-    <svg viewBox="0 0 200 160" fill="none" className={className} aria-hidden="true">
-      <path d="M10 150 L100 20 L190 150 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-      <rect x="76" y="55" width="48" height="36" rx="2" transform="rotate(0 100 73)" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M76 73 H124" stroke="currentColor" strokeWidth="2" />
-      <path d="M100 55 V91" stroke="currentColor" strokeWidth="2" />
-      <circle cx="158" cy="38" r="12" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M158 18v6M158 52v6M138 38h6M172 38h6M144.5 24.5l4.2 4.2M167.3 47.3l4.2 4.2M144.5 51.5l4.2-4.2M167.3 28.7l4.2-4.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M10 150 H190" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <svg viewBox="0 0 220 176" fill="none" className={className} aria-hidden="true">
+      <defs>
+        <radialGradient id={glowId}>
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {variant === "single" && (
+        <circle cx="168" cy="42" r="34" fill={`url(#${glowId})`} />
+      )}
+      {variant !== "single" && (
+        <circle cx="44" cy="38" r="30" fill={`url(#${glowId})`} />
+      )}
+
+      {/* roofline */}
+      <path
+        d="M14 156 L110 26 L206 156 Z"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      {/* tile hatching */}
+      <path
+        d="M40 130 L58 106 M58 140 L82 108 M84 146 L104 118"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.35"
+      />
+      <path
+        d="M180 130 L162 106 M162 140 L138 108 M136 146 L116 118"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        opacity="0.35"
+      />
+
+      {variant === "single" && (
+        <g>
+          <rect x="84" y="62" width="52" height="40" rx="3" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M84 82 H136M110 62 V102" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M186 20v8M186 56v8M164 42h8M200 42h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="186" cy="42" r="12" stroke="currentColor" strokeWidth="2.5" />
+        </g>
+      )}
+
+      {variant === "twin" && (
+        <g>
+          <rect x="62" y="66" width="38" height="32" rx="3" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M62 82 H100M81 66 V98" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <rect x="112" y="66" width="38" height="32" rx="3" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M112 82 H150M131 66 V98" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </g>
+      )}
+
+      {variant === "dormer" && (
+        <g>
+          <rect x="88" y="60" width="46" height="38" rx="3" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M88 79 H134M111 60 V98" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          {/* rolled shutter, half-drawn over the opening */}
+          <path d="M92 64 H130" stroke="var(--color-accent, currentColor)" strokeWidth="3" strokeLinecap="round" opacity="0.55" />
+          <rect x="90" y="60" width="44" height="8" rx="2" stroke="currentColor" strokeWidth="1.6" opacity="0.7" />
+        </g>
+      )}
+
+      <path d="M14 156 H206" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }

@@ -44,7 +44,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex items-center justify-center rounded-3xl bg-[var(--color-bg-subtle)] p-10 md:p-14">
-            <RoofWindowIllustration className="h-56 w-56 text-[var(--color-accent-dark)]" />
+            <RoofWindowIllustration variant="twin" className="h-56 w-56 text-[var(--color-accent-dark)]" />
           </div>
         </div>
       </section>
@@ -54,7 +54,7 @@ export default function AboutPage() {
           <SectionHeading bold="Nos valeurs," rest="au cœur de chaque chantier." center />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {values.map((value) => (
-              <div key={value.title} className="card p-6">
+              <div key={value.title} className="card card-hover p-6">
                 <h3 className="text-base font-bold text-[var(--color-ink)]">{value.title}</h3>
                 <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{value.text}</p>
               </div>

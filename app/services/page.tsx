@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   description: `Installation, remplacement, volets et dépannage de fenêtres de toit par ${site.shortName}.`,
 };
 
+const illustrationBySlug: Record<string, "single" | "twin" | "dormer"> = {
+  "installation-neuve": "single",
+  "remplacement-renovation": "twin",
+  "volets-stores": "dormer",
+  "etancheite-finitions": "twin",
+  "depannage-sav": "single",
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -21,8 +29,11 @@ export default function ServicesPage() {
       <section className="mx-auto max-w-6xl px-5 pb-20 md:px-8">
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service) => (
-            <div key={service.slug} id={service.slug} className="card flex flex-col p-7">
-              <RoofWindowIllustration className="h-12 w-12 text-[var(--color-accent-dark)]" />
+            <div key={service.slug} id={service.slug} className="card card-hover flex flex-col p-7">
+              <RoofWindowIllustration
+                variant={illustrationBySlug[service.slug]}
+                className="h-14 w-14 text-[var(--color-accent-dark)]"
+              />
               <h2 className="mt-4 text-lg font-bold text-[var(--color-ink)]">{service.title}</h2>
               <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.description}</p>
               <Link
