@@ -52,13 +52,26 @@ Le présent document cadre la refonte complète du site sur la base du brief tra
 Le client a cité trois sites de référence. Chacun apporte un élément différent à intégrer :
 
 ### Griesser.com
-Fabricant suisse de protections solaires. À en retenir :
-- Image de marque suisse haut de gamme : sobriété, rigueur, confiance.
-- Grille de navigation claire par univers de produits/services.
-- Beaucoup de photographie produit en situation réelle (maison, lumière naturelle).
-- Ton corporate mais chaleureux, jamais criard.
+Fabricant suisse de protections solaires (captures d'écran mobile fournies par le client — analyse basée sur le site réel). Éléments observés :
+- Header blanc épuré : logo + pictogramme géométrique, sélecteur de langue "CH | FR", menu burger.
+- Juste sous le header, un **bandeau dégradé fin** (vert → menthe) qui sert de signature de marque discrète sur toute la navigation.
+- Titres en deux temps : une phrase courte en **gras** ("Découvrez plus de confort.") suivie d'une phrase en graisse normale qui la complète — un rythme de lecture en deux temps repris sur toutes les pages.
+- Boutons en **forme de pilule** : dégradé coloré pour le CTA principal ("Demander conseil", "En savoir plus"), contour noir sans fond pour les CTA secondaires ("En savoir plus sur Griesser"), fond blanc uni sur les visuels sombres ("Contact").
+- Liens de texte **soulignés dans le corps du texte** (ex. "brise-soleil orientables", "stores toiles") plutôt que des boutons, pour la navigation vers les familles de produits.
+- Liens tertiaires en pattern "flèche + texte" (→ Choisir la protection solaire Griesser).
+- Deux **icônes rondes flottantes** fixes en bas à droite de l'écran sur toutes les pages : prise de rendez-vous (calendrier) et localisation d'un revendeur (pin) — toujours accessibles en un tap.
+- Carrousel produits avec photos aux coins arrondis, légende en surimpression en bas de l'image, pagination par points + flèches.
+- Sections en alternance : fond blanc, puis fond très légèrement teinté (vert d'eau pâle) pour scander la page sans rupture brutale, avec cartes blanches en relief (ombre douce) posées dessus.
+- Photographie réelle et humaine : chantiers en situation, mais aussi photos d'équipe (portraits pro souriants) qui renforcent la confiance.
+- Footer anthracite/quasi noir, tagline de marque en couleur accent ("Inspired by the **Sun**."), icônes sociales cerclées, colonnes de liens, bandeau légal en bas.
 
-**→ À reprendre :** la sobriété générale, le sérieux "suisse" qui rassure, la mise en avant de photos réelles plutôt que d'illustrations génériques.
+**→ À reprendre pour Bati Fenêtre de Toit :**
+- Le même bandeau accent fin sous le header, mais en **dégradé de rouges** (ex. rouge vif → rouge brique) plutôt qu'en vert, pour garder une signature de marque discrète et reconnaissable.
+- Les **boutons pilule** : dégradé rouge pour le CTA principal, contour noir/anthracite pour le secondaire.
+- Les **deux icônes rondes flottantes**, adaptées à l'objectif du site : une pour "Demander un devis", une pour "Appeler maintenant" (remplace la géolocalisation, moins pertinente ici) — cohérent avec l'objectif n°1 de génération de contacts.
+- Le rythme de titre **gras + normal** pour les accroches de chaque section.
+- L'alternance de fonds (blanc / fond très légèrement teinté rouge pâle) pour aérer la page.
+- Les photos d'équipe/chantiers réelles plutôt que du stock générique.
 
 ### Velux.ch
 Référence mondiale du produit vendu par le client (fenêtres de toit). À en retenir :
@@ -79,7 +92,7 @@ Agence web suisse, référence plus "moderne & dynamique" au sens du brief. À e
 
 ### Synthèse du style visuel retenu
 Un site **moderne et dynamique**, en **blanc et rouge** (couleurs demandées par le client), qui combine :
-- la clarté et la confiance "corporate suisse" de Griesser,
+- la clarté et la confiance "corporate suisse" de Griesser, ainsi que ses **patterns d'interface concrets** (bandeau accent dégradé, boutons pilule, icônes flottantes, titres en deux temps, sections alternées — détaillés ci-dessus),
 - la lumière et la mise en valeur du produit façon Velux,
 - le dynamisme et la modernité de Webalp.
 
@@ -95,10 +108,12 @@ Un site **moderne et dynamique**, en **blanc et rouge** (couleurs demandées par
 | Fond secondaire (sections alternées) | Gris très clair | `#F5F5F5` |
 | Couleur d'accent / CTA | Rouge | `#D8232A` (à ajuster sur le rouge exact du logo) |
 | Rouge foncé (hover, accents) | Rouge foncé | `#A81A20` |
+| Fond teinté (sections alternées) | Rouge très pâle | `#FBEDEC` |
 | Texte principal | Anthracite | `#1A1A1A` |
 | Texte secondaire | Gris | `#5A5A5A` |
+| Footer | Anthracite quasi noir | `#211E1D` |
 
-*Le rouge exact doit être calé sur celui du logo existant pour garantir une cohérence de marque parfaite.*
+*Le rouge exact doit être calé sur celui du logo existant pour garantir une cohérence de marque parfaite. Le dégradé rouge vif → rouge brique (`#D8232A` → `#A81A20`) sert de signature pour le bandeau accent et les boutons principaux, sur le modèle du dégradé vert-menthe de Griesser.*
 
 ### 4.2 Typographie
 - Titres : police sans-serif moderne à forte présence (ex. Inter, Poppins ou similaire), graisses 600–700.
@@ -110,10 +125,14 @@ Un site **moderne et dynamique**, en **blanc et rouge** (couleurs demandées par
 - À défaut de stock suffisant, complément ponctuel par photos libres de droits de haute qualité (lumière naturelle, toitures, intérieurs), en attendant que le client fournisse ses propres visuels.
 - Pas d'illustrations génériques "clipart" : cohérence avec le positionnement premium recherché.
 
-### 4.4 Boutons et CTA
-- Boutons pleins rouges sur fond blanc, forme arrondie moderne.
+### 4.4 Boutons, CTA et patterns d'interface
+Directement inspiré du fonctionnement observé sur Griesser.com (cf. section 3) :
+- **Boutons pilule** : dégradé rouge (rouge vif → rouge brique) pour le CTA principal ("Demander un devis"), contour anthracite sans fond pour les CTA secondaires ("En savoir plus").
+- **Bandeau accent fin** en dégradé de rouges, positionné juste sous le header, présent sur toutes les pages — signature de marque discrète.
+- **Deux icônes rondes flottantes** fixes en bas d'écran sur mobile : une pour "Devis gratuit", une pour "Appeler maintenant" (clic-to-call direct) — toujours accessibles pendant le scroll.
+- **Titres en deux temps** : phrase courte en gras + phrase complémentaire en graisse normale, pour rythmer chaque section.
+- Liens secondaires en soulignement inline dans le texte plutôt qu'en boutons, réservés à la navigation entre services.
 - CTA répétés à chaque section clé : "Demander un devis", "Appeler maintenant", "Voir nos réalisations".
-- Bouton d'appel flottant/sticky sur mobile (clic-to-call direct).
 
 ---
 
