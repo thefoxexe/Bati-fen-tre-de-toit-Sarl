@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { MenuIcon, CloseIcon } from "@/components/icons";
+import { Logo } from "@/components/Logo";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-        <Link href="/" className="text-lg font-extrabold tracking-tight text-[var(--color-ink)] md:text-xl">
-          Bati<span className="text-[var(--color-accent)]">.</span> Fenêtre de Toit
+        <Link href="/" aria-label={site.name}>
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, IBM_Plex_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 import { site } from "@/lib/site";
 
-const display = Big_Shoulders({
+// Same geometric sans family as the client's existing logo ("BATI" / "FENÊTRE DE TOIT"),
+// used across weights instead of pairing in a separate display face.
+const brand = Montserrat({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-display",
-});
-
-const body = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-brand",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`h-full antialiased ${display.variable} ${body.variable}`}>
+    <html lang="fr" className={`h-full antialiased ${brand.variable}`}>
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

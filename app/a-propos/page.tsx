@@ -42,6 +42,10 @@ export default function AboutPage() {
               vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
               rendez-vous à la dernière finition.
             </p>
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] px-4 py-2 text-sm font-semibold text-[var(--color-ink)]">
+              <span className="h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+              Partenaire agréé Velux Expert
+            </p>
           </div>
           <div className="flex items-center justify-center rounded-3xl bg-[var(--color-bg-subtle)] p-10 md:p-14">
             <RoofWindowIllustration variant="twin" className="h-56 w-56 text-[var(--color-accent-dark)]" />
@@ -70,8 +74,8 @@ export default function AboutPage() {
               Zone d&rsquo;intervention
             </h2>
             <p className="mt-2 max-w-md text-sm text-[var(--color-ink-soft)]">
-              Contactez-nous avec votre localité : nous vous confirmons rapidement si votre projet
-              se trouve dans notre zone d&rsquo;intervention.
+              Basés dans le canton de Vaud, nous intervenons à Lausanne et dans la région.
+              Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.
             </p>
           </div>
           <Link href="/contact" className="btn btn-primary">

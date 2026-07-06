@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 :root {
+  /* Colors sampled directly from the client's existing logo/site (screenshot pixel
+     analysis) rather than invented, so the new site matches the real brand. */
   --color-bg: #fffdfb;
-  --color-bg-subtle: #fbeeec;
-  --color-ink: #201b19;
-  --color-ink-soft: #6b6059;
-  --color-accent: #d8232a;
-  --color-accent-dark: #a81a20;
-  --color-line: #ecdedc;
-  --color-footer: #1c1815;
+  --color-bg-subtle: #fbebea;
+  --color-ink: #3d3d3b;
+  --color-ink-soft: #6f6b67;
+  --color-accent: #cc322e;
+  --color-accent-dark: #9e2723;
+  --color-line: #e8e0dc;
+  --color-footer: #211f1d;
   --shadow-color: 32, 20, 16;
 }
 
@@ -21,8 +23,8 @@
   --color-accent-dark: var(--color-accent-dark);
   --color-line: var(--color-line);
   --color-footer: var(--color-footer);
-  --font-sans: var(--font-body);
-  --font-display: var(--font-display);
+  --font-sans: var(--font-brand);
+  --font-display: var(--font-brand);
 }
 
 * {
@@ -36,13 +38,13 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-brand), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-family: var(--font-brand), sans-serif;
   letter-spacing: -0.01em;
 }
 
@@ -68,7 +70,7 @@ h1, h2, h3 {
   gap: 0.5rem;
   border-radius: 999px;
   padding: 0.85rem 1.6rem;
-  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-family: var(--font-brand), sans-serif;
   font-weight: 600;
   letter-spacing: 0.01em;
   font-size: 1rem;
@@ -119,7 +121,7 @@ h1, h2, h3 {
 
 .section-tinted {
   background:
-    radial-gradient(120% 140% at 15% 0%, rgba(216, 35, 42, 0.05), transparent 60%),
+    radial-gradient(120% 140% at 15% 0%, rgba(204, 50, 46, 0.06), transparent 60%),
     var(--color-bg-subtle);
 }
 
@@ -136,7 +138,7 @@ h1, h2, h3 {
 a.card:hover,
 .card.card-hover:hover {
   transform: translateY(-3px);
-  border-color: rgba(216, 35, 42, 0.25);
+  border-color: rgba(204, 50, 46, 0.28);
   box-shadow: 0 20px 32px -20px rgba(var(--shadow-color), 0.35);
 }
 
@@ -144,7 +146,7 @@ a.card:hover,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-display), var(--font-body), sans-serif;
+  font-family: var(--font-brand), sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.16em;

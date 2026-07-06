@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
     <footer className="bg-[var(--color-footer)] text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3 md:px-8">
         <div>
-          <p className="text-lg font-extrabold">{site.shortName}</p>
-          <p className="mt-2 max-w-xs text-sm text-white/60">{site.tagline}</p>
+          <Logo onDark />
+          <p className="mt-3 max-w-xs text-sm text-white/60">{site.tagline}</p>
           <p className="mt-6 text-sm text-white/80">
             <a href={site.phoneHref} className="hover:text-white">
               {site.phoneDisplay}

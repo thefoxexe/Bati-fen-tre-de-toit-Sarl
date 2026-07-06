@@ -102,23 +102,23 @@ Un site **moderne et dynamique**, en **blanc et rouge** (couleurs demandées par
 
 ### 4.1 Palette de couleurs
 
+Mise à jour : couleurs extraites directement du logo existant (analyse pixel des captures fournies par le client), et non plus estimées.
+
 | Usage | Couleur | Code indicatif |
 |---|---|---|
-| Fond principal | Blanc | `#FFFFFF` |
-| Fond secondaire (sections alternées) | Gris très clair | `#F5F5F5` |
-| Couleur d'accent / CTA | Rouge | `#D8232A` (à ajuster sur le rouge exact du logo) |
-| Rouge foncé (hover, accents) | Rouge foncé | `#A81A20` |
-| Fond teinté (sections alternées) | Rouge très pâle | `#FBEDEC` |
-| Texte principal | Anthracite | `#1A1A1A` |
-| Texte secondaire | Gris | `#5A5A5A` |
-| Footer | Anthracite quasi noir | `#211E1D` |
+| Fond principal | Blanc cassé chaud | `#FFFDFB` |
+| Fond teinté (sections alternées) | Rouge très pâle | `#FBEBEA` |
+| Couleur d'accent / CTA | Rouge du logo (identique au rouge Velux) | `#CC322E` |
+| Rouge foncé (hover, accents) | Rouge foncé | `#9E2723` |
+| Texte principal | Anthracite chaud (charbon du logo) | `#3D3D3B` |
+| Texte secondaire | Gris chaud | `#6F6B67` |
+| Footer | Anthracite foncé | `#211F1D` |
 
-*Le rouge exact doit être calé sur celui du logo existant pour garantir une cohérence de marque parfaite. Le dégradé rouge vif → rouge brique (`#D8232A` → `#A81A20`) sert de signature pour le bandeau accent et les boutons principaux, sur le modèle du dégradé vert-menthe de Griesser.*
+*Le rouge du logo (`#CC322E`) correspond quasiment exactement au rouge officiel Velux — cohérent avec le statut de partenaire agréé Velux Expert de l'entreprise (confirmé sur le logo existant, badge "VELUX Expert").*
 
 ### 4.2 Typographie
-- Titres : police sans-serif moderne à forte présence (ex. Inter, Poppins ou similaire), graisses 600–700.
-- Texte courant : même famille ou complémentaire, graisse 400, haute lisibilité mobile.
-- Hiérarchie typographique nette (H1 impactant façon Webalp, corps de texte aéré façon Velux).
+- Titres et texte courant : **Montserrat**, la famille géométrique déjà utilisée dans le logo existant ("BATI" en très gras, "FENÊTRE DE TOIT Sàrl" en graisse moyenne) — une seule famille, plusieurs graisses (400 à 900), pour rester fidèle à l'identité déjà en place plutôt que d'en inventer une nouvelle.
+- Hiérarchie typographique nette (H1 impactant, corps de texte aéré).
 
 ### 4.3 Imagerie
 - Photos réelles des chantiers du client en priorité (avant/après indispensables).
@@ -169,8 +169,8 @@ Navigation simple, header sticky avec logo + menu + bouton "Devis gratuit" toujo
 ### 6.2 À propos
 - Histoire et présentation de Hasan Bati / de l'entreprise.
 - Valeurs : sérieux, qualité d'installation, proximité, garantie du travail.
-- Zone d'intervention géographique.
-- Éventuellement : certifications, partenariats (ex. agréé Velux, si applicable — **à confirmer avec le client**).
+- Zone d'intervention géographique — canton de Vaud / Lausanne (déduit de l'indicatif 021 du numéro affiché sur le site actuel, à confirmer).
+- Partenariat **Velux Expert confirmé** (badge visible sur le logo actuel) — à mettre en avant comme argument de confiance.
 
 ### 6.3 Services
 Détail des prestations proposées. **À valider avec le client**, structure proposée par défaut :
@@ -242,13 +242,16 @@ Pour rester cohérent avec la formule Starter :
 
 À aborder lors de l'appel téléphonique proposé par le client :
 
-1. Zone géographique précise d'intervention (canton/villes).
-2. Liste définitive des services à mettre en avant.
-3. Photos de chantiers disponibles (quantité, qualité, droit d'usage).
-4. Textes définitifs pour "À propos" (historique, années d'expérience, éventuelles certifications/partenariats de marque).
-5. Avis clients existants (Google, autres) à intégrer.
-6. Confirmation du rouge exact de la charte (référence logo).
-7. Accès actuels : hébergement/registrar du nom de domaine, accès email pro.
+1. **Quel numéro de téléphone doit être mis en avant ?** Le site actuel affiche `021 888 90 06` (ligne fixe) en CTA principal, alors que le brief transmis mentionnait `076 348 90 06` (mobile). Le nouveau site utilise actuellement le fixe par défaut (déjà connu des clients) — à confirmer.
+2. Zone géographique précise d'intervention — indice trouvé : l'indicatif 021 suggère le canton de Vaud / région lausannoise, à confirmer.
+3. Liste définitive des services à mettre en avant.
+4. Photos de chantiers disponibles (quantité, qualité, droit d'usage).
+5. Textes définitifs pour "À propos" (historique, années d'expérience).
+6. Avis clients existants (Google, autres) à intégrer.
+7. **Sécurité du site actuel** : le site en ligne (batifenetredetoit.ch) apparaît compromis (résultats Google montrant du contenu de spam injecté — voir échange du 06.07.2026). À traiter en priorité avec l'hébergeur actuel, indépendamment de la refonte.
+8. Accès actuels : hébergement/registrar du nom de domaine, accès email pro.
+
+*Éléments déjà résolus grâce aux captures fournies par le client : couleurs et typographie extraites du vrai logo (section 4), statut de partenaire Velux Expert confirmé (section 6.2).*
 
 ---
 

@@ -5,7 +5,7 @@ import { services, site } from "@/lib/site";
 
 const reassurance = [
   "Devis gratuit sous 48h",
-  "Pose soignée par des artisans qualifiés",
+  "Partenaire agréé Velux Expert",
   "Intervention rapide, y compris en dépannage",
   "Travaux garantis",
 ];

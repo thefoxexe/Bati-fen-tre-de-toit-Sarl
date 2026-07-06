@@ -2,10 +2,17 @@ export const site = {
   name: "Bati Fenêtre de Toit Sàrl",
   shortName: "Bati Fenêtre de Toit",
   tagline: "Installateur de fenêtres de toit",
-  phoneDisplay: "076 348 90 06",
-  phoneHref: "tel:+41763489006",
+  // Landline shown on the client's current live site — kept as the primary
+  // displayed number since customers already know it. The brief separately
+  // gave a mobile number (076 348 90 06); worth confirming with the client
+  // which one should lead.
+  phoneDisplay: "021 888 90 06",
+  phoneHref: "tel:+41218889006",
+  phoneMobileDisplay: "076 348 90 06",
+  phoneMobileHref: "tel:+41763489006",
   email: "info@batifenetredetoit.ch",
   url: "https://www.batifenetredetoit.ch",
+  veluxExpert: true,
 };
 
 export const nav = [
@@ -83,7 +90,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Quels modèles de fenêtres de toit installez-vous ?",
     answer:
-      "Nous travaillons avec les principales marques du marché et vous orientons vers le modèle le plus adapté à votre toiture, votre budget et vos besoins en luminosité ou en ventilation.",
+      "Nous sommes partenaire agréé Velux Expert et installons principalement des fenêtres Velux, tout en vous orientant vers le modèle le plus adapté à votre toiture, votre budget et vos besoins en luminosité ou en ventilation.",
   },
   {
     question: "Intervenez-vous aussi pour du dépannage ?",
