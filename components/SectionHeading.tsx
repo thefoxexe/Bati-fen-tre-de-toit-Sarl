@@ -10,9 +10,9 @@ type Props = {
 export function SectionHeading({ eyebrow, bold, rest, center, className }: Props) {
   return (
     <div className={`${center ? "text-center" : ""} ${className ?? ""}`}>
-      {eyebrow ? <p className="eyebrow mb-3 justify-center">{eyebrow}</p> : null}
-      <h2 className="balance text-3xl font-extrabold leading-tight text-[var(--color-ink)] md:text-4xl">
-        {bold} {rest ? <span className="font-normal">{rest}</span> : null}
+      {eyebrow ? <p className="eyebrow mb-4 justify-center">{eyebrow}</p> : null}
+      <h2 className="balance text-3xl font-semibold leading-tight text-[var(--color-ink)] md:text-4xl">
+        {bold} {rest ? <span className="font-normal text-[var(--color-ink-soft)]">{rest}</span> : null}
       </h2>
     </div>
   );

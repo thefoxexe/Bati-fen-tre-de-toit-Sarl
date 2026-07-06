@@ -45,7 +45,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
 
   if (status === "sent") {
     return (
-      <div className="card p-8 text-center">
+      <div className="panel p-10 text-center">
         <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre demande a bien été envoyée.</p>
         <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
           Nous revenons vers vous sous 48h ouvrées.
@@ -55,7 +55,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card space-y-4 p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="panel space-y-5 p-8 md:p-10">
       <input
         type="text"
         name="company"
@@ -80,7 +80,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
           id="service"
           name="service"
           defaultValue={initialService ?? ""}
-          className="w-full rounded-xl border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
+          className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
         >
           <option value="">Sélectionnez un service (optionnel)</option>
           {services.map((service) => (
@@ -101,7 +101,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
           required
           rows={5}
           placeholder="Décrivez votre projet : type de toiture, nombre de fenêtres, échéance souhaitée…"
-          className="w-full rounded-xl border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
+          className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
         />
       </div>
 
@@ -140,7 +140,7 @@ function Field({
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="w-full rounded-xl border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
+        className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
       />
     </div>
   );

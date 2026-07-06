@@ -16,11 +16,11 @@ export default async function ContactPage({
   const { service } = await searchParams;
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
+    <section className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
       <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
         <div>
           <p className="eyebrow mb-4">Contact</p>
-          <h1 className="balance text-4xl font-extrabold leading-tight text-[var(--color-ink)]">
+          <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)]">
             Demandez votre devis gratuit.
           </h1>
           <p className="mt-4 max-w-sm text-sm text-[var(--color-ink-soft)]">
@@ -28,17 +28,13 @@ export default async function ContactPage({
             personnalisé.
           </p>
 
-          <div className="mt-8 space-y-4">
-            <a href={site.phoneHref} className="flex items-center gap-3 text-sm font-semibold text-[var(--color-ink)]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-                <PhoneIcon className="h-4 w-4" />
-              </span>
+          <div className="mt-8 space-y-3">
+            <a href={site.phoneHref} className="flex items-center gap-3 text-sm font-medium text-[var(--color-ink)]">
+              <PhoneIcon className="h-4 w-4 text-[var(--color-ink-soft)]" />
               {site.phoneDisplay}
             </a>
-            <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-sm font-semibold text-[var(--color-ink)]">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-                <MailIcon className="h-4 w-4" />
-              </span>
+            <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-sm font-medium text-[var(--color-ink)]">
+              <MailIcon className="h-4 w-4 text-[var(--color-ink-soft)]" />
               {site.email}
             </a>
           </div>
