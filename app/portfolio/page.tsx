@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Réalisations",
@@ -8,13 +10,13 @@ export const metadata: Metadata = {
 };
 
 const placeholderProjects = [
-  { title: "Installation neuve", context: "Combles aménagés" },
-  { title: "Remplacement de fenêtre de toit", context: "Rénovation villa" },
-  { title: "Pose de volet roulant", context: "Fenêtre de toit existante" },
-  { title: "Étanchéité & finitions", context: "Reprise après sinistre" },
-  { title: "Dépannage", context: "Remplacement de vitrage" },
-  { title: "Installation neuve", context: "Chambre sous toiture" },
-];
+  { title: "Installation neuve", context: "Combles aménagés", variant: "single" },
+  { title: "Remplacement de fenêtre de toit", context: "Rénovation villa", variant: "twin" },
+  { title: "Pose de volet roulant", context: "Fenêtre de toit existante", variant: "dormer" },
+  { title: "Étanchéité & finitions", context: "Reprise après sinistre", variant: "twin" },
+  { title: "Dépannage", context: "Remplacement de vitrage", variant: "single" },
+  { title: "Installation neuve", context: "Chambre sous toiture", variant: "dormer" },
+] as const;
 
 export default function PortfolioPage() {
   return (
@@ -41,17 +43,17 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-5xl px-5 pb-24 md:px-8">
         <div className="grid gap-px bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
           {placeholderProjects.map((project, i) => (
-            <div key={i} className="bg-white">
-              <div className="flex aspect-[4/3] items-center justify-center border-b border-[var(--color-line)]">
-                <span className="text-xs uppercase tracking-widest text-[var(--color-ink-soft)]">
-                  Photo à venir
-                </span>
+            <Reveal key={i} delay={(i % 3) * 60}>
+              <div className="bg-white transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex aspect-[4/3] items-center justify-center border-b border-[var(--color-line)]">
+                  <SkylightIllustration variant={project.variant} className="h-16 w-16 opacity-70" />
+                </div>
+                <div className="p-5">
+                  <p className="text-sm font-medium text-[var(--color-ink)]">{project.title}</p>
+                  <p className="text-xs text-[var(--color-ink-soft)]">{project.context}</p>
+                </div>
               </div>
-              <div className="p-5">
-                <p className="text-sm font-medium text-[var(--color-ink)]">{project.title}</p>
-                <p className="text-xs text-[var(--color-ink-soft)]">{project.context}</p>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

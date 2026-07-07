@@ -10,6 +10,12 @@
   --color-accent-dark: #9e2723;
   --color-line: #e6e2df;
   --color-footer: #211f1d;
+  /* Hero: a night-roof-to-daylight concept — the product's whole promise is
+     light flooding a dark space, so the hero leans into that literally. */
+  --color-hero: #17140f;
+  --color-hero-line: #322c24;
+  --color-glow: #ffd9a0;
+  --color-glow-soft: #ffe9c7;
 }
 
 @theme inline {
@@ -20,6 +26,8 @@
   --color-accent-dark: var(--color-accent-dark);
   --color-line: var(--color-line);
   --color-footer: var(--color-footer);
+  --color-hero: var(--color-hero);
+  --color-glow: var(--color-glow);
   --font-sans: var(--font-brand);
   --font-display: var(--font-brand);
 }
@@ -50,7 +58,7 @@ h1, h2, h3 {
   text-wrap: balance;
 }
 
-/* Flat, restrained buttons — a solid fill and a hairline outline, no gradients or glow */
+/* Buttons: solid fill / hairline outline, with a quiet lift on hover — no gradients */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -63,14 +71,23 @@ h1, h2, h3 {
   font-size: 0.95rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease,
+    transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
 }
 .btn-primary {
   background: var(--color-accent);
   color: #fff;
+  box-shadow: 0 6px 16px -8px rgba(204, 50, 46, 0.5);
 }
 .btn-primary:hover {
   background: var(--color-accent-dark);
+  box-shadow: 0 10px 20px -8px rgba(204, 50, 46, 0.55);
 }
 .btn-outline {
   border: 1px solid var(--color-ink);
@@ -95,16 +112,21 @@ h1, h2, h3 {
   font-size: 0.85rem;
 }
 
-/* Section rhythm: alternate plain white and ink (dark) bands — no pastel tints */
+/* Section rhythm: alternate plain white and ink (dark) bands */
 .section-dark {
   background: var(--color-ink);
   color: #fff;
 }
 
-/* Flat surfaces: a hairline border, no drop shadow, no hover lift */
 .panel {
   background: #fff;
   border: 1px solid var(--color-line);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.panel.panel-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 32px -22px rgba(0, 0, 0, 0.35);
 }
 
 .eyebrow {
@@ -123,6 +145,22 @@ h1, h2, h3 {
   height: 1px;
   background: var(--color-accent);
   display: inline-block;
+}
+.eyebrow-on-dark {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Underline links used for secondary CTAs throughout */
+.link-underline {
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease, gap 0.15s ease;
+}
+.link-underline:hover {
+  text-decoration-color: var(--color-ink);
 }
 
 /* FAQ disclosure */
@@ -156,11 +194,94 @@ details.faq[open] > summary .faq-icon {
   outline-offset: 2px;
 }
 
+/* ---- Motion ---- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-6px, -46px);
+    opacity: 0;
+  }
+}
+
+@keyframes draw-in {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-line {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: draw-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+.hero-glow {
+  animation: glow-pulse 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+.hero-mote {
+  animation: drift 6s ease-in infinite;
+}
+.hero-fade {
+  opacity: 0;
+  animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  .btn {
+  .btn,
+  .panel {
     transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-line,
+  .hero-glow,
+  .hero-mote,
+  .hero-fade {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
   }
 }

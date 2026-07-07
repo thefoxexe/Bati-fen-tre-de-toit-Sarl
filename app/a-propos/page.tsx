@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
+import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +29,8 @@ export default function AboutPage() {
   return (
     <>
       <section className="mx-auto max-w-3xl px-5 pb-16 pt-16 text-center md:px-8 md:pb-24 md:pt-24">
-        <p className="eyebrow mb-6 justify-center">À propos</p>
+        <SkylightIllustration variant="twin" className="mx-auto h-24 w-24" />
+        <p className="eyebrow mb-6 mt-6 justify-center">À propos</p>
         <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
           L&rsquo;installation de fenêtres de toit, un métier de précision.
         </h1>
@@ -44,36 +47,40 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="border-t border-[var(--color-line)] py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <SectionHeading bold="Nos valeurs," rest="au cœur de chaque chantier." />
-          <div className="mt-12 grid divide-y divide-[var(--color-line)] md:grid-cols-3 md:divide-x md:divide-y-0">
-            {values.map((value) => (
-              <div key={value.title} className="py-6 md:px-8 md:py-0 md:first:pl-0">
-                <h3 className="text-base font-semibold text-[var(--color-ink)]">{value.title}</h3>
-                <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{value.text}</p>
-              </div>
-            ))}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] py-20 md:py-28">
+          <div className="mx-auto max-w-5xl px-5 md:px-8">
+            <SectionHeading bold="Nos valeurs," rest="au cœur de chaque chantier." />
+            <div className="mt-12 grid divide-y divide-[var(--color-line)] md:grid-cols-3 md:divide-x md:divide-y-0">
+              {values.map((value) => (
+                <div key={value.title} className="py-6 md:px-8 md:py-0 md:first:pl-0">
+                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{value.title}</h3>
+                  <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{value.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="section-dark">
-        <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
-          <div>
-            <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
-              Zone d&rsquo;intervention
-            </h2>
-            <p className="mt-2 max-w-md text-sm text-white/60">
-              Basés dans le canton de Vaud, nous intervenons à Lausanne et dans la région.
-              Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.
-            </p>
+      <Reveal>
+        <section className="section-dark">
+          <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
+            <div>
+              <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
+                Zone d&rsquo;intervention
+              </h2>
+              <p className="mt-2 max-w-md text-sm text-white/60">
+                Basés dans le canton de Vaud, nous intervenons à Lausanne et dans la région.
+                Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.
+              </p>
+            </div>
+            <Link href="/contact" className="btn btn-primary shrink-0">
+              Nous contacter
+            </Link>
           </div>
-          <Link href="/contact" className="btn btn-primary shrink-0">
-            Nous contacter
-          </Link>
-        </div>
-      </section>
+        </section>
+      </Reveal>
     </>
   );
 }
