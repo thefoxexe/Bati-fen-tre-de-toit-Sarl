@@ -3,7 +3,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { SkylightIllustration } from "@/components/SkylightIllustration";
 import { Reveal } from "@/components/Reveal";
-import { site } from "@/lib/site";
+import { serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -36,8 +36,8 @@ export default function AboutPage() {
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-ink-soft)]">
           {site.name}{" "}
-          accompagne les particuliers dans leurs projets de fenêtres de toit : installation
-          neuve, remplacement, volets et dépannage. Notre approche : comprendre votre projet,
+          accompagne les particuliers dans leurs projets de fenêtres de toit : remplacement,
+          stores Velux, entretien et dépannage. Notre approche : comprendre votre projet,
           vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
           rendez-vous à la dernière finition.
         </p>
@@ -65,19 +65,31 @@ export default function AboutPage() {
 
       <Reveal>
         <section className="section-dark">
-          <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
-            <div>
-              <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
-                Zone d&rsquo;intervention
-              </h2>
-              <p className="mt-2 max-w-md text-sm text-white/60">
-                Basés dans le canton de Vaud, nous intervenons à Lausanne et dans la région.
-                Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.
-              </p>
+          <div className="mx-auto max-w-5xl px-5 py-16 md:px-8">
+            <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
+                  Zone d&rsquo;intervention
+                </h2>
+                <p className="mt-2 max-w-md text-sm text-white/60">
+                  Basés dans le canton de Vaud, nous intervenons notamment à :
+                </p>
+              </div>
+              <Link href="/contact" className="btn btn-primary shrink-0">
+                Nous contacter
+              </Link>
             </div>
-            <Link href="/contact" className="btn btn-primary shrink-0">
-              Nous contacter
-            </Link>
+            <ul className="mt-8 flex flex-wrap gap-2.5">
+              {serviceAreas.map((city) => (
+                <li key={city} className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80">
+                  {city}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-white/50">
+              Votre commune n&rsquo;apparaît pas dans la liste ? Contactez-nous, nous intervenons
+              plus largement dans la région.
+            </p>
           </div>
         </section>
       </Reveal>

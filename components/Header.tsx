@@ -3,6 +3,10 @@ import { nav, site } from "@/lib/site";
 import { MenuIcon, CloseIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 
+// Items already reachable from the mobile bottom bar (Accueil / Services / Contact)
+// don't need to repeat in the mobile "more" panel — only the secondary pages do.
+const secondaryNav = nav.filter((item) => !["/", "/services", "/contact"].includes(item.href));
+
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-white">
@@ -29,13 +33,15 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile menu, pure CSS checkbox toggle (no client JS). Labels/panel must stay
-            direct siblings of the checkbox for the peer-checked sibling selector to apply. */}
+        {/* Mobile: primary destinations live in the fixed bottom bar; this menu only
+            surfaces the secondary pages (À propos, Réalisations, FAQ). Pure CSS
+            checkbox toggle — labels/panel must stay direct siblings of the checkbox
+            for the peer-checked sibling selector to apply. */}
         <input id="nav-toggle" type="checkbox" className="nav-toggle peer" aria-hidden="true" />
         <label
           htmlFor="nav-toggle"
           className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)] peer-checked:hidden md:hidden"
-          aria-label="Ouvrir le menu"
+          aria-label="Plus de pages"
         >
           <MenuIcon className="h-5 w-5" />
         </label>
@@ -48,7 +54,7 @@ export function Header() {
         </label>
 
         <div className="nav-panel peer-checked:flex fixed inset-x-0 top-[65px] z-40 flex-col gap-1 border-t border-[var(--color-line)] bg-white px-5 py-4 shadow-lg md:hidden">
-          {nav.map((item) => (
+          {secondaryNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -57,9 +63,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn btn-primary mt-3 w-full">
-            Devis gratuit
-          </Link>
           <a href={site.phoneHref} className="btn btn-outline mt-2 w-full">
             {site.phoneDisplay}
           </a>

@@ -1,18 +1,14 @@
-import Link from "next/link";
 import { site } from "@/lib/site";
-import { PhoneIcon, QuoteIcon } from "@/components/icons";
+import { PhoneIcon } from "@/components/icons";
 
-/** Persistent mobile shortcuts, inspired by the floating action icons used on Griesser.com. */
+/**
+ * Floating call button, sitting just above the mobile bottom tab bar.
+ * "Devis" already lives in the bottom bar, so only the call shortcut floats —
+ * the client specifically flagged click-to-call as high-value for this trade.
+ */
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-5 right-5 z-30 flex flex-col gap-3 md:hidden">
-      <Link
-        href="/contact"
-        aria-label="Demander un devis"
-        className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[var(--color-accent)] bg-white text-[var(--color-accent)] shadow-lg"
-      >
-        <QuoteIcon className="h-5 w-5" />
-      </Link>
+    <div className="fixed bottom-[74px] right-4 z-30 md:hidden">
       <a
         href={site.phoneHref}
         aria-label="Appeler maintenant"

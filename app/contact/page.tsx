@@ -47,7 +47,9 @@ export default async function ContactPage({
           </p>
         </div>
 
-        <ContactForm initialService={service} />
+        <div id="devis" className="scroll-mt-24">
+          <ContactForm initialService={service} />
+        </div>
       </div>
     </section>
   );

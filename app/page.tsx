@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon } from "@/components/icons";
 import { HeroArt } from "@/components/HeroArt";
 import { SkylightIllustration } from "@/components/SkylightIllustration";
 import { Reveal } from "@/components/Reveal";
@@ -11,6 +11,13 @@ const reassurance = [
   "Partenaire agréé Velux Expert",
   "Intervention rapide, y compris en dépannage",
   "Travaux garantis",
+];
+
+const whyUs = [
+  { title: "Partenaire Velux Expert", text: "Un agrément qui garantit une pose conforme aux standards du fabricant." },
+  { title: "Rapidité d'intervention", text: "Réponse sous 48h, intervention rapide y compris pour les urgences." },
+  { title: "Devis gratuit", text: "Une visite technique et un devis détaillé, sans engagement." },
+  { title: "Travaux garantis", text: "Nous restons responsables de la qualité de nos installations dans la durée." },
 ];
 
 export default function HomePage() {
@@ -95,23 +102,40 @@ export default function HomePage() {
       <Reveal>
         <section className="border-t border-[var(--color-line)] py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
-            <SectionHeading eyebrow="Nos prestations" bold="Un service complet," rest="de la pose neuve au dépannage." />
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {services.slice(0, 3).map((service, i) => (
-                <div key={service.slug} className="panel panel-hover p-6">
-                  <SkylightIllustration
-                    variant={i === 0 ? "single" : i === 1 ? "twin" : "dormer"}
-                    className="h-16 w-16"
-                  />
+            <SectionHeading eyebrow="Nos prestations" bold="Un service complet," rest="du remplacement au dépannage." />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+              {services.map((service) => (
+                <Link key={service.slug} href={`/services/${service.slug}`} className="panel panel-hover p-6">
+                  <SkylightIllustration variant={service.variant} className="h-14 w-14" />
                   <h3 className="mt-4 text-base font-semibold text-[var(--color-ink)]">{service.title}</h3>
                   <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="mt-10">
               <Link href="/services" className="btn btn-outline">
                 Voir tous nos services
               </Link>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Pourquoi nous choisir */}
+      <Reveal>
+        <section className="section-dark">
+          <div className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
+            <SectionHeading eyebrow="Pourquoi nous choisir" bold="Un partenaire de confiance," rest="pas juste un installateur." onDark />
+            <div className="mt-12 grid gap-8 sm:grid-cols-2">
+              {whyUs.map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <CheckIcon className="mt-1 h-5 w-5 shrink-0 text-[var(--color-accent)]" />
+                  <div>
+                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                    <p className="mt-1.5 text-sm text-white/60">{item.text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

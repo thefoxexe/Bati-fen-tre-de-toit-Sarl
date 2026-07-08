@@ -7,15 +7,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: `Installation, remplacement, volets et dépannage de fenêtres de toit par ${site.shortName}.`,
-};
-
-const illustrationBySlug: Record<string, "single" | "twin" | "dormer"> = {
-  "installation-neuve": "single",
-  "remplacement-renovation": "twin",
-  "volets-stores": "dormer",
-  "etancheite-finitions": "twin",
-  "depannage-sav": "single",
+  description: `Remplacement de fenêtres de toit, stores Velux, entretien et dépannage par ${site.shortName}, partenaire agréé Velux Expert.`,
 };
 
 export default function ServicesPage() {
@@ -31,14 +23,17 @@ export default function ServicesPage() {
       <section className="mx-auto max-w-5xl divide-y divide-[var(--color-line)] border-t border-[var(--color-line)] px-5 pb-24 md:px-8">
         {services.map((service, i) => (
           <Reveal key={service.slug} delay={i * 60}>
-            <div id={service.slug} className="grid gap-3 py-10 md:grid-cols-[auto_minmax(0,1fr)_minmax(0,2fr)_auto] md:items-center md:gap-8">
-              <SkylightIllustration variant={illustrationBySlug[service.slug]} className="h-14 w-14 shrink-0" />
+            <Link
+              href={`/services/${service.slug}`}
+              className="grid gap-3 py-10 transition-opacity hover:opacity-70 md:grid-cols-[auto_minmax(0,1fr)_minmax(0,2fr)_auto] md:items-center md:gap-8"
+            >
+              <SkylightIllustration variant={service.variant} className="h-14 w-14 shrink-0" />
               <h2 className="text-lg font-semibold text-[var(--color-ink)]">{service.title}</h2>
-              <p className="text-sm text-[var(--color-ink-soft)]">{service.description}</p>
-              <Link href={`/contact?service=${service.slug}`} className="link-underline inline-flex items-center gap-2 whitespace-nowrap text-sm">
-                Devis pour ce service <ArrowIcon className="h-3.5 w-3.5" />
-              </Link>
-            </div>
+              <p className="text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
+              <span className="link-underline inline-flex items-center gap-2 whitespace-nowrap text-sm">
+                En savoir plus <ArrowIcon className="h-3.5 w-3.5" />
+              </span>
+            </Link>
           </Reveal>
         ))}
       </section>

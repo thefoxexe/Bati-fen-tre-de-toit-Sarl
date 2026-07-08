@@ -15,6 +15,18 @@ export const site = {
   veluxExpert: true,
 };
 
+/** Cities used for local SEO relevance (content mentions + structured data), not dedicated pages. */
+export const serviceAreas = [
+  "Nyon",
+  "Gland",
+  "Rolle",
+  "Morges",
+  "Lausanne",
+  "Vevey",
+  "Montreux",
+  "Yverdon-les-Bains",
+];
+
 export const nav = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
@@ -24,52 +36,142 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+/** The four primary destinations surfaced in the mobile bottom bar. */
+export const primaryNav = [
+  { href: "/", label: "Accueil" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Devis" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export type FaqItem = { question: string; answer: string };
+
 export type Service = {
   slug: string;
+  variant: "single" | "twin" | "dormer";
   title: string;
   summary: string;
   description: string;
+  avantages: string[];
+  etapes: string[];
+  faq: FaqItem[];
 };
 
 export const services: Service[] = [
   {
-    slug: "installation-neuve",
-    title: "Installation de fenêtres de toit",
-    summary: "Création d'une ouverture dans des combles pour faire entrer la lumière naturelle.",
+    slug: "remplacement-fenetre-de-toit",
+    variant: "single",
+    title: "Remplacement de fenêtres de toit",
+    summary: "Notre service principal : remplacer une fenêtre de toit vieillissante par un modèle Velux performant.",
     description:
-      "Étude de faisabilité, découpe de la toiture, pose de la fenêtre et finitions intérieures/extérieures. Une solution idéale pour aménager des combles ou éclairer une pièce sombre sous toiture.",
+      "Dépose de l'ancienne fenêtre, mise aux normes d'étanchéité et d'isolation, pose du nouveau modèle Velux. Une rénovation qui améliore le confort thermique, l'étanchéité et l'aspect de votre toiture — sans travaux lourds de gros œuvre.",
+    avantages: [
+      "Meilleure isolation thermique et acoustique",
+      "Étanchéité durable, fini les infiltrations",
+      "Pose par un partenaire agréé Velux Expert",
+      "Devis gratuit et intervention rapide",
+    ],
+    etapes: [
+      "Visite technique et prise de mesures",
+      "Devis détaillé avec choix du modèle Velux adapté",
+      "Dépose de l'ancienne fenêtre",
+      "Pose du nouveau modèle et reprise d'étanchéité",
+      "Finitions intérieures et extérieures, contrôle qualité",
+    ],
+    faq: [
+      {
+        question: "Faut-il agrandir l'ouverture pour remplacer ma fenêtre de toit ?",
+        answer: "Dans la grande majorité des cas non : nous posons un nouveau modèle aux dimensions de l'ouverture existante, sans travaux de maçonnerie.",
+      },
+      {
+        question: "Combien de temps dure un remplacement ?",
+        answer: "Une intervention standard se fait généralement en une journée, selon l'accessibilité de la toiture et la météo.",
+      },
+    ],
   },
   {
-    slug: "remplacement-renovation",
-    title: "Remplacement et rénovation",
-    summary: "Remplacement d'une fenêtre de toit vieillissante ou peu performante.",
+    slug: "installation-stores-velux",
+    variant: "dormer",
+    title: "Installation de stores Velux",
+    summary: "Occultation, protection solaire et confort d'été avec les stores et volets roulants Velux.",
     description:
-      "Dépose de l'ancienne fenêtre, mise aux normes d'étanchéité et d'isolation, pose du nouveau modèle. Une rénovation qui améliore le confort thermique et l'aspect de votre toiture.",
+      "Pose de stores occultants, stores pare-soleil ou volets roulants Velux, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant. Une solution simple pour gérer la lumière et la chaleur selon la saison.",
+    avantages: [
+      "Confort d'été : jusqu'à 94% de chaleur solaire réfléchie",
+      "Occultation totale pour les chambres",
+      "Compatibles avec la plupart des fenêtres de toit existantes",
+      "Version motorisée disponible (télécommande, capteur solaire)",
+    ],
+    etapes: [
+      "Identification du modèle de fenêtre existant",
+      "Choix du store adapté (occultant, pare-soleil, moustiquaire)",
+      "Devis et commande",
+      "Pose sans percement, en général sous une heure",
+    ],
+    faq: [
+      {
+        question: "Les stores Velux s'adaptent-ils à toutes les fenêtres de toit ?",
+        answer: "Ils sont conçus pour les modèles Velux, et compatibles avec certains autres modèles selon les dimensions. Nous vérifions la compatibilité avant devis.",
+      },
+      {
+        question: "Peut-on motoriser un store existant ?",
+        answer: "Selon le modèle, un remplacement par une version solaire ou électrique est souvent possible sans intervention lourde.",
+      },
+    ],
   },
   {
-    slug: "volets-stores",
-    title: "Volets roulants et stores",
-    summary: "Occultation, protection solaire et confort d'été pour vos fenêtres de toit.",
+    slug: "entretien-maintenance",
+    variant: "twin",
+    title: "Entretien et maintenance",
+    summary: "Contrôle et entretien régulier pour prolonger la durée de vie de vos fenêtres de toit.",
     description:
-      "Pose de volets roulants, stores occultants ou stores pare-soleil, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant.",
+      "Contrôle des joints d'étanchéité, du mécanisme d'ouverture, du vitrage et des raccords de toiture. Un entretien régulier évite les infiltrations et les pannes prématurées.",
+    avantages: [
+      "Prévient les infiltrations avant qu'elles n'apparaissent",
+      "Prolonge la durée de vie de vos équipements",
+      "Contrôle complet : vitrage, joints, mécanisme, raccords",
+      "Rapport détaillé après intervention",
+    ],
+    etapes: [
+      "Diagnostic complet de la fenêtre et de ses raccords",
+      "Nettoyage et contrôle du mécanisme d'ouverture",
+      "Reprise des joints d'étanchéité si nécessaire",
+      "Rapport et recommandations",
+    ],
+    faq: [
+      {
+        question: "À quelle fréquence faut-il entretenir une fenêtre de toit ?",
+        answer: "Un contrôle tous les 2 à 3 ans est recommandé, ou après un épisode météo marquant (grêle, tempête).",
+      },
+    ],
   },
   {
-    slug: "etancheite-finitions",
-    title: "Étanchéité et finitions",
-    summary: "Reprise d'étanchéité autour d'une fenêtre de toit et finitions intérieures soignées.",
+    slug: "reparation-depannage",
+    variant: "single",
+    title: "Réparation / dépannage",
+    summary: "Intervention rapide en cas de fuite, de blocage ou de vitrage cassé.",
     description:
-      "Contrôle et reprise des raccords d'étanchéité, habillages intérieurs et extérieurs, pour une pose durable qui protège votre intérieur des infiltrations.",
-  },
-  {
-    slug: "depannage-sav",
-    title: "Dépannage et SAV",
-    summary: "Intervention rapide en cas de fuite, de blocage ou de casse.",
-    description:
-      "Diagnostic sur place et réparation ou remplacement des pièces défectueuses (vitrage, mécanisme d'ouverture, joints d'étanchéité).",
+      "Diagnostic sur place et réparation ou remplacement des pièces défectueuses : vitrage, mécanisme d'ouverture, joints d'étanchéité. Intervention rapide pour éviter l'aggravation des dégâts.",
+    avantages: [
+      "Intervention rapide, y compris en urgence",
+      "Diagnostic précis avant toute réparation",
+      "Pièces compatibles Velux",
+      "Devis clair avant intervention",
+    ],
+    etapes: [
+      "Prise de contact et description du problème",
+      "Diagnostic sur place",
+      "Devis de réparation",
+      "Intervention et contrôle final",
+    ],
+    faq: [
+      {
+        question: "Ma fenêtre de toit fuit, que faire en urgence ?",
+        answer: "Contactez-nous au plus vite par téléphone : nous priorisons les urgences pour limiter les dégâts en attendant l'intervention.",
+      },
+    ],
   },
 ];
-
-export type FaqItem = { question: string; answer: string };
 
 export const faqs: FaqItem[] = [
   {
@@ -98,8 +200,7 @@ export const faqs: FaqItem[] = [
       "Oui. Fuite, blocage, vitrage cassé ou joint d'étanchéité défectueux : contactez-nous pour une intervention de dépannage.",
   },
   {
-    question: "Intervenez-vous dans ma région ?",
-    answer:
-      "Contactez-nous avec votre localité : nous vous confirmons rapidement si votre projet se trouve dans notre zone d'intervention.",
+    question: "Dans quelles villes intervenez-vous ?",
+    answer: `Nous intervenons dans tout le canton de Vaud, notamment à ${serviceAreas.slice(0, -1).join(", ")} et ${serviceAreas[serviceAreas.length - 1]}. Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.`,
   },
 ];

@@ -1,0 +1,191 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { services, serviceAreas, site } from "@/lib/site";
+import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { ContactForm } from "@/components/ContactForm";
+import { Reveal } from "@/components/Reveal";
+import { CheckIcon } from "@/components/icons";
+
+export function generateStaticParams() {
+  return services.map((service) => ({ slug: service.slug }));
+}
+
+function getService(slug: string) {
+  return services.find((service) => service.slug === slug);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getService(slug);
+  if (!service) return {};
+
+  return {
+    title: service.title,
+    description: `${service.summary} Intervention dans le canton de Vaud (${serviceAreas.slice(0, 3).join(", ")}...) par ${site.shortName}, partenaire agréé Velux Expert.`,
+  };
+}
+
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = getService(slug);
+  if (!service) notFound();
+
+  const otherServices = services.filter((s) => s.slug !== service.slug);
+
+  return (
+    <>
+      {/* Hero */}
+      <section style={{ background: "var(--color-hero)" }} className="text-white">
+        <div className="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[auto_1fr] md:items-center md:px-8 md:py-20">
+          <SkylightIllustration variant={service.variant} className="h-24 w-24" />
+          <div>
+            <p className="eyebrow eyebrow-on-dark mb-4">Services</p>
+            <h1 className="balance text-3xl font-semibold leading-tight text-white md:text-4xl">{service.title}</h1>
+            <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#devis" className="btn btn-primary">
+                Demander un devis gratuit
+              </a>
+              <a href={site.phoneHref} className="btn btn-on-photo">
+                {site.phoneDisplay}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Description */}
+      <Reveal>
+        <section className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
+          <p className="text-base text-[var(--color-ink-soft)]">{service.description}</p>
+        </section>
+      </Reveal>
+
+      {/* Avantages */}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <h2 className="text-xl font-semibold text-[var(--color-ink)]">Avantages</h2>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {service.avantages.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-[var(--color-ink-soft)]">
+                  <CheckIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Déroulement */}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <h2 className="text-xl font-semibold text-[var(--color-ink)]">Déroulement de l&rsquo;intervention</h2>
+            <ol className="mt-6 space-y-5">
+              {service.etapes.map((step, i) => (
+                <li key={step} className="flex gap-4">
+                  <span className="shrink-0 text-sm font-semibold text-[var(--color-accent)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm text-[var(--color-ink-soft)]">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Photos (placeholder) */}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] py-16 md:py-20">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <h2 className="text-xl font-semibold text-[var(--color-ink)]">Réalisations</h2>
+            <div className="mt-6 grid grid-cols-2 gap-px bg-[var(--color-line)] sm:grid-cols-3">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex aspect-square items-center justify-center bg-white">
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--color-ink-soft)]">
+                    Photo à venir
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* CTA band */}
+      <Reveal>
+        <section className="section-dark">
+          <div className="mx-auto flex max-w-3xl flex-col items-start gap-5 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-8">
+            <p className="text-lg font-semibold text-white">Un projet de {service.title.toLowerCase()} ?</p>
+            <div className="flex flex-wrap gap-3">
+              <a href="#devis" className="btn btn-primary">
+                Demander un devis
+              </a>
+              <a href={site.phoneHref} className="btn btn-on-photo">
+                {site.phoneDisplay}
+              </a>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* FAQ spécifique */}
+      {service.faq.length > 0 && (
+        <Reveal>
+          <section className="border-t border-[var(--color-line)] py-16 md:py-20">
+            <div className="mx-auto max-w-3xl px-5 md:px-8">
+              <h2 className="text-xl font-semibold text-[var(--color-ink)]">Questions fréquentes</h2>
+              <div className="mt-6 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+                {service.faq.map((item) => (
+                  <details key={item.question} className="faq py-5">
+                    <summary className="flex items-center justify-between gap-4">
+                      <span className="text-base font-medium text-[var(--color-ink)]">{item.question}</span>
+                      <span className="faq-icon shrink-0 text-xl font-light text-[var(--color-ink-soft)]">+</span>
+                    </summary>
+                    <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        </Reveal>
+      )}
+
+      {/* Formulaire de devis */}
+      <section id="devis" className="border-t border-[var(--color-line)] py-16 md:py-20">
+        <div className="mx-auto max-w-xl px-5 md:px-8">
+          <h2 className="text-xl font-semibold text-[var(--color-ink)]">Demander un devis pour ce service</h2>
+          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Réponse sous 48h ouvrées.</p>
+          <div className="mt-8">
+            <ContactForm initialService={service.slug} />
+          </div>
+        </div>
+      </section>
+
+      {/* Autres services */}
+      <section className="mx-auto max-w-5xl border-t border-[var(--color-line)] px-5 py-16 md:px-8 md:py-20">
+        <h2 className="text-xl font-semibold text-[var(--color-ink)]">Autres services</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          {otherServices.map((s) => (
+            <Link key={s.slug} href={`/services/${s.slug}`} className="panel panel-hover p-5">
+              <SkylightIllustration variant={s.variant} className="h-12 w-12" />
+              <h3 className="mt-3 text-sm font-semibold text-[var(--color-ink)]">{s.title}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
