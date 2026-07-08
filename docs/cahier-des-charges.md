@@ -1,278 +1,237 @@
 # Cahier des charges — Refonte du site web
-## Bati Fenêtre de Toit Sarl
+## Bati Fenêtre de Toit Sàrl
 
-**Version :** 1.0
-**Date :** 6 juillet 2026
-**Rédigé pour :** Hasan Bati — Bati Fenêtre de Toit Sarl
-**Contact :** info@batifenetredetoit.ch — 076 348 90 06
+**Version :** 2.0 (réécriture complète)
+**Date :** 8 juillet 2026
+**Destiné à :** l'équipe de développement
+**Client :** Hasan Bati — Bati Fenêtre de Toit Sàrl — Partenaire agréé Velux Expert
 
 ---
 
-## 1. Contexte du projet
+## 1. Contexte
 
-Bati Fenêtre de Toit Sarl est une entreprise spécialisée dans l'installation de fenêtres de toit (type Velux et équivalents). L'entreprise dispose déjà d'un site (batifenetredetoit.ch) et d'un nom de domaine actif, mais celui-ci doit être entièrement repensé : design daté, structure peu claire, et absence d'un vrai parcours de génération de contacts.
+Bati Fenêtre de Toit Sàrl est un installateur agréé **Velux Expert**, basé dans le canton de Vaud (indicatif téléphonique 021 — Lausanne et région). L'entreprise dispose d'un site actuel (batifenetredetoit.ch) à remplacer intégralement.
 
-Le présent document cadre la refonte complète du site sur la base du brief transmis par le client et des références visuelles fournies.
+### 1.1 Constat sur le site actuel
+- Design daté, structure peu lisible, aucun véritable parcours de conversion.
+- **Alerte sécurité** : au moment de la rédaction, une recherche Google sur le nom de domaine remonte du contenu de spam injecté (titre et description remplacés par des produits sans rapport — technique de piratage par cloaking SEO). Ceci est indépendant de la refonte mais doit être traité en parallèle par le client auprès de son hébergeur actuel (scan malware, changement des mots de passe hébergement/CMS/registrar, demande de réindexation Google une fois nettoyé). Ne pas réutiliser les accès/l'hébergement actuels sans les avoir sécurisés au préalable.
+- Le logo existant (roofline stylisé + "BATI FENÊTRE DE TOIT Sàrl" + badge "VELUX Expert") est conservé et sert de base à la charte graphique (voir §3).
 
-| Élément | Détail |
+### 1.2 Références citées par le client
+| Référence | Ce qu'on en retient |
 |---|---|
-| Entreprise | Bati Fenêtre de Toit Sarl |
-| Secteur | Installateur de fenêtres de toit |
-| Site existant | batifenetredetoit.ch (à refondre, conservé) |
-| Nom de domaine | Déjà en possession du client |
-| Logo | Existant, professionnel — à réutiliser |
-| Formule | Starter — CHF 690 |
-| Délai souhaité | 2 semaines (délai standard) |
-| Contenu | Partiellement prêt (textes/photos à compléter avec le client) |
+| **Griesser.com** | Rigueur "suisse premium", bandeau accent sous le header, boutons pilule, icônes flottantes persistantes, titres en deux temps (phrase forte + complément), sections alternées, photographie réelle plutôt qu'illustrations. |
+| **Webalp.ch** | Modernité, dynamisme, typographie contemporaine, micro-interactions. |
+| **Velux.ch** | Grands aplats blancs, lumière naturelle comme identité visuelle, CTA très visibles et répétés, hiérarchie limpide. |
 
 ---
 
-## 2. Objectifs du projet
+## 2. Objectifs de la refonte
 
-### 2.1 Objectif principal
-**Générer des contacts et des demandes de devis.** Le site n'est pas une simple vitrine : chaque page doit pousser le visiteur vers une action (appeler, écrire, demander un devis).
-
-### 2.2 Objectifs secondaires
-- Donner une image moderne, sérieuse et professionnelle, à la hauteur des grandes marques du secteur (Velux, Griesser).
-- Rassurer le visiteur sur le savoir-faire et la fiabilité de l'entreprise (avant/après, réalisations, témoignages).
-- Faciliter la prise de contact au maximum : clic-to-call, formulaire simple, localisation claire.
-- Poser une base solide et évolutive (facile à enrichir ensuite : nouvelles réalisations, avis clients, blog éventuel).
-
-### 2.3 Cible
-- Propriétaires de maisons individuelles ou villas souhaitant installer ou remplacer une fenêtre de toit.
-- Recherche locale ("installateur fenêtre de toit + région"), principalement via mobile.
-- Décision motivée par la confiance (photos de chantiers réels, réactivité, proximité).
-
-*Point à valider avec le client : zone géographique d'intervention précise (canton/région), pour la partie SEO local et la page Contact.*
+1. **Générer des demandes de devis** — objectif n°1, avant toute considération esthétique. Chaque page doit pousser vers un CTA.
+2. Donner une image **moderne, minimaliste et premium**, cohérente avec le statut de partenaire agréé Velux Expert.
+3. **Référencement local** : devenir visible sur Google pour les recherches d'installation/remplacement de fenêtres de toit dans les principales villes du canton de Vaud.
+4. Poser une base technique saine (performance, SEO technique, structure évolutive) plutôt qu'un site vitrine figé.
+5. Préparer le terrain pour l'ajout progressif de vrais contenus (photos de chantiers, avis clients, logo HD) sans refonte ultérieure.
 
 ---
 
-## 3. Références et inspiration design
+## 3. Charte graphique
 
-Le client a cité trois sites de référence. Chacun apporte un élément différent à intégrer :
-
-### Griesser.com
-Fabricant suisse de protections solaires (captures d'écran mobile fournies par le client — analyse basée sur le site réel). Éléments observés :
-- Header blanc épuré : logo + pictogramme géométrique, sélecteur de langue "CH | FR", menu burger.
-- Juste sous le header, un **bandeau dégradé fin** (vert → menthe) qui sert de signature de marque discrète sur toute la navigation.
-- Titres en deux temps : une phrase courte en **gras** ("Découvrez plus de confort.") suivie d'une phrase en graisse normale qui la complète — un rythme de lecture en deux temps repris sur toutes les pages.
-- Boutons en **forme de pilule** : dégradé coloré pour le CTA principal ("Demander conseil", "En savoir plus"), contour noir sans fond pour les CTA secondaires ("En savoir plus sur Griesser"), fond blanc uni sur les visuels sombres ("Contact").
-- Liens de texte **soulignés dans le corps du texte** (ex. "brise-soleil orientables", "stores toiles") plutôt que des boutons, pour la navigation vers les familles de produits.
-- Liens tertiaires en pattern "flèche + texte" (→ Choisir la protection solaire Griesser).
-- Deux **icônes rondes flottantes** fixes en bas à droite de l'écran sur toutes les pages : prise de rendez-vous (calendrier) et localisation d'un revendeur (pin) — toujours accessibles en un tap.
-- Carrousel produits avec photos aux coins arrondis, légende en surimpression en bas de l'image, pagination par points + flèches.
-- Sections en alternance : fond blanc, puis fond très légèrement teinté (vert d'eau pâle) pour scander la page sans rupture brutale, avec cartes blanches en relief (ombre douce) posées dessus.
-- Photographie réelle et humaine : chantiers en situation, mais aussi photos d'équipe (portraits pro souriants) qui renforcent la confiance.
-- Footer anthracite/quasi noir, tagline de marque en couleur accent ("Inspired by the **Sun**."), icônes sociales cerclées, colonnes de liens, bandeau légal en bas.
-
-**→ À reprendre pour Bati Fenêtre de Toit :**
-- Le même bandeau accent fin sous le header, mais en **dégradé de rouges** (ex. rouge vif → rouge brique) plutôt qu'en vert, pour garder une signature de marque discrète et reconnaissable.
-- Les **boutons pilule** : dégradé rouge pour le CTA principal, contour noir/anthracite pour le secondaire.
-- Les **deux icônes rondes flottantes**, adaptées à l'objectif du site : une pour "Demander un devis", une pour "Appeler maintenant" (remplace la géolocalisation, moins pertinente ici) — cohérent avec l'objectif n°1 de génération de contacts.
-- Le rythme de titre **gras + normal** pour les accroches de chaque section.
-- L'alternance de fonds (blanc / fond très légèrement teinté rouge pâle) pour aérer la page.
-- Les photos d'équipe/chantiers réelles plutôt que du stock générique.
-
-### Velux.ch
-Référence mondiale du produit vendu par le client (fenêtres de toit). À en retenir :
-- Immense qualité photographique : lumière naturelle, intérieurs chaleureux, avant/après.
-- Grands aplats blancs, respiration entre les blocs, peu de texte à l'écran.
-- Boutons d'action très visibles et répétés (devis, contact, trouver un installateur).
-- Hiérarchie visuelle claire : un message fort par section, pas de surcharge.
-
-**→ À reprendre :** l'usage du blanc et de la lumière comme identité, les visuels "avant/après" pour la page Réalisations, la répétition des CTA de contact.
-
-### Webalp.ch
-Agence web suisse, référence plus "moderne & dynamique" au sens du brief. À en retenir :
-- Typographie contemporaine avec des titres impactants.
-- Animations légères au scroll, transitions fluides.
-- Sections courtes, très lisibles, orientées conversion.
-
-**→ À reprendre :** le dynamisme visuel (micro-animations, transitions douces), sans tomber dans l'effet gadget — le site reste avant tout un outil de génération de demandes pour une PME du bâtiment.
-
-### Synthèse du style visuel retenu
-Un site **moderne et dynamique**, en **blanc et rouge** (couleurs demandées par le client), qui combine :
-- la clarté et la confiance "corporate suisse" de Griesser, ainsi que ses **patterns d'interface concrets** (bandeau accent dégradé, boutons pilule, icônes flottantes, titres en deux temps, sections alternées — détaillés ci-dessus),
-- la lumière et la mise en valeur du produit façon Velux,
-- le dynamisme et la modernité de Webalp.
+| Élément | Spécification |
+|---|---|
+| Fond | Blanc |
+| Couleur principale | Rouge proche du rouge officiel Velux — `#CC322E` (mesuré par extraction pixel sur le logo existant ; le logo du client utilise déjà quasiment ce rouge, ce qui est cohérent avec son statut Velux Expert) |
+| Rouge foncé (hover/accents) | `#9E2723` |
+| Texte | Noir / gris très foncé — `#3D3D3B` (anthracite du logo existant) |
+| Texte secondaire | Gris moyen — `#767370` |
+| Style | Moderne, minimaliste, premium — inspiré Griesser / Webalp |
+| Icônes | Simples, sobres, un seul système graphique cohérent (pas de mélange de styles d'icônes) |
+| Espace blanc | Généreux — préférer la respiration à la densité d'information |
+| Typographie | Montserrat (police du logo existant), plusieurs graisses plutôt qu'un mélange de polices |
 
 ---
 
-## 4. Charte graphique
-
-### 4.1 Palette de couleurs
-
-Mise à jour : couleurs extraites directement du logo existant (analyse pixel des captures fournies par le client), et non plus estimées.
-
-| Usage | Couleur | Code indicatif |
-|---|---|---|
-| Fond principal | Blanc cassé chaud | `#FFFDFB` |
-| Fond teinté (sections alternées) | Rouge très pâle | `#FBEBEA` |
-| Couleur d'accent / CTA | Rouge du logo (identique au rouge Velux) | `#CC322E` |
-| Rouge foncé (hover, accents) | Rouge foncé | `#9E2723` |
-| Texte principal | Anthracite chaud (charbon du logo) | `#3D3D3B` |
-| Texte secondaire | Gris chaud | `#6F6B67` |
-| Footer | Anthracite foncé | `#211F1D` |
-
-*Le rouge du logo (`#CC322E`) correspond quasiment exactement au rouge officiel Velux — cohérent avec le statut de partenaire agréé Velux Expert de l'entreprise (confirmé sur le logo existant, badge "VELUX Expert").*
-
-### 4.2 Typographie
-- Titres et texte courant : **Montserrat**, la famille géométrique déjà utilisée dans le logo existant ("BATI" en très gras, "FENÊTRE DE TOIT Sàrl" en graisse moyenne) — une seule famille, plusieurs graisses (400 à 900), pour rester fidèle à l'identité déjà en place plutôt que d'en inventer une nouvelle.
-- Hiérarchie typographique nette (H1 impactant, corps de texte aéré).
-
-### 4.3 Imagerie
-- Photos réelles des chantiers du client en priorité (avant/après indispensables).
-- À défaut de stock suffisant, complément ponctuel par photos libres de droits de haute qualité (lumière naturelle, toitures, intérieurs), en attendant que le client fournisse ses propres visuels.
-- Pas d'illustrations génériques "clipart" : cohérence avec le positionnement premium recherché.
-
-### 4.4 Boutons, CTA et patterns d'interface
-Directement inspiré du fonctionnement observé sur Griesser.com (cf. section 3) :
-- **Boutons pilule** : dégradé rouge (rouge vif → rouge brique) pour le CTA principal ("Demander un devis"), contour anthracite sans fond pour les CTA secondaires ("En savoir plus").
-- **Bandeau accent fin** en dégradé de rouges, positionné juste sous le header, présent sur toutes les pages — signature de marque discrète.
-- **Deux icônes rondes flottantes** fixes en bas d'écran sur mobile : une pour "Devis gratuit", une pour "Appeler maintenant" (clic-to-call direct) — toujours accessibles pendant le scroll.
-- **Titres en deux temps** : phrase courte en gras + phrase complémentaire en graisse normale, pour rythmer chaque section.
-- Liens secondaires en soulignement inline dans le texte plutôt qu'en boutons, réservés à la navigation entre services.
-- CTA répétés à chaque section clé : "Demander un devis", "Appeler maintenant", "Voir nos réalisations".
-
----
-
-## 5. Arborescence du site
-
-6 pages, conformément au brief :
+## 4. Architecture du site
 
 ```
 Accueil
+├── Services (page mère)
+│   ├── Remplacement de fenêtres de toit  ← service principal
+│   ├── Installation de stores Velux
+│   ├── Entretien et maintenance
+│   └── Réparation / dépannage
+├── Réalisations
+│   └── [Fiche réalisation individuelle] (répétable)
 ├── À propos
-├── Services
-├── Portfolio (réalisations)
+├── FAQ
 ├── Contact
-└── FAQ
+└── Zones d'intervention (SEO local)
+    ├── Nyon
+    ├── Gland
+    ├── Rolle
+    ├── Morges
+    ├── Lausanne
+    ├── Vevey
+    ├── Montreux
+    └── Yverdon-les-Bains
 ```
 
-Navigation simple, header sticky avec logo + menu + bouton "Devis gratuit" toujours visible, footer récapitulatif (coordonnées, liens, réseaux sociaux si existants).
+**Services à ne pas reprendre du site actuel** (sur demande du client) : Création/agrandissement d'ouverture, Tunnel de lumière, Modular Skylight, Velux EFC. Si ces prestations sont toujours proposées en réalité, le client doit confirmer — sinon elles ne doivent apparaître nulle part sur le nouveau site (ni menu, ni contenu, ni SEO).
+
+> **Point d'attention budget/périmètre** : cette architecture (page services + 4 pages service dédiées + galerie de réalisations avec fiches individuelles + 8 pages villes optimisées SEO + contact/FAQ/à propos) représente **une quinzaine de pages minimum**, contre les 6 pages du forfait Starter initial (CHF 690). Le périmètre décrit ici dépasse largement ce forfait — à clarifier avec le client avant développement pour aligner budget et attentes.
 
 ---
 
-## 6. Contenu détaillé par page
+## 5. Contenu détaillé par page
 
-### 6.1 Accueil
+### 5.1 Accueil
 | Section | Contenu |
 |---|---|
-| Hero | Photo forte (chantier/réalisation), titre d'accroche orienté bénéfice client (ex. "Plus de lumière, plus de confort chez vous"), CTA principal "Demander un devis gratuit" |
-| Bandeau de réassurance | 3-4 points clés : expérience, réactivité, garantie, zone d'intervention |
-| Présentation courte | 2-3 phrases sur l'entreprise + lien vers "À propos" |
-| Aperçu des services | Cartes résumant les prestations, lien vers "Services" |
-| Aperçu réalisations | 3-4 photos avant/après, lien vers "Portfolio" |
-| Témoignages (si disponibles) | Avis clients / notes Google |
-| Bloc contact final | Rappel du CTA + numéro de téléphone cliquable |
+| Hero | Grande image (placeholder en attendant les vraies photos), titre fort, bouton "Demander un devis gratuit" |
+| Confiance | Mise en avant du statut **Partenaire Velux Expert** |
+| Présentation | Texte très court sur l'entreprise |
+| Services | Les 4 services principaux, avec lien vers chaque page dédiée |
+| Réalisations | Aperçu de la galerie, lien vers la page complète |
+| Pourquoi nous choisir ? | *(ajout recommandé)* Expert Velux, rapidité d'intervention, devis gratuit, qualité des installations, garantie |
+| Avis clients | Section dédiée (emplacement prêt, contenu à fournir par le client) |
+| FAQ | Aperçu des questions les plus fréquentes, lien vers la FAQ complète |
+| Contact | Bloc final avec CTA |
 
-### 6.2 À propos
-- Histoire et présentation de Hasan Bati / de l'entreprise.
-- Valeurs : sérieux, qualité d'installation, proximité, garantie du travail.
-- Zone d'intervention géographique — canton de Vaud / Lausanne (déduit de l'indicatif 021 du numéro affiché sur le site actuel, à confirmer).
-- Partenariat **Velux Expert confirmé** (badge visible sur le logo actuel) — à mettre en avant comme argument de confiance.
+### 5.2 Services — page mère
+Présente les 4 services principaux avec description courte + lien vers chaque page dédiée. Sert de hub de maillage interne vers les pages service.
 
-### 6.3 Services
-Détail des prestations proposées. **À valider avec le client**, structure proposée par défaut :
-- Installation de fenêtres de toit (neuf)
-- Remplacement / rénovation de fenêtres de toit existantes
-- Volets roulants et stores pour fenêtres de toit
-- Étanchéité et finitions
-- Dépannage / SAV
+### 5.3 Pages service (une par service, pour le référencement)
+Chaque page suit la même structure :
+1. Description du service
+2. Avantages
+3. Déroulement de l'intervention (étapes)
+4. Photos (emplacements prêts)
+5. CTA (devis)
+6. FAQ spécifique au service
+7. Formulaire de devis intégré en bas de page
 
-Chaque service : description courte, photo, bouton "Demander un devis pour ce service".
+Services concernés : Remplacement de fenêtres de toit (service principal), Installation de stores Velux, Entretien et maintenance, Réparation / dépannage.
 
-### 6.4 Portfolio (réalisations)
-- Galerie de chantiers réalisés, idéalement en format avant/après (inspiration Velux).
-- Filtrage simple si volume suffisant (par type de projet).
-- Chaque réalisation : 2-4 photos + courte légende (lieu/type de travaux, sans données personnelles client sans accord).
+### 5.4 Réalisations
+- Galerie **filtrable** (par type de service a minima).
+- Chaque réalisation dispose de sa propre fiche avec : photos avant/après, description, localisation, produits utilisés (modèle Velux, etc.).
 
-*Point à clarifier : combien de chantiers photographiés le client peut-il fournir ? C'est la pièce la plus importante du site pour la conversion — à prioriser dans la collecte de contenu.*
+### 5.5 À propos
+Présentation de l'entreprise, expérience, zone d'intervention, statut Expert Velux, valeurs.
 
-### 6.5 Contact
-- Formulaire simple : nom, téléphone, email, message, (option : type de demande).
-- Coordonnées complètes : téléphone cliquable, email, adresse.
-- Carte de localisation (Google Maps).
-- Horaires de disponibilité.
-- CTA de secours : lien WhatsApp / appel direct (le client semble déjà utiliser WhatsApp).
+### 5.6 FAQ
+Questions classées par thème (et non en liste plate) — ex. Devis & tarifs, Délais, Autorisations, Produits, Zone d'intervention, SAV.
 
-### 6.6 FAQ
-Questions fréquentes des clients type, par exemple :
-- Combien coûte l'installation d'une fenêtre de toit ?
-- Quel est le délai moyen d'intervention ?
-- Faut-il une autorisation pour installer une fenêtre de toit ?
-- Quelles marques/modèles installez-vous ?
-- Intervenez-vous pour du dépannage/SAV ?
+### 5.7 Contact
+Formulaire de devis, téléphone cliquable, e-mail, carte Google Maps, horaires.
 
-*À enrichir avec le client lors de l'appel prévu (cf. section 9).*
+### 5.8 Pages "Zones d'intervention" (SEO local)
+Une page par ville ciblée (liste au §4), avec un contenu réellement différencié (pas de simple duplication avec juste le nom de la ville changé) : mention de la localité, quartiers/types d'habitat si pertinent, CTA de devis, maillage vers la page du service principal.
 
 ---
 
-## 7. Fonctionnalités techniques
+## 6. Navigation
 
-| Fonctionnalité | Description |
+### Mobile
+Barre de navigation **fixe en bas de l'écran**, façon Instagram :
+`Accueil · Services · Devis · Contact`
+Le bouton **Devis** est visuellement mis en avant (couleur/forme distincte des trois autres).
+En complément : **bouton "Appeler maintenant" flottant**, particulièrement efficace pour ce type d'activité (décision d'achat souvent prise par téléphone).
+
+### Desktop
+Navigation horizontale classique en en-tête (logo, liens, CTA devis).
+
+---
+
+## 7. Fonctionnalités attendues
+
+- Formulaire de devis (accueil, chaque page service, page contact) avec validation et protection anti-spam.
+- Filtrage de la galerie de réalisations.
+- Clic-to-call sur tous les numéros de téléphone.
+- Carte Google Maps intégrée en page Contact.
+- Emplacement pour avis clients (Google ou saisie manuelle en attendant une intégration automatisée).
+- Formulaire "Être rappelé" (rappel téléphonique) en plus du devis classique.
+- Sitemap.xml et robots.txt générés automatiquement.
+
+---
+
+## 8. SEO
+
+Le référencement est **prioritaire**, pas une option.
+
+### 8.1 Ciblage géographique
+Pages dédiées pour : Nyon, Gland, Rolle, Morges, Lausanne, Vevey, Montreux, Yverdon-les-Bains.
+
+### 8.2 Exigences techniques, par page
+- Hiérarchie de titres propre (H1 unique, H2/H3 structurés).
+- Méta-titre et méta-description uniques par page (y compris les pages villes).
+- URLs propres et lisibles (ex. `/services/remplacement-fenetre-de-toit`, `/zones/nyon`).
+- Maillage interne cohérent (services ↔ villes ↔ réalisations).
+- Données structurées (Schema.org) : `LocalBusiness`, `Service`, `FAQPage`, `BreadcrumbList` selon les pages.
+- Fiche **Google Business Profile** à optimiser en parallèle du site (cohérence NAP : nom, adresse, téléphone).
+- Core Web Vitals : bonnes performances visées (voir §10).
+
+---
+
+## 9. Call-to-Action
+
+CTA à répéter tout au long du site, jamais à plus d'un écran de distance :
+- **Demander un devis gratuit** (CTA principal)
+- **Être rappelé**
+- **Nous contacter**
+- **Appeler maintenant** (notamment en bouton flottant mobile)
+
+---
+
+## 10. Animations et performance
+
+### Animations
+- Micro-interactions discrètes (hover boutons/cartes, transitions douces).
+- Apparition progressive des sections au scroll (fade/translation légère).
+- Aucune animation ne doit nuire à la lisibilité ni au temps de chargement perçu.
+- Respect de `prefers-reduced-motion` pour l'accessibilité.
+
+### Performance attendue
+- Core Web Vitals dans le vert (LCP, INP, CLS) sur mobile comme sur desktop.
+- Images optimisées et servies au bon format/poids.
+- Chargement initial rapide, priorité au contenu visible (above the fold).
+
+---
+
+## 11. Éléments en attente (emplacements à prévoir, contenu à venir)
+
+Le développeur doit prévoir des emplacements clairement identifiés pour :
+- Logo HD (le logo actuel existe mais en basse résolution).
+- Photos des réalisations (avant/après).
+- Photos de l'équipe.
+- Icônes partenaires (Velux notamment).
+- Avis clients.
+- Vidéos éventuelles.
+
+Tant que ces éléments ne sont pas fournis, les emplacements doivent rester visuellement propres (pas de "lorem ipsum" ni d'images cassées) — utiliser des gabarits sobres clairement identifiables comme temporaires.
+
+---
+
+## 12. Points à trancher avec le client avant développement
+
+1. **Périmètre vs budget** : l'architecture décrite (~15 pages) dépasse le forfait Starter initial — confirmer le budget/forfait adapté.
+2. Confirmer si les services retirés (Tunnel de lumière, Modular Skylight, Velux EFC, Création/agrandissement) sont définitivement abandonnés ou seulement absents du site pour l'instant.
+3. Zone d'intervention exacte au-delà des 8 villes listées.
+4. Accès Google Business Profile (existant ou à créer).
+5. Modalités de collecte des avis clients (import Google, saisie manuelle, widget tiers).
+6. Sécurisation du site/hébergement actuel (voir §1.1) — à traiter indépendamment mais avant toute réutilisation d'accès existants.
+
+---
+
+## 13. Planning indicatif
+
+| Étape | Contenu |
 |---|---|
-| Responsive design | Mobile-first impératif : la cible cherche majoritairement depuis un smartphone |
-| Formulaire de contact | Envoi vers l'email pro (info@batifenetredetoit.ch), avec accusé de réception au visiteur |
-| Clic-to-call | Numéro de téléphone cliquable partout (header, footer, sections CTA) |
-| Carte Google Maps | Intégrée en page Contact |
-| SEO de base | Titres/méta-descriptions par page, structure Hn propre, temps de chargement optimisé, sitemap.xml |
-| SEO local | Optimisation pour recherches "fenêtre de toit + [région]" |
-| Performance | Images optimisées/compressées, chargement rapide (< 3s) |
-| Micro-animations | Transitions légères au scroll façon Webalp, sans nuire à la performance |
-| Compatibilité | Derniers navigateurs (Chrome, Safari, Edge, Firefox), iOS/Android |
-| Analytics | Suivi des demandes/contacts (ex. Google Analytics + suivi des clics CTA) |
-| Hébergement/domaine | Le client possède déjà le nom de domaine — à connecter au nouvel hébergement |
-
----
-
-## 8. Contraintes et périmètre (formule Starter — CHF 690)
-
-Pour rester cohérent avec la formule Starter :
-- Site vitrine de 6 pages en une langue (français), sans espace membre ni back-office complexe.
-- Design basé sur un système de composants réutilisables (pas de sur-mesure illimité page par page).
-- 1 formulaire de contact standard (pas de configurateur produit ou de prise de rendez-vous en ligne à ce stade).
-- Le client fournit progressivement le contenu manquant (textes définitifs, photos de chantiers) — un espace de collecte sera partagé.
-
-*Hors périmètre à ce stade (évolutions possibles ultérieures) : multilingue (DE/IT), blog, prise de RDV en ligne, espace avis clients automatisé.*
-
----
-
-## 9. Points à clarifier avec le client
-
-À aborder lors de l'appel téléphonique proposé par le client :
-
-1. **Quel numéro de téléphone doit être mis en avant ?** Le site actuel affiche `021 888 90 06` (ligne fixe) en CTA principal, alors que le brief transmis mentionnait `076 348 90 06` (mobile). Le nouveau site utilise actuellement le fixe par défaut (déjà connu des clients) — à confirmer.
-2. Zone géographique précise d'intervention — indice trouvé : l'indicatif 021 suggère le canton de Vaud / région lausannoise, à confirmer.
-3. Liste définitive des services à mettre en avant.
-4. Photos de chantiers disponibles (quantité, qualité, droit d'usage).
-5. Textes définitifs pour "À propos" (historique, années d'expérience).
-6. Avis clients existants (Google, autres) à intégrer.
-7. **Sécurité du site actuel** : le site en ligne (batifenetredetoit.ch) apparaît compromis (résultats Google montrant du contenu de spam injecté — voir échange du 06.07.2026). À traiter en priorité avec l'hébergeur actuel, indépendamment de la refonte.
-8. Accès actuels : hébergement/registrar du nom de domaine, accès email pro.
-
-*Éléments déjà résolus grâce aux captures fournies par le client : couleurs et typographie extraites du vrai logo (section 4), statut de partenaire Velux Expert confirmé (section 6.2).*
-
----
-
-## 10. Planning indicatif
-
-| Étape | Durée estimée |
-|---|---|
-| Validation du cahier des charges + appel de cadrage | J+1 à J+2 |
-| Collecte des contenus (textes/photos) avec le client | J+2 à J+5 |
-| Design des pages clés (Accueil + 1 page type) | J+5 à J+8 |
-| Développement de l'ensemble des pages | J+8 à J+11 |
-| Relecture, ajustements, tests mobile | J+11 à J+13 |
-| Mise en ligne sur le domaine existant | J+13 à J+14 |
-
-Conforme au délai standard de 2 semaines demandé, sous réserve de réception rapide des contenus manquants par le client.
-
----
-
-## 11. Prochaines étapes
-
-1. Validation de ce cahier des charges par le client.
-2. Appel téléphonique de cadrage (points de la section 9).
-3. Collecte des éléments manquants (photos, textes, accès domaine).
-4. Lancement de la phase de design.
+| Cadrage | Validation du présent document, arbitrage périmètre/budget (§12.1) |
+| Contenu | Collecte progressive des éléments du §11 |
+| Design | Gabarits Accueil, page Service type, page Ville type |
+| Développement | L'ensemble des pages, y compris les 8 pages villes et les fiches réalisations |
+| SEO technique | Données structurées, maillage, Google Business Profile |
+| Recette | Tests mobile/desktop, Core Web Vitals, formulaires |
+| Mise en ligne | Sur le domaine existant, une fois celui-ci sécurisé |
