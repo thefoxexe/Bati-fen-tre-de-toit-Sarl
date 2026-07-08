@@ -5,7 +5,8 @@ import { HeroArt } from "@/components/HeroArt";
 import { SkylightIllustration } from "@/components/SkylightIllustration";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
-import { services, site } from "@/lib/site";
+import { SplitWords } from "@/components/SplitWords";
+import { serviceAreas, services, site } from "@/lib/site";
 
 const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit sous 48h" },
@@ -48,7 +49,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: "var(--color-hero)" }} className="relative overflow-hidden text-white">
+      <section style={{ background: "var(--color-hero)" }} className="grain relative overflow-hidden text-white">
         <svg
           viewBox="0 0 200 90"
           aria-hidden="true"
@@ -66,11 +67,8 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-24 pt-16 md:grid-cols-2 md:items-center md:gap-8 md:px-8 md:pb-28 md:pt-20">
           <div>
             <p className="eyebrow eyebrow-on-dark hero-fade mb-5">Installateur de fenêtres de toit</p>
-            <h1
-              className="balance hero-fade text-4xl font-semibold leading-[1.1] text-white md:text-6xl"
-              style={{ animationDelay: "120ms" }}
-            >
-              Plus de lumière chez vous.
+            <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
+              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
             </h1>
             <p
               className="hero-fade mt-5 max-w-md text-lg text-white/70"
@@ -116,6 +114,21 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Zone d'intervention ticker */}
+      <div className="marquee-wrap overflow-hidden border-b border-white/10 bg-[var(--color-hero)] py-3 text-white">
+        <div className="marquee-track">
+          {[...serviceAreas, ...serviceAreas].map((city, i) => (
+            <span
+              key={i}
+              className="flex items-center gap-3 pr-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/60"
+            >
+              {city}
+              <span className="text-[var(--color-accent)]">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* Reassurance bar */}
       <section className="border-b border-[var(--color-line)]">
@@ -217,7 +230,7 @@ export default function HomePage() {
       </Reveal>
 
       {/* Pourquoi nous choisir */}
-      <section className="section-dark">
+      <section className="section-dark grain">
         <div className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <SectionHeading eyebrow="Pourquoi nous choisir" bold="Un partenaire de confiance," rest="pas juste un installateur." onDark />
@@ -269,7 +282,7 @@ export default function HomePage() {
 
       {/* Final CTA */}
       <Reveal>
-        <section className="section-dark">
+        <section className="section-dark grain">
           <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
             <div>
               <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
