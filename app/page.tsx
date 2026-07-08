@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowIcon, CheckIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, ShieldIcon } from "@/components/icons";
 import { HeroArt } from "@/components/HeroArt";
 import { SkylightIllustration } from "@/components/SkylightIllustration";
 import { Reveal } from "@/components/Reveal";
 import { services, site } from "@/lib/site";
 
 const reassurance = [
-  "Devis gratuit sous 48h",
-  "Partenaire agréé Velux Expert",
-  "Intervention rapide, y compris en dépannage",
-  "Travaux garantis",
+  { icon: QuoteIcon, text: "Devis gratuit sous 48h" },
+  { icon: CheckIcon, text: "Partenaire agréé Velux Expert" },
+  { icon: PhoneIcon, text: "Dépannage rapide, urgences comprises" },
+  { icon: ShieldIcon, text: "Travaux garantis dans la durée" },
 ];
 
 const whyUs = [
@@ -44,9 +44,9 @@ export default function HomePage() {
               className="hero-fade mt-4 max-w-md text-sm text-white/50"
               style={{ animationDelay: "380ms" }}
             >
-              De l&rsquo;étude de faisabilité à la pose finale, {site.shortName} vous accompagne
-              pour transformer vos combles avec une fenêtre de toit bien installée, bien isolée,
-              durable.
+              De la première visite technique à la dernière finition, {site.shortName}{" "}
+              s&rsquo;occupe de tout : une fenêtre de toit bien posée, bien isolée, qui tient dans
+              la durée.
             </p>
             <div className="hero-fade mt-9 flex flex-wrap gap-3" style={{ animationDelay: "500ms" }}>
               <Link href="/contact" className="btn btn-primary">
@@ -66,10 +66,11 @@ export default function HomePage() {
 
       {/* Reassurance bar */}
       <section className="border-y border-[var(--color-line)]">
-        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-5 px-5 py-7 text-sm text-[var(--color-ink)] md:grid-cols-4 md:px-8">
+        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-6 px-5 py-8 text-sm font-medium text-[var(--color-ink)] md:grid-cols-4 md:px-8">
           {reassurance.map((item) => (
-            <li key={item} className="text-center md:text-left">
-              {item}
+            <li key={item.text} className="flex flex-col items-center gap-2 text-center md:flex-row md:items-start md:text-left">
+              <item.icon className="h-5 w-5 shrink-0 text-[var(--color-accent)]" />
+              {item.text}
             </li>
           ))}
         </ul>
@@ -81,14 +82,14 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2">
             <SectionHeading
               bold="Un artisan à votre écoute."
-              rest="Chaque projet de fenêtre de toit est différent — nous prenons le temps de comprendre le vôtre."
+              rest="Chaque toiture a ses contraintes — on les étudie avant de sortir le premier outil."
             />
             <div>
               <p className="text-base text-[var(--color-ink-soft)]">
                 {site.name}{" "}
-                intervient pour l&rsquo;installation, la rénovation et le dépannage de fenêtres de
-                toit, avec le même souci du détail à chaque étape : étanchéité, finitions et respect
-                des délais annoncés.
+                installe, rénove et dépanne des fenêtres de toit dans tout le canton de Vaud, avec
+                le même soin à chaque étape : une étanchéité qui tient, des finitions propres et des
+                délais tenus.
               </p>
               <Link href="/a-propos" className="link-underline mt-5 inline-flex items-center gap-2 text-sm">
                 En savoir plus sur {site.shortName} <ArrowIcon className="h-3.5 w-3.5" />
@@ -105,8 +106,13 @@ export default function HomePage() {
             <SectionHeading eyebrow="Nos prestations" bold="Un service complet," rest="du remplacement au dépannage." />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
               {services.map((service) => (
-                <Link key={service.slug} href={`/services/${service.slug}`} className="panel panel-hover p-6">
-                  <SkylightIllustration variant={service.variant} className="h-14 w-14" />
+                <Link key={service.slug} href={`/services/${service.slug}`} className="panel panel-hover group p-6">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/[0.06] transition group-hover:bg-[var(--color-accent)]/[0.1]">
+                    <SkylightIllustration
+                      variant={service.variant}
+                      className="h-11 w-11 transition duration-300 group-hover:scale-110"
+                    />
+                  </span>
                   <h3 className="mt-4 text-base font-semibold text-[var(--color-ink)]">{service.title}</h3>
                   <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
                 </Link>
@@ -149,10 +155,16 @@ export default function HomePage() {
             bold="Des chantiers menés"
             rest="avec rigueur, du premier appel à la dernière finition."
           />
-          <div className="mt-12 grid gap-px bg-[var(--color-line)] md:grid-cols-3">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-[var(--color-line)] md:grid-cols-3">
             {(["single", "twin", "dormer"] as const).map((variant) => (
-              <div key={variant} className="flex aspect-[4/3] items-center justify-center bg-white">
-                <SkylightIllustration variant={variant} className="h-20 w-20 opacity-70" />
+              <div
+                key={variant}
+                className="group flex aspect-[4/3] items-center justify-center bg-white transition-colors hover:bg-[var(--color-accent)]/[0.04]"
+              >
+                <SkylightIllustration
+                  variant={variant}
+                  className="h-24 w-24 transition duration-300 group-hover:scale-105"
+                />
               </div>
             ))}
           </div>

@@ -73,6 +73,64 @@ export function CloseIcon({ className }: IconProps) {
   );
 }
 
+export function ShieldIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M12 3.5l7 2.6v5.4c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6.1l7-2.6z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M8.7 12.2l2.1 2.1 4.3-4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function HomeIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M4 11.5L12 4l8 7.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.5 9.5V19a1 1 0 001 1H10a1 1 0 001-1v-4h2v4a1 1 0 001 1h2.5a1 1 0 001-1V9.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function GridIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="4" y="4" width="7" height="7" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+      <rect x="13" y="4" width="7" height="7" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+      <rect x="4" y="13" width="7" height="7" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+      <rect x="13" y="13" width="7" height="7" rx="1.3" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+export function UserIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="8.2" r="3.4" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M4.8 19.5c1-3.2 3.8-5 7.2-5s6.2 1.8 7.2 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function ImageIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3.5" y="4.5" width="17" height="15" rx="1.6" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4.5 16.5l4.8-4.6a1.4 1.4 0 011.9 0l2.4 2.3 2.2-2a1.4 1.4 0 011.9 0l1.8 1.8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function HelpIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="9.2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M9.3 9.3a2.7 2.7 0 115.1 1.2c-.5.9-1.7 1.2-1.9 2.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="16.4" r="0.9" fill="currentColor" />
+    </svg>
+  );
+}
+
 type RoofVariant = "single" | "twin" | "dormer";
 
 /**
