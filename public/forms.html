@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="utf-8" /><title>Formulaires</title></head>
+<body>
+  <!--
+    Not a real page — never linked from the site. The contact page is rendered
+    dynamically (per-request), so Netlify's build-time HTML scan for Forms
+    never sees it. This static replica, shipped as-is from /public, gives the
+    scan a plain HTML form with the exact same name/fields so Netlify
+    registers "contact" as a form and forwards submissions posted to it from
+    components/ContactForm.tsx.
+  -->
+  <form name="contact" data-netlify="true" data-netlify-honeypot="company">
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="service" />
+    <textarea name="message"></textarea>
+    <input type="text" name="company" />
+  </form>
+</body>
+</html>

@@ -5,6 +5,16 @@ import { services } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+// Netlify Forms expects a classic urlencoded POST to "/" with a "form-name"
+// field matching the form's `name` — see components/ContactForm.tsx's
+// data-netlify form and public/forms.html for the static counterpart Netlify's
+// build-time scan needs to register the form.
+function encodeForNetlify(data: Record<string, unknown>) {
+  return Object.entries(data)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value ?? ""))}`)
+    .join("&");
+}
+
 export function ContactForm({ initialService }: { initialService?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -24,15 +34,14 @@ export function ContactForm({ initialService }: { initialService?: string }) {
     }
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForNetlify({ "form-name": "contact", ...data }),
       });
 
       if (!res.ok) {
-        const body = await res.json().catch(() => null);
-        throw new Error(body?.error ?? "Une erreur est survenue.");
+        throw new Error("Une erreur est survenue.");
       }
 
       setStatus("sent");
@@ -55,7 +64,14 @@ export function ContactForm({ initialService }: { initialService?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel space-y-5 p-8 md:p-10">
+    <form
+      onSubmit={handleSubmit}
+      name="contact"
+      data-netlify="true"
+      data-netlify-honeypot="company"
+      className="panel space-y-5 p-8 md:p-10"
+    >
+      <input type="hidden" name="form-name" value="contact" />
       <input
         type="text"
         name="company"
