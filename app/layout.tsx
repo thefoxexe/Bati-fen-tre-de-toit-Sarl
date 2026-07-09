@@ -39,6 +39,9 @@ const localBusinessJsonLd = {
   areaServed: serviceAreas.map((city) => ({ "@type": "City", name: city })),
   address: {
     "@type": "PostalAddress",
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
+    addressLocality: site.address.city,
     addressRegion: "Vaud",
     addressCountry: "CH",
   },

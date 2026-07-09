@@ -46,9 +46,17 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-white/45 md:flex-row md:items-center md:justify-between md:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-white/45 md:flex-row md:items-center md:justify-between md:px-8">
           <p>&copy; {new Date().getFullYear()} {site.name}</p>
-          <p>Suisse — sur devis</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/mentions-legales" className="hover:text-white/70">
+              Mentions légales
+            </Link>
+            <Link href="/politique-de-confidentialite" className="hover:text-white/70">
+              Politique de confidentialité
+            </Link>
+            <p>Suisse — sur devis</p>
+          </div>
         </div>
       </div>
     </footer>

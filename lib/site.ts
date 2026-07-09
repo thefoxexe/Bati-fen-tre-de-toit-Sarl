@@ -13,6 +13,14 @@ export const site = {
   email: "info@batifenetredetoit.ch",
   url: "https://www.batifenetredetoit.ch",
   veluxExpert: true,
+  legalForm: "Sàrl",
+  manager: "Hasan Bati",
+  address: {
+    street: "Route de Sorge 2",
+    postalCode: "1030",
+    city: "Bussigny",
+    country: "Suisse",
+  },
 };
 
 /** Cities used for local SEO relevance (content mentions + structured data), not dedicated pages. */
