@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services, serviceAreas, site } from "@/lib/site";
-import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
 import { CheckIcon } from "@/components/icons";
@@ -46,7 +46,7 @@ export default async function ServicePage({
       {/* Hero */}
       <section style={{ background: "var(--color-hero)" }} className="text-white">
         <div className="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[auto_1fr] md:items-center md:px-8 md:py-20">
-          <SkylightIllustration variant={service.variant} className="h-24 w-24" />
+          <PlaceholderMedia onDark className="h-24 w-24" />
           <div>
             <p className="eyebrow eyebrow-on-dark mb-4">Services</p>
             <h1 className="balance text-3xl font-semibold leading-tight text-white md:text-4xl">{service.title}</h1>
@@ -113,11 +113,7 @@ export default async function ServicePage({
             <h2 className="text-xl font-semibold text-[var(--color-ink)]">Réalisations</h2>
             <div className="mt-6 grid grid-cols-2 gap-px bg-[var(--color-line)] sm:grid-cols-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="flex aspect-square items-center justify-center bg-white">
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--color-ink-soft)]">
-                    Photo à venir
-                  </span>
-                </div>
+                <PlaceholderMedia key={i} label="Photo à venir" className="aspect-square w-full border-none" />
               ))}
             </div>
           </div>
@@ -180,7 +176,7 @@ export default async function ServicePage({
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {otherServices.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="panel panel-hover p-5">
-              <SkylightIllustration variant={s.variant} className="h-12 w-12" />
+              <PlaceholderMedia label="Photo" className="h-12 w-12" />
               <h3 className="mt-3 text-sm font-semibold text-[var(--color-ink)]">{s.title}</h3>
             </Link>
           ))}

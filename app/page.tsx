@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, ShieldIcon } from "@/components/icons";
 import { HeroArt } from "@/components/HeroArt";
-import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
@@ -185,15 +185,12 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 90}>
-                <Link href={`/services/${service.slug}`} className="panel panel-hover group block h-full p-6">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/[0.06] transition group-hover:bg-[var(--color-accent)]/[0.1]">
-                    <SkylightIllustration
-                      variant={service.variant}
-                      className="h-11 w-11 transition duration-300 group-hover:scale-110"
-                    />
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold text-[var(--color-ink)]">{service.title}</h3>
-                  <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
+                <Link href={`/services/${service.slug}`} className="panel panel-hover group block h-full overflow-hidden">
+                  <PlaceholderMedia className="aspect-[4/3] w-full" />
+                  <div className="p-6">
+                    <h3 className="text-base font-semibold text-[var(--color-ink)]">{service.title}</h3>
+                    <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
+                  </div>
                 </Link>
               </Reveal>
             ))}
@@ -260,16 +257,8 @@ export default function HomePage() {
             rest="avec rigueur, du premier appel à la dernière finition."
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-[var(--color-line)] md:grid-cols-3">
-            {(["single", "twin", "dormer"] as const).map((variant) => (
-              <div
-                key={variant}
-                className="group flex aspect-[4/3] items-center justify-center bg-white transition-colors hover:bg-[var(--color-accent)]/[0.04]"
-              >
-                <SkylightIllustration
-                  variant={variant}
-                  className="h-24 w-24 transition duration-300 group-hover:scale-105"
-                />
-              </div>
+            {[0, 1, 2].map((i) => (
+              <PlaceholderMedia key={i} className="aspect-[4/3] w-full border-none" />
             ))}
           </div>
           <div className="mt-8">

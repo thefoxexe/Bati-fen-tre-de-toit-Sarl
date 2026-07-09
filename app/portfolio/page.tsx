@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
-import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -45,9 +45,7 @@ export default function PortfolioPage() {
           {placeholderProjects.map((project, i) => (
             <Reveal key={i} delay={(i % 3) * 60}>
               <div className="bg-white transition-transform duration-300 hover:-translate-y-1">
-                <div className="flex aspect-[4/3] items-center justify-center border-b border-[var(--color-line)]">
-                  <SkylightIllustration variant={project.variant} className="h-16 w-16 opacity-70" />
-                </div>
+                <PlaceholderMedia label="Photo à venir" className="aspect-[4/3] w-full border-x-0 border-t-0" />
                 <div className="p-5">
                   <p className="text-sm font-medium text-[var(--color-ink)]">{project.title}</p>
                   <p className="text-xs text-[var(--color-ink-soft)]">{project.context}</p>

@@ -126,7 +126,7 @@ export default function PolitiqueConfidentialitePage() {
       <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
         Politique de confidentialité
       </h1>
-      <p className="mt-5 text-sm text-[var(--color-ink-soft)]">
+      <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-ink-soft)]">
         {site.name}
         {" "}attache une grande importance à la protection de vos données personnelles. Cette
         page explique comment vos données sont conservées et quels droits vous pouvez faire
@@ -134,11 +134,16 @@ export default function PolitiqueConfidentialitePage() {
         échéant, au RGPD.
       </p>
 
-      <div className="mt-12 space-y-12">
-        {sections.map((section) => (
+      <div className="mt-12 space-y-10">
+        {sections.map((section, i) => (
           <div key={section.title} className="border-t border-[var(--color-line)] pt-8">
-            <h2 className="text-lg font-semibold text-[var(--color-ink)]">{section.title}</h2>
-            <div className="mt-3 text-sm leading-relaxed text-[var(--color-ink-soft)]">
+            <div className="flex items-center gap-4">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-accent)] text-sm font-bold text-[var(--color-accent)]">
+                {i + 1}
+              </span>
+              <h2 className="text-lg font-semibold text-[var(--color-ink)]">{section.title}</h2>
+            </div>
+            <div className="mt-4 pl-[52px] text-[15px] leading-relaxed text-[var(--color-ink-soft)]">
               {section.body}
             </div>
           </div>

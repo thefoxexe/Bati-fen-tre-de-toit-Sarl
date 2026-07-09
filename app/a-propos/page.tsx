@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
-import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Reveal } from "@/components/Reveal";
 import { serviceAreas, site } from "@/lib/site";
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="mx-auto max-w-3xl px-5 pb-16 pt-16 text-center md:px-8 md:pb-24 md:pt-24">
-        <SkylightIllustration variant="twin" className="mx-auto h-24 w-24" />
+        <PlaceholderMedia label="Photo de l'équipe" className="mx-auto h-24 w-24 rounded-full" />
         <p className="eyebrow mb-6 mt-6 justify-center">À propos</p>
         <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
           L&rsquo;installation de fenêtres de toit, un métier de précision.

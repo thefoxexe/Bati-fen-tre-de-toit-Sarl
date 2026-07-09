@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { MailIcon, PhoneIcon, UserIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -8,66 +9,7 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    title: "1. Éditeur du site (responsable du contenu)",
-    body: (
-      <>
-        <p>Le présent site web est édité par :</p>
-        <p className="mt-3 font-semibold text-[var(--color-ink)]">
-          {site.name}
-          <br />
-          Société à responsabilité limitée ({site.legalForm})
-        </p>
-        <p className="mt-3">
-          Siège social :
-          <br />
-          {site.address.street}
-          <br />
-          {site.address.postalCode} {site.address.city}
-          <br />
-          {site.address.country}
-        </p>
-        <p className="mt-3">
-          Contact :
-          <br />
-          E-mail : {site.email}
-          <br />
-          Téléphone : {site.phoneDisplay}
-        </p>
-        <p className="mt-3">
-          Représentant légal / Gérant : {site.manager}
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "2. Hébergement",
-    body: (
-      <>
-        <p>L&rsquo;hébergement du site internet est assuré par :</p>
-        <p className="mt-3 font-semibold text-[var(--color-ink)]">Webalp</p>
-        <p className="mt-1">
-          Rue de la Jonction
-          <br />
-          1950 Sion
-          <br />
-          Suisse
-        </p>
-        <p className="mt-4">
-          Le nom de domaine {site.url.replace("https://www.", "")} est enregistré auprès de :
-        </p>
-        <p className="mt-3 font-semibold text-[var(--color-ink)]">Infomaniak Network SA</p>
-        <p className="mt-1">
-          Rue Eugène-Marziano 25
-          <br />
-          1227 Les Acacias (Genève)
-          <br />
-          Suisse
-        </p>
-      </>
-    ),
-  },
-  {
-    title: "3. Propriété intellectuelle",
+    title: "Propriété intellectuelle",
     body: (
       <p>
         L&rsquo;ensemble du contenu présent sur le site de {site.name}, incluant, de manière non
@@ -84,7 +26,7 @@ const sections = [
     ),
   },
   {
-    title: "4. Limitation de responsabilité",
+    title: "Limitation de responsabilité",
     body: (
       <p>
         {site.name}
@@ -103,7 +45,7 @@ const sections = [
     ),
   },
   {
-    title: "5. Droit applicable et juridiction compétente",
+    title: "Droit applicable et juridiction compétente",
     body: (
       <p>
         Le présent site est soumis au droit suisse. Tout litige en relation avec
@@ -122,17 +64,110 @@ export default function MentionsLegalesPage() {
       <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
         Mentions légales
       </h1>
-      <p className="mt-5 text-sm text-[var(--color-ink-soft)]">
+      <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-ink-soft)]">
         Conformément aux dispositions légales suisses (Code des obligations, Loi sur le commerce
         électronique, etc.), vous trouverez ci-dessous les informations relatives à
-        l&rsquo;éditeur et à l&rsquo;hébergeur du site {site.url.replace("https://www.", "")}.
+        l&rsquo;éditeur, à la réalisation et à l&rsquo;hébergeur du site{" "}
+        {site.url.replace("https://www.", "")}.
       </p>
 
-      <div className="mt-12 space-y-12">
-        {sections.map((section) => (
+      {/* Éditeur — key facts as a business-card panel rather than a wall of text */}
+      <div className="panel mt-12 rounded-2xl p-8">
+        <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">
+          Éditeur du site (responsable du contenu)
+        </p>
+        <p className="mt-3 text-lg font-semibold text-[var(--color-ink)]">
+          {site.name}
+        </p>
+        <p className="text-sm text-[var(--color-ink-soft)]">
+          Société à responsabilité limitée ({site.legalForm})
+        </p>
+
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          <div className="flex gap-3">
+            <UserIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+            <div className="text-sm text-[var(--color-ink-soft)]">
+              <p className="font-semibold text-[var(--color-ink)]">Représentant légal / Gérant</p>
+              <p>{site.manager}</p>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <MailIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+            <div className="text-sm text-[var(--color-ink-soft)]">
+              <p className="font-semibold text-[var(--color-ink)]">Contact</p>
+              <p>{site.email}</p>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <PhoneIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" />
+            <div className="text-sm text-[var(--color-ink-soft)]">
+              <p className="font-semibold text-[var(--color-ink)]">Téléphone</p>
+              <p>{site.phoneDisplay}</p>
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <span className="mt-0.5 h-4 w-4 shrink-0 rounded-full border-2 border-[var(--color-accent)]" />
+            <div className="text-sm text-[var(--color-ink-soft)]">
+              <p className="font-semibold text-[var(--color-ink)]">Siège social</p>
+              <p>
+                {site.address.street}
+                <br />
+                {site.address.postalCode} {site.address.city}, {site.address.country}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 border-t border-[var(--color-line)] pt-5 text-sm text-[var(--color-ink-soft)]">
+          Le contenu et les droits sur ce site appartiennent à {site.name}. Sa conception, sa
+          réalisation graphique et sa maintenance technique sont en revanche assurées par Webalp
+          (voir « Hébergement » ci-dessous) — c&rsquo;est ce prestataire qu&rsquo;il convient de
+          contacter pour toute modification technique du site.
+        </p>
+      </div>
+
+      {/* Hébergement */}
+      <div className="mt-12">
+        <div className="flex items-center gap-4">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-accent)] text-sm font-bold text-[var(--color-accent)]">
+            1
+          </span>
+          <h2 className="text-lg font-semibold text-[var(--color-ink)]">Hébergement &amp; nom de domaine</h2>
+        </div>
+        <div className="mt-4 grid gap-5 pl-[52px] sm:grid-cols-2">
+          <div className="rounded-xl border border-[var(--color-line)] p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">Hébergeur</p>
+            <p className="mt-2 font-semibold text-[var(--color-ink)]">Webalp</p>
+            <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
+              Rue de la Jonction
+              <br />
+              1950 Sion, Suisse
+            </p>
+          </div>
+          <div className="rounded-xl border border-[var(--color-line)] p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">
+              Nom de domaine {site.url.replace("https://www.", "")}
+            </p>
+            <p className="mt-2 font-semibold text-[var(--color-ink)]">Infomaniak Network SA</p>
+            <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
+              Rue Eugène-Marziano 25
+              <br />
+              1227 Les Acacias (Genève), Suisse
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 space-y-10">
+        {sections.map((section, i) => (
           <div key={section.title} className="border-t border-[var(--color-line)] pt-8">
-            <h2 className="text-lg font-semibold text-[var(--color-ink)]">{section.title}</h2>
-            <div className="mt-3 text-sm leading-relaxed text-[var(--color-ink-soft)]">
+            <div className="flex items-center gap-4">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-accent)] text-sm font-bold text-[var(--color-accent)]">
+                {i + 2}
+              </span>
+              <h2 className="text-lg font-semibold text-[var(--color-ink)]">{section.title}</h2>
+            </div>
+            <div className="mt-4 pl-[52px] text-[15px] leading-relaxed text-[var(--color-ink-soft)]">
               {section.body}
             </div>
           </div>

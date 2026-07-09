@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { services, site } from "@/lib/site";
 import { ArrowIcon } from "@/components/icons";
-import { SkylightIllustration } from "@/components/SkylightIllustration";
+import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function ServicesPage() {
               href={`/services/${service.slug}`}
               className="grid gap-3 py-10 transition-opacity hover:opacity-70 md:grid-cols-[auto_minmax(0,1fr)_minmax(0,2fr)_auto] md:items-center md:gap-8"
             >
-              <SkylightIllustration variant={service.variant} className="h-14 w-14 shrink-0" />
+              <PlaceholderMedia label="Photo" className="h-14 w-14 shrink-0" />
               <h2 className="text-lg font-semibold text-[var(--color-ink)]">{service.title}</h2>
               <p className="text-sm text-[var(--color-ink-soft)]">{service.summary}</p>
               <span className="link-underline inline-flex items-center gap-2 whitespace-nowrap text-sm">

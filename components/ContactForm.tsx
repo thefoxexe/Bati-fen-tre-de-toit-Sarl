@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { services } from "@/lib/site";
+import { ChevronDownIcon, MailIcon, PhoneIcon, UserIcon } from "@/components/icons";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -54,7 +55,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
 
   if (status === "sent") {
     return (
-      <div className="panel p-10 text-center">
+      <div className="panel rounded-2xl p-10 text-center">
         <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre demande a bien été envoyée.</p>
         <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
           Nous revenons vers vous sous 48h ouvrées.
@@ -69,7 +70,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
       name="contact"
       data-netlify="true"
       data-netlify-honeypot="company"
-      className="panel space-y-5 p-8 md:p-10"
+      className="panel space-y-5 rounded-2xl p-8 md:p-10"
     >
       <input type="hidden" name="form-name" value="contact" />
       <input
@@ -82,29 +83,32 @@ export function ContactForm({ initialService }: { initialService?: string }) {
       />
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Field label="Nom complet" name="name" required autoComplete="name" />
-        <Field label="Téléphone" name="phone" type="tel" required autoComplete="tel" />
+        <Field label="Nom complet" name="name" required autoComplete="name" icon={UserIcon} />
+        <Field label="Téléphone" name="phone" type="tel" required autoComplete="tel" icon={PhoneIcon} />
       </div>
 
-      <Field label="E-mail" name="email" type="email" required autoComplete="email" />
+      <Field label="E-mail" name="email" type="email" required autoComplete="email" icon={MailIcon} />
 
       <div>
         <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-[var(--color-ink)]">
           Type de demande
         </label>
-        <select
-          id="service"
-          name="service"
-          defaultValue={initialService ?? ""}
-          className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
-        >
-          <option value="">Sélectionnez un service (optionnel)</option>
-          {services.map((service) => (
-            <option key={service.slug} value={service.slug}>
-              {service.title}
-            </option>
-          ))}
-        </select>
+        <div className="relative">
+          <select
+            id="service"
+            name="service"
+            defaultValue={initialService ?? ""}
+            className="w-full appearance-none rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 pr-10 text-sm text-[var(--color-ink)] transition focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/15"
+          >
+            <option value="">Sélectionnez un service (optionnel)</option>
+            {services.map((service) => (
+              <option key={service.slug} value={service.slug}>
+                {service.title}
+              </option>
+            ))}
+          </select>
+          <ChevronDownIcon className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-ink-soft)]" />
+        </div>
       </div>
 
       <div>
@@ -117,7 +121,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
           required
           rows={5}
           placeholder="Décrivez votre projet : type de toiture, nombre de fenêtres, échéance souhaitée…"
-          className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
+          className="w-full rounded-lg border border-[var(--color-line)] px-4 py-3 text-sm transition focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/15"
         />
       </div>
 
@@ -138,26 +142,35 @@ function Field({
   type = "text",
   required,
   autoComplete,
+  icon: Icon,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
   autoComplete?: string;
+  icon?: (props: { className?: string }) => React.ReactElement;
 }) {
   return (
     <div>
       <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-[var(--color-ink)]">
         {label}
       </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        autoComplete={autoComplete}
-        className="w-full border border-[var(--color-line)] px-4 py-3 text-sm focus:border-[var(--color-accent)] focus:outline-none"
-      />
+      <div className="relative">
+        {Icon ? (
+          <Icon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-ink-soft)]" />
+        ) : null}
+        <input
+          id={name}
+          name={name}
+          type={type}
+          required={required}
+          autoComplete={autoComplete}
+          className={`w-full rounded-lg border border-[var(--color-line)] py-3 text-sm transition focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/15 ${
+            Icon ? "pl-10 pr-4" : "px-4"
+          }`}
+        />
+      </div>
     </div>
   );
 }
