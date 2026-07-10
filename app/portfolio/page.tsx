@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Réalisations",
   description: `Exemples de chantiers de ${site.shortName} : installation, rénovation et pose de fenêtres de toit.`,
+  alternates: { canonical: "/portfolio" },
 };
 
 const placeholderProjects = [

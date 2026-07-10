@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description: `Demandez un devis gratuit à ${site.shortName}, réponse sous 48h.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage({

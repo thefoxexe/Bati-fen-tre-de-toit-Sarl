@@ -8,6 +8,7 @@ import { serviceAreas, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "À propos",
   description: `Découvrez ${site.name}, votre installateur de fenêtres de toit.`,
+  alternates: { canonical: "/a-propos" },
 };
 
 const values = [

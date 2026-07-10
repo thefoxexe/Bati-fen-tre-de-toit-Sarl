@@ -2,6 +2,7 @@ import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { MenuIcon, CloseIcon, UserIcon, ImageIcon, HelpIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
+import { Magnetic } from "@/components/Magnetic";
 
 // Items already reachable from the mobile bottom bar (Accueil / Services / Contact)
 // don't need to repeat in the mobile "more" panel — only the secondary pages do,
@@ -33,9 +34,11 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/contact" className="btn btn-primary btn-sm">
-            Devis gratuit
-          </Link>
+          <Magnetic strength={8}>
+            <Link href="/contact" className="btn btn-primary btn-sm">
+              Devis gratuit
+            </Link>
+          </Magnetic>
         </div>
 
         {/* Mobile: primary destinations live in the fixed bottom bar; this menu only

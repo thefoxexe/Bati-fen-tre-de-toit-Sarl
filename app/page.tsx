@@ -6,6 +6,7 @@ import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
+import { Magnetic } from "@/components/Magnetic";
 import { serviceAreas, services, site } from "@/lib/site";
 
 const reassurance = [
@@ -85,12 +86,16 @@ export default function HomePage() {
               la durée.
             </p>
             <div className="hero-fade mt-9 flex flex-wrap gap-3" style={{ animationDelay: "500ms" }}>
-              <Link href="/contact" className="btn btn-primary">
-                Demander un devis gratuit
-              </Link>
-              <a href={site.phoneHref} className="btn btn-on-photo">
-                {site.phoneDisplay}
-              </a>
+              <Magnetic>
+                <Link href="/contact" className="btn btn-primary">
+                  Demander un devis gratuit
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a href={site.phoneHref} className="btn btn-on-photo">
+                  {site.phoneDisplay}
+                </a>
+              </Magnetic>
             </div>
           </div>
 
@@ -275,17 +280,21 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
             <div>
               <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
-                Un projet de fenêtre de toit&nbsp;? Parlons-en.
+                Une idée de projet&nbsp;? Parlons-en sans engagement.
               </h2>
-              <p className="mt-2 text-sm text-white/60">Devis gratuit, réponse sous 48h.</p>
+              <p className="mt-2 text-sm text-white/60">Visite technique, devis chiffré sous 48h.</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="btn btn-primary">
-                Demander un devis
-              </Link>
-              <a href={site.phoneHref} className="btn btn-on-photo">
-                {site.phoneDisplay}
-              </a>
+              <Magnetic>
+                <Link href="/contact" className="btn btn-primary">
+                  Obtenir mon devis
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a href={site.phoneHref} className="btn btn-on-photo">
+                  {site.phoneDisplay}
+                </a>
+              </Magnetic>
             </div>
           </div>
         </section>

@@ -6,6 +6,7 @@ import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/Reveal";
 import { CheckIcon } from "@/components/icons";
+import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -27,6 +28,9 @@ export async function generateMetadata({
   return {
     title: service.title,
     description: `${service.summary} Intervention dans le canton de Vaud (${serviceAreas.slice(0, 3).join(", ")}...) par ${site.shortName}, partenaire agréé Velux Expert.`,
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
   };
 }
 
@@ -41,8 +45,49 @@ export default async function ServicePage({
 
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "RoofingContractor",
+      name: site.name,
+      telephone: site.phoneHref.replace("tel:", ""),
+      url: site.url,
+    },
+    areaServed: serviceAreas.map((city) => ({ "@type": "City", name: city })),
+    url: `${site.url}/services/${service.slug}`,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${site.url}/services/${service.slug}` },
+    ],
+  };
+
+  const faqJsonLd = service.faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: service.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      }
+    : null;
+
   return (
     <>
+      <JsonLd data={serviceJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
+      {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
+
       {/* Hero */}
       <section style={{ background: "var(--color-hero)" }} className="text-white">
         <div className="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[auto_1fr] md:items-center md:px-8 md:py-20">

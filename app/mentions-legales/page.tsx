@@ -5,6 +5,7 @@ import { MailIcon, PhoneIcon, UserIcon } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Mentions légales",
   description: `Mentions légales du site ${site.shortName}.`,
+  alternates: { canonical: "/mentions-legales" },
 };
 
 const sections = [

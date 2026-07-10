@@ -29,7 +29,7 @@
   --color-hero: var(--color-hero);
   --color-glow: var(--color-glow);
   --font-sans: var(--font-brand);
-  --font-display: var(--font-brand);
+  --font-display: var(--font-display);
 }
 
 * {
@@ -49,9 +49,21 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-brand), sans-serif;
   font-weight: 600;
   letter-spacing: -0.015em;
+}
+
+/* Display serif for the big editorial headlines, kept apart from the
+   geometric-sans h3s (card titles, UI-scale headings) so the pairing reads
+   as a deliberate two-family type system rather than one font everywhere. */
+h1, h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: var(--font-brand), sans-serif;
 }
 
 .balance {

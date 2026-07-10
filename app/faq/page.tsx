@@ -1,15 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { faqs, site } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "FAQ",
   description: `Questions fréquentes sur nos prestations de ${site.shortName.toLowerCase()}.`,
+  alternates: { canonical: "/faq" },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
 };
 
 export default function FaqPage() {
   return (
     <section className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-24">
+      <JsonLd data={faqJsonLd} />
       <p className="eyebrow mb-4">FAQ</p>
       <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
         Questions fréquentes
