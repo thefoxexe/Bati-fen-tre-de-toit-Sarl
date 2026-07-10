@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline} en Suisse`,
     template: `%s — ${site.shortName}`,
   },
-  description: `Remplacement de fenêtres de toit, stores Velux, entretien et dépannage dans le canton de Vaud (${serviceAreas.join(", ")}). Partenaire agréé Velux Expert, devis gratuit sous 48h.`,
+  description: `Fenêtres de toit, verrières, stores et solutions domotiques Velux dans le canton de Vaud (${serviceAreas.join(", ")}). Partenaire agréé Velux Expert, devis gratuit sous 48h.`,
   openGraph: {
     type: "website",
     locale: "fr_CH",

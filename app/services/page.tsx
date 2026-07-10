@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: `Remplacement de fenêtres de toit, stores Velux, entretien et dépannage par ${site.shortName}, partenaire agréé Velux Expert.`,
+  description: `Fenêtres de toit, toit plat, verrières modulaires, stores, smart home et Sun-Tunnel par ${site.shortName}, partenaire agréé Velux Expert.`,
 };
 
 export default function ServicesPage() {

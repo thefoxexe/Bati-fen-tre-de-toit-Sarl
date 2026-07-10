@@ -56,7 +56,6 @@ export type FaqItem = { question: string; answer: string };
 
 export type Service = {
   slug: string;
-  variant: "single" | "twin" | "dormer";
   title: string;
   summary: string;
   description: string;
@@ -68,7 +67,6 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "remplacement-fenetre-de-toit",
-    variant: "single",
     title: "Remplacement de fenêtres de toit",
     summary: "Remplacez votre ancienne fenêtre de toit par un modèle Velux neuf : plus d'isolation, moins de bruit, une étanchéité durable.",
     description:
@@ -110,7 +108,6 @@ export const services: Service[] = [
   },
   {
     slug: "installation-stores-velux",
-    variant: "dormer",
     title: "Installation de stores Velux",
     summary: "Occultation, protection solaire et confort d'été avec les stores et volets roulants Velux.",
     description:
@@ -140,7 +137,6 @@ export const services: Service[] = [
   },
   {
     slug: "entretien-maintenance",
-    variant: "twin",
     title: "Entretien et maintenance",
     summary: "Contrôle et entretien régulier pour prolonger la durée de vie de vos fenêtres de toit.",
     description:
@@ -166,7 +162,6 @@ export const services: Service[] = [
   },
   {
     slug: "reparation-depannage",
-    variant: "single",
     title: "Réparation / dépannage",
     summary: "Intervention rapide en cas de fuite, de blocage ou de vitrage cassé.",
     description:
@@ -187,6 +182,122 @@ export const services: Service[] = [
       {
         question: "Ma fenêtre de toit fuit, que faire en urgence ?",
         answer: "Contactez-nous au plus vite par téléphone : nous priorisons les urgences pour limiter les dégâts en attendant l'intervention.",
+      },
+    ],
+  },
+  {
+    slug: "fenetres-toit-plat",
+    title: "Fenêtres pour toit plat",
+    summary: "Coupoles et fenêtres pour toits plats : lumière naturelle et ventilation pour vos combles ou extensions.",
+    description:
+      "Fourniture et pose de fenêtres et coupoles pour toits plats, avec une étanchéité adaptée à ce type de toiture. Une solution pour apporter de la lumière naturelle et de la ventilation à des combles, une extension ou un local sans possibilité de fenêtre verticale.",
+    avantages: [
+      "Lumière naturelle abondante, même sur une toiture plate",
+      "Étanchéité renforcée, spécifique aux toitures plates",
+      "Ouverture pour ventilation disponible sur certains modèles",
+      "Résistance aux UV et aux intempéries",
+    ],
+    etapes: [
+      "Visite technique et étude de la toiture plate",
+      "Devis avec choix du modèle (fixe ou ouvrant)",
+      "Pose et reprise d'étanchéité de la toiture",
+      "Contrôle final et finitions intérieures",
+    ],
+    faq: [
+      {
+        question: "Une fenêtre pour toit plat est-elle aussi isolante qu'une fenêtre de toit classique ?",
+        answer: "Oui, les modèles pour toits plats reprennent les mêmes standards d'isolation thermique et acoustique, avec une étanchéité pensée spécifiquement pour une toiture peu ou pas inclinée.",
+      },
+      {
+        question: "Peut-on ouvrir une fenêtre de toit plat pour ventiler la pièce ?",
+        answer: "Certains modèles sont ouvrants (manuellement ou de façon motorisée) et permettent une ventilation naturelle, en plus de l'apport de lumière.",
+      },
+    ],
+  },
+  {
+    slug: "verrieres-modulaires-skylight",
+    title: "Verrières modulaires Skylight",
+    summary: "Verrières modulaires sur mesure pour combles, vérandas ou extensions, en configuration fixe ou ouvrante.",
+    description:
+      "Les verrières modulaires Skylight s'assemblent en ligne pour couvrir de grandes surfaces vitrées — idéal pour une extension, une véranda ou un couloir de toiture. Chaque module peut être fixe ou ouvrant, avec une étanchéité continue sur l'ensemble de la verrière.",
+    avantages: [
+      "Grandes surfaces vitrées grâce à l'assemblage modulaire",
+      "Modules fixes ou ouvrants selon les besoins",
+      "Étanchéité continue sur toute la longueur de la verrière",
+      "Solution sur mesure adaptée à votre projet",
+    ],
+    etapes: [
+      "Étude du projet et prise de mesures sur site",
+      "Devis détaillé avec plan d'implantation des modules",
+      "Pose de la structure et des modules vitrés",
+      "Étanchéité, finitions et contrôle qualité",
+    ],
+    faq: [
+      {
+        question: "Une verrière modulaire Skylight convient-elle pour une véranda ?",
+        answer: "Oui, c'est l'un des usages les plus courants : elle permet de couvrir une grande longueur de toiture vitrée avec un rendu continu et soigné.",
+      },
+      {
+        question: "Faut-il une autorisation pour installer une verrière modulaire ?",
+        answer: "Selon la taille du projet et la commune, une autorisation de construire est généralement nécessaire. Nous vous accompagnons dans cette démarche.",
+      },
+    ],
+  },
+  {
+    slug: "smart-home-velux-active",
+    title: "Smart home Velux Active",
+    summary: "Pilotez vos fenêtres, stores et volets Velux depuis votre smartphone avec la solution connectée Velux Active.",
+    description:
+      "Installation, configuration et programmation de la solution domotique Velux Active : vos fenêtres de toit, stores et volets roulants deviennent pilotables depuis une application, avec des capteurs qui ajustent automatiquement l'ouverture selon la température et la qualité de l'air intérieur.",
+    avantages: [
+      "Pilotage à distance des fenêtres, stores et volets depuis un smartphone",
+      "Capteurs de température et de qualité de l'air pour une gestion automatique",
+      "Programmation selon vos horaires ou la météo",
+      "Compatible avec la plupart des fenêtres et stores Velux motorisés",
+    ],
+    etapes: [
+      "Vérification de la compatibilité de vos équipements Velux",
+      "Installation de la passerelle et des capteurs Velux Active",
+      "Configuration de l'application et des automatisations",
+      "Programmation et prise en main avec vous",
+    ],
+    faq: [
+      {
+        question: "Faut-il remplacer mes fenêtres Velux pour installer Velux Active ?",
+        answer: "Non, si vos fenêtres et stores Velux sont déjà motorisés (version solaire ou électrique), la solution Velux Active s'y connecte directement sans remplacement.",
+      },
+      {
+        question: "Velux Active fonctionne-t-il sans connexion internet ?",
+        answer: "La passerelle nécessite une connexion Wi-Fi pour le pilotage à distance et les automatisations ; un fonctionnement manuel reste possible en cas de coupure.",
+      },
+    ],
+  },
+  {
+    slug: "puits-de-lumiere-sun-tunnel",
+    title: "Puits de lumière Sun-Tunnel",
+    summary: "Amenez la lumière naturelle dans les pièces sans accès direct au toit grâce au tunnel de lumière Velux.",
+    description:
+      "Le puits de lumière Sun-Tunnel capte la lumière naturelle en toiture et la redirige, via un conduit réfléchissant, vers une pièce qui n'a pas d'accès direct au toit : couloir, salle de bains, dressing. Une solution rapide à poser et sans gros travaux.",
+    avantages: [
+      "Apporte de la lumière naturelle aux pièces sans fenêtre possible",
+      "Installation rapide, sans gros travaux ni perte de surface habitable",
+      "Peu de déperdition de chaleur comparé à une fenêtre classique",
+      "Idéal pour couloirs, salles de bains, dressings ou buanderies",
+    ],
+    etapes: [
+      "Visite technique et repérage du meilleur tracé entre toiture et pièce",
+      "Devis avec choix du diamètre et de la longueur du tunnel",
+      "Pose de la coupole en toiture et du conduit réfléchissant",
+      "Finitions intérieures et contrôle de l'étanchéité",
+    ],
+    faq: [
+      {
+        question: "Un Sun-Tunnel éclaire-t-il autant qu'une vraie fenêtre ?",
+        answer: "Il apporte un éclairage naturel confortable adapté à des pièces de passage ou secondaires ; il ne remplace pas une fenêtre de toit dans une pièce de vie principale.",
+      },
+      {
+        question: "Peut-on installer un Sun-Tunnel sur tous les types de toiture ?",
+        answer: "Il s'adapte à la plupart des toitures inclinées et plates ; la longueur et le tracé du conduit sont étudiés selon la configuration de votre comble.",
       },
     ],
   },
