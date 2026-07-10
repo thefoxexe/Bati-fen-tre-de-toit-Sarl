@@ -1,31 +1,32 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { GeneralContactForm } from "@/components/GeneralContactForm";
+import { DevisForm } from "@/components/DevisForm";
 import { MailIcon, PhoneIcon } from "@/components/icons";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Une question pour ${site.shortName} ? Contactez-nous, réponse sous 24 à 48h.`,
-  alternates: { canonical: "/contact" },
+  title: "Devis gratuit",
+  description: `Demandez un devis gratuit à ${site.shortName}, réponse sous 48h.`,
+  alternates: { canonical: "/devis" },
 };
 
-export default function ContactPage() {
+export default async function DevisPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const { service } = await searchParams;
+
   return (
     <section className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
       <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
         <div>
-          <p className="eyebrow mb-4">Contact</p>
+          <p className="eyebrow mb-4">Devis</p>
           <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)]">
-            Une question ? Écrivez-nous.
+            Demandez votre devis gratuit.
           </h1>
           <p className="mt-4 max-w-sm text-sm text-[var(--color-ink-soft)]">
-            Suivi de dossier, question générale, remarque : ce formulaire n&rsquo;est pas pour un
-            devis.{" "}
-            <Link href="/devis" className="link-underline">
-              Demander un devis
-            </Link>
-            {" "}plutôt ?
+            Décrivez votre projet, nous revenons vers vous sous 48h ouvrées avec un devis
+            personnalisé.
           </p>
 
           <div className="mt-8 space-y-3">
@@ -47,8 +48,8 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div>
-          <GeneralContactForm />
+        <div id="devis" className="scroll-mt-24">
+          <DevisForm initialService={service} />
         </div>
       </div>
     </section>

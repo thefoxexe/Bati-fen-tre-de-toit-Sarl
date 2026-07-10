@@ -3,18 +3,26 @@
 <head><meta charset="utf-8" /><title>Formulaires</title></head>
 <body>
   <!--
-    Not a real page — never linked from the site. The contact page is rendered
-    dynamically (per-request), so Netlify's build-time HTML scan for Forms
-    never sees it. This static replica, shipped as-is from /public, gives the
-    scan a plain HTML form with the exact same name/fields so Netlify
-    registers "contact" as a form and forwards submissions posted to it from
-    components/ContactForm.tsx.
+    Not a real page — never linked from the site. /devis and /contact are both
+    rendered dynamically (per-request), so Netlify's build-time HTML scan for
+    Forms never sees the real forms. This static replica, shipped as-is from
+    /public, gives the scan a plain HTML form for each — matching name/fields —
+    so Netlify registers both "devis" (DevisForm.tsx) and "contact"
+    (GeneralContactForm.tsx) and forwards submissions posted to them.
   -->
-  <form name="contact" data-netlify="true" data-netlify-honeypot="company">
+  <form name="devis" data-netlify="true" data-netlify-honeypot="company">
     <input type="text" name="name" />
     <input type="tel" name="phone" />
     <input type="email" name="email" />
     <input type="text" name="service" />
+    <textarea name="message"></textarea>
+    <input type="text" name="company" />
+  </form>
+
+  <form name="contact" data-netlify="true" data-netlify-honeypot="company">
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
     <textarea name="message"></textarea>
     <input type="text" name="company" />
   </form>

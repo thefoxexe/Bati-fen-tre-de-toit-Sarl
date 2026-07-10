@@ -8,10 +8,7 @@ import { GridIcon, HomeIcon, MailIcon, QuoteIcon } from "@/components/icons";
 const items = [
   { href: "/", label: "Accueil", icon: HomeIcon, match: (p: string) => p === "/" },
   { href: "/services", label: "Services", icon: GridIcon, match: (p: string) => p.startsWith("/services") },
-  // "Devis" and "Contact" both point at /contact, so a pathname alone can't
-  // tell them apart — Devis only becomes active once actually clicked (see
-  // activeIndex state below); on a fresh load of /contact, Contact wins.
-  { href: "/contact#devis", label: "Devis", icon: QuoteIcon, match: () => false },
+  { href: "/devis", label: "Devis", icon: QuoteIcon, match: (p: string) => p === "/devis" },
   { href: "/contact", label: "Contact", icon: MailIcon, match: (p: string) => p === "/contact" },
 ];
 

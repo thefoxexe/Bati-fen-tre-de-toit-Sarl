@@ -87,7 +87,7 @@ export default function HomePage() {
             </p>
             <div className="hero-fade mt-9 flex flex-wrap gap-3" style={{ animationDelay: "500ms" }}>
               <Magnetic>
-                <Link href="/contact" className="btn btn-primary">
+                <Link href="/devis" className="btn btn-primary">
                   Demander un devis gratuit
                 </Link>
               </Magnetic>
@@ -291,7 +291,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-wrap gap-3">
               <Magnetic>
-                <Link href="/contact" className="btn btn-primary">
+                <Link href="/devis" className="btn btn-primary">
                   Obtenir mon devis
                 </Link>
               </Magnetic>

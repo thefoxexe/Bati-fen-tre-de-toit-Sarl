@@ -44,14 +44,6 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-/** The four primary destinations surfaced in the mobile bottom bar. */
-export const primaryNav = [
-  { href: "/", label: "Accueil" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Devis" },
-  { href: "/contact", label: "Contact" },
-] as const;
-
 export type FaqItem = { question: string; answer: string };
 
 export type Service = {

@@ -39,7 +39,7 @@ export function Footer() {
           <p className="mt-4 text-sm text-white/80">
             Demandez un devis gratuit, réponse sous 48h.
           </p>
-          <Link href="/contact" className="btn btn-primary btn-sm mt-4 inline-flex">
+          <Link href="/devis" className="btn btn-primary btn-sm mt-4 inline-flex">
             Demander un devis
           </Link>
         </div>

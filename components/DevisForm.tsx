@@ -3,20 +3,14 @@
 import { useState, type FormEvent } from "react";
 import { services } from "@/lib/site";
 import { ChevronDownIcon, MailIcon, PhoneIcon, UserIcon } from "@/components/icons";
+import { FormField } from "@/components/FormField";
+import { encodeForNetlify } from "@/components/formUtils";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-// Netlify Forms expects a classic urlencoded POST to "/" with a "form-name"
-// field matching the form's `name` — see components/ContactForm.tsx's
-// data-netlify form and public/forms.html for the static counterpart Netlify's
-// build-time scan needs to register the form.
-function encodeForNetlify(data: Record<string, unknown>) {
-  return Object.entries(data)
-    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(String(value ?? ""))}`)
-    .join("&");
-}
-
-export function ContactForm({ initialService }: { initialService?: string }) {
+/** Quote-request form — distinct Netlify form ("devis") from the general
+ * contact form, so the two kinds of leads land in separate inboxes/tabs. */
+export function DevisForm({ initialService }: { initialService?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -38,7 +32,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeForNetlify({ "form-name": "contact", ...data }),
+        body: encodeForNetlify({ "form-name": "devis", ...data }),
       });
 
       if (!res.ok) {
@@ -56,9 +50,9 @@ export function ContactForm({ initialService }: { initialService?: string }) {
   if (status === "sent") {
     return (
       <div className="panel rounded-2xl p-10 text-center">
-        <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre demande a bien été envoyée.</p>
+        <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre demande de devis a bien été envoyée.</p>
         <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-          Nous revenons vers vous sous 48h ouvrées.
+          Nous revenons vers vous sous 48h ouvrées avec un devis personnalisé.
         </p>
       </div>
     );
@@ -67,12 +61,12 @@ export function ContactForm({ initialService }: { initialService?: string }) {
   return (
     <form
       onSubmit={handleSubmit}
-      name="contact"
+      name="devis"
       data-netlify="true"
       data-netlify-honeypot="company"
       className="panel space-y-5 rounded-2xl p-8 md:p-10"
     >
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="form-name" value="devis" />
       <input
         type="text"
         name="company"
@@ -83,15 +77,15 @@ export function ContactForm({ initialService }: { initialService?: string }) {
       />
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Field label="Nom complet" name="name" required autoComplete="name" icon={UserIcon} />
-        <Field label="Téléphone" name="phone" type="tel" required autoComplete="tel" icon={PhoneIcon} />
+        <FormField label="Nom complet" name="name" required autoComplete="name" icon={UserIcon} />
+        <FormField label="Téléphone" name="phone" type="tel" required autoComplete="tel" icon={PhoneIcon} />
       </div>
 
-      <Field label="E-mail" name="email" type="email" required autoComplete="email" icon={MailIcon} />
+      <FormField label="E-mail" name="email" type="email" required autoComplete="email" icon={MailIcon} />
 
       <div>
         <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-[var(--color-ink)]">
-          Type de demande
+          Service concerné
         </label>
         <div className="relative">
           <select
@@ -113,7 +107,7 @@ export function ContactForm({ initialService }: { initialService?: string }) {
 
       <div>
         <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-[var(--color-ink)]">
-          Votre message
+          Votre projet
         </label>
         <textarea
           id="message"
@@ -130,47 +124,8 @@ export function ContactForm({ initialService }: { initialService?: string }) {
       ) : null}
 
       <button type="submit" disabled={status === "sending"} className="btn btn-primary w-full disabled:opacity-60">
-        {status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}
+        {status === "sending" ? "Envoi en cours…" : "Demander mon devis"}
       </button>
     </form>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type = "text",
-  required,
-  autoComplete,
-  icon: Icon,
-}: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
-  autoComplete?: string;
-  icon?: (props: { className?: string }) => React.ReactElement;
-}) {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-[var(--color-ink)]">
-        {label}
-      </label>
-      <div className="relative">
-        {Icon ? (
-          <Icon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-ink-soft)]" />
-        ) : null}
-        <input
-          id={name}
-          name={name}
-          type={type}
-          required={required}
-          autoComplete={autoComplete}
-          className={`w-full rounded-lg border border-[var(--color-line)] py-3 text-sm transition focus:border-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/15 ${
-            Icon ? "pl-10 pr-4" : "px-4"
-          }`}
-        />
-      </div>
-    </div>
   );
 }

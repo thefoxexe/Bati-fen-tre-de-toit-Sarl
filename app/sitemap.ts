@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map((service) => `/services/${service.slug}`),
     "/portfolio",
     "/faq",
+    "/devis",
     "/contact",
     "/mentions-legales",
     "/politique-de-confidentialite",

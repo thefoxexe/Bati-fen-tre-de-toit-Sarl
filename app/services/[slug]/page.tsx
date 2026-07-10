@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { services, serviceAreas, site } from "@/lib/site";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
-import { ContactForm } from "@/components/ContactForm";
+import { DevisForm } from "@/components/DevisForm";
 import { Reveal } from "@/components/Reveal";
 import { CheckIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
@@ -210,7 +210,7 @@ export default async function ServicePage({
           <h2 className="text-xl font-semibold text-[var(--color-ink)]">Demander un devis pour ce service</h2>
           <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Réponse sous 48h ouvrées.</p>
           <div className="mt-8">
-            <ContactForm initialService={service.slug} />
+            <DevisForm initialService={service.slug} />
           </div>
         </div>
       </section>

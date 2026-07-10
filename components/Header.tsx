@@ -27,7 +27,7 @@ export function Header() {
 
           <div className="hidden md:block">
             <Magnetic strength={8}>
-              <Link href="/contact" className="btn btn-primary btn-sm">
+              <Link href="/devis" className="btn btn-primary btn-sm">
                 Devis gratuit
               </Link>
             </Magnetic>
