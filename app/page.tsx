@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, ShieldIcon } from "@/components/icons";
-import { HeroArt } from "@/components/HeroArt";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
@@ -100,21 +100,26 @@ export default function HomePage() {
           </div>
 
           <div className="hero-fade relative pb-10 md:pb-0" style={{ animationDelay: "200ms" }}>
-            <HeroArt className="mx-auto w-full max-w-md" />
+            <PlaceholderMedia onDark label="Photo à ajouter" className="mx-auto aspect-[4/3] w-full max-w-md rounded-2xl" />
             <div className="absolute -bottom-2 left-1/2 w-[88%] -translate-x-1/2 rounded-2xl bg-white p-4 text-left shadow-2xl shadow-black/30 md:-bottom-6 md:left-4 md:w-auto md:max-w-[15rem] md:translate-x-0">
-              <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
-                  <ShieldIcon className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold leading-tight text-[var(--color-ink)]">
-                    Partenaire agréé Velux Expert
-                  </p>
-                  <p className="mt-0.5 text-xs text-[var(--color-ink-soft)]">
-                    Pose conforme aux standards du fabricant
-                  </p>
-                </div>
-              </div>
+              <a
+                href="https://www.velux.ch"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Velux Expert — velux.ch (nouvel onglet)"
+                className="block"
+              >
+                <Image
+                  src="/velux-expert.png"
+                  alt="Velux Expert"
+                  width={3235}
+                  height={463}
+                  className="h-auto w-full"
+                />
+              </a>
+              <p className="mt-2 text-xs text-[var(--color-ink-soft)]">
+                Partenaire agréé — pose conforme aux standards du fabricant
+              </p>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Reveal } from "@/components/Reveal";
@@ -42,10 +43,15 @@ export default function AboutPage() {
           vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
           rendez-vous à la dernière finition.
         </p>
-        <p className="mt-6 inline-flex items-center gap-2 border border-[var(--color-line)] px-4 py-2 text-sm font-medium text-[var(--color-ink)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
-          Partenaire agréé Velux Expert
-        </p>
+        <a
+          href="https://www.velux.ch"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Velux Expert — velux.ch (nouvel onglet)"
+          className="mt-6 inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
+        >
+          <Image src="/velux-expert.png" alt="Velux Expert" width={3235} height={463} className="h-5 w-auto" />
+        </a>
       </section>
 
       <Reveal>
