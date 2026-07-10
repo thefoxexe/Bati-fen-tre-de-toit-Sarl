@@ -29,8 +29,8 @@ const display = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline} en Suisse`,
-    template: `%s — ${site.shortName}`,
+    default: `${site.name} - ${site.tagline} en Suisse`,
+    template: `%s - ${site.shortName}`,
   },
   description: `Installateur Velux agréé à ${site.address.city} et dans tout le canton de Vaud : fenêtres de toit, verrières, stores et domotique. Devis gratuit sous 48h.`,
   alternates: {

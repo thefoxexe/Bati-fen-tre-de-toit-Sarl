@@ -43,7 +43,7 @@ export default function ContactPage() {
             Disponibilité
           </p>
           <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
-            Du lundi au vendredi — réponse sous 24 à 48h.
+            Du lundi au vendredi, réponse sous 24 à 48h.
           </p>
         </div>
 

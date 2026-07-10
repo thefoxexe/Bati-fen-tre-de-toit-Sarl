@@ -122,8 +122,8 @@ export default function MentionsLegalesPage() {
         <p className="mt-6 border-t border-[var(--color-line)] pt-5 text-sm text-[var(--color-ink-soft)]">
           Le contenu et les droits sur ce site appartiennent à {site.name}. Sa conception, sa
           réalisation graphique et sa maintenance technique sont en revanche assurées par Webalp
-          (voir « Hébergement » ci-dessous) — c&rsquo;est ce prestataire qu&rsquo;il convient de
-          contacter pour toute modification technique du site.
+          (voir « Hébergement » ci-dessous), le prestataire à contacter pour toute modification
+          technique du site.
         </p>
       </div>
 

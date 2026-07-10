@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       from: `Site ${site.name} <onboarding@resend.dev>`,
       to: toAddress,
       reply_to: email,
-      subject: `Nouvelle demande de devis — ${name}`,
+      subject: `Nouvelle demande de devis : ${name}`,
       text: emailBody,
     }),
   });

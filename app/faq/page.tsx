@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "FAQ",
-  description: `Questions fréquentes sur les fenêtres de toit, stores et solutions Velux — ${site.shortName}, partenaire agréé Velux Expert.`,
+  description: `Questions fréquentes sur les fenêtres de toit, stores et solutions Velux, par ${site.shortName}, partenaire agréé Velux Expert.`,
   alternates: { canonical: "/faq" },
 };
 

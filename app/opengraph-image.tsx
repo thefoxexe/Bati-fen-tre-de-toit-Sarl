@@ -41,7 +41,7 @@ export default function OpengraphImage() {
           {site.tagline}
         </div>
         <div style={{ display: "flex", fontSize: 24, marginTop: 28, color: "rgba(255,255,255,0.6)" }}>
-          Partenaire agréé Velux Expert — Canton de Vaud
+          Partenaire agréé Velux Expert, canton de Vaud
         </div>
       </div>
     ),

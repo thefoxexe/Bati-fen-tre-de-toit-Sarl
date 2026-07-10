@@ -55,7 +55,7 @@ export function Footer() {
             <Link href="/politique-de-confidentialite" className="hover:text-white/70">
               Politique de confidentialité
             </Link>
-            <p>Suisse — sur devis</p>
+            <p>Canton de Vaud</p>
           </div>
         </div>
       </div>

@@ -106,7 +106,7 @@ export default function HomePage() {
                 href="https://www.velux.ch"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Velux Expert — velux.ch (nouvel onglet)"
+                aria-label="Velux Expert (velux.ch, nouvel onglet)"
                 className="block"
               >
                 <Image
@@ -118,7 +118,7 @@ export default function HomePage() {
                 />
               </a>
               <p className="mt-2 text-xs text-[var(--color-ink-soft)]">
-                Partenaire agréé — pose conforme aux standards du fabricant
+                Partenaire agréé, pose conforme aux standards du fabricant
               </p>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-2">
             <SectionHeading
               bold="Un artisan à votre écoute."
-              rest="Chaque toiture a ses contraintes — on les étudie avant de sortir le premier outil."
+              rest="Chaque toiture a ses contraintes. On les étudie avant de sortir le premier outil."
             />
             <div>
               <p className="text-base text-[var(--color-ink-soft)]">

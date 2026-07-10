@@ -211,7 +211,7 @@ export const services: Service[] = [
     title: "Verrières modulaires Skylight",
     summary: "Verrières modulaires sur mesure pour combles, vérandas ou extensions, en configuration fixe ou ouvrante.",
     description:
-      "Les verrières modulaires Skylight s'assemblent en ligne pour couvrir de grandes surfaces vitrées — idéal pour une extension, une véranda ou un couloir de toiture. Chaque module peut être fixe ou ouvrant, avec une étanchéité continue sur l'ensemble de la verrière.",
+      "Les verrières modulaires Skylight s'assemblent en ligne pour couvrir de grandes surfaces vitrées, une solution idéale pour une extension, une véranda ou un couloir de toiture. Chaque module peut être fixe ou ouvrant, avec une étanchéité continue sur l'ensemble de la verrière.",
     avantages: [
       "Grandes surfaces vitrées grâce à l'assemblage modulaire",
       "Modules fixes ou ouvrants selon les besoins",

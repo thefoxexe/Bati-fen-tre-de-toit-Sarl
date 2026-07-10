@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const values = [
   {
     title: "Sérieux & précision",
-    text: "Une pose soignée, des finitions propres et une étanchéité durable — sur chaque chantier, sans exception.",
+    text: "Une pose soignée, des finitions propres et une étanchéité durable, sur chaque chantier, sans exception.",
   },
   {
     title: "Proximité & réactivité",
@@ -48,7 +48,7 @@ export default function AboutPage() {
           href="https://www.velux.ch"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Velux Expert — velux.ch (nouvel onglet)"
+          aria-label="Velux Expert (velux.ch, nouvel onglet)"
           className="mt-6 inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
         >
           <Image src="/velux-expert.png" alt="Velux Expert" width={3235} height={463} className="h-5 w-auto" />
