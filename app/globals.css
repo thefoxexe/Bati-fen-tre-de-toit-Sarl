@@ -226,35 +226,21 @@ details.faq[open] > summary .faq-icon {
   transform: rotate(45deg);
 }
 
-/* Mobile nav via checkbox hack, no client JS required */
+/* Mobile nav via checkbox hack, no client JS required — full-screen takeover panel */
 .nav-toggle {
   display: none;
-}
-.nav-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  background: rgba(23, 20, 15, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 .nav-panel {
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.22s;
-}
-.nav-toggle:checked ~ .nav-backdrop {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.25s ease;
+  transform: scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.25s;
 }
 .nav-toggle:checked ~ .nav-panel {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :focus-visible {
@@ -412,7 +398,6 @@ details.faq[open] > summary .faq-icon {
   .page-enter {
     animation: none;
   }
-  .nav-backdrop,
   .nav-panel {
     transition: none;
   }
