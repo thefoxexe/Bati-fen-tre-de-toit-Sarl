@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline} en Suisse`,
     template: `%s — ${site.shortName}`,
   },
-  description: `Fenêtres de toit, verrières, stores et solutions domotiques Velux dans le canton de Vaud (${serviceAreas.join(", ")}). Partenaire agréé Velux Expert, devis gratuit sous 48h.`,
+  description: `Installateur Velux agréé à ${site.address.city} et dans tout le canton de Vaud : fenêtres de toit, verrières, stores et domotique. Devis gratuit sous 48h.`,
   alternates: {
     canonical: "/",
   },
@@ -47,6 +47,7 @@ const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "RoofingContractor",
   name: site.name,
+  image: `${site.url}/opengraph-image`,
   telephone: site.phoneHref.replace("tel:", ""),
   email: site.email,
   url: site.url,

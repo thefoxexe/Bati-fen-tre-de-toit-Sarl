@@ -5,6 +5,7 @@ import { services, serviceAreas, site } from "@/lib/site";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { DevisForm } from "@/components/DevisForm";
 import { Reveal } from "@/components/Reveal";
+import { Magnetic } from "@/components/Magnetic";
 import { CheckIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -25,9 +26,12 @@ export async function generateMetadata({
   const service = getService(slug);
   if (!service) return {};
 
+  // Kept under ~160 characters (the practical limit before Google truncates
+  // the snippet in search results) — service.summary is at most 130 chars,
+  // this suffix adds ~30, so every combination stays inside the budget.
   return {
     title: service.title,
-    description: `${service.summary} Intervention dans le canton de Vaud (${serviceAreas.slice(0, 3).join(", ")}...) par ${site.shortName}, partenaire agréé Velux Expert.`,
+    description: `${service.summary} Velux Expert, devis gratuit.`,
     alternates: {
       canonical: `/services/${service.slug}`,
     },
@@ -89,7 +93,7 @@ export default async function ServicePage({
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
 
       {/* Hero */}
-      <section style={{ background: "var(--color-hero)" }} className="text-white">
+      <section style={{ background: "var(--color-hero)" }} className="grain text-white">
         <div className="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[auto_1fr] md:items-center md:px-8 md:py-20">
           <PlaceholderMedia onDark className="h-24 w-24" />
           <div>
@@ -97,12 +101,16 @@ export default async function ServicePage({
             <h1 className="balance text-3xl font-semibold leading-tight text-white md:text-4xl">{service.title}</h1>
             <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#devis" className="btn btn-primary">
-                Demander un devis gratuit
-              </a>
-              <a href={site.phoneHref} className="btn btn-on-photo">
-                {site.phoneDisplay}
-              </a>
+              <Magnetic>
+                <a href="#devis" className="btn btn-primary">
+                  Demander un devis gratuit
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a href={site.phoneHref} className="btn btn-on-photo">
+                  {site.phoneDisplay}
+                </a>
+              </Magnetic>
             </div>
           </div>
         </div>
@@ -156,18 +164,18 @@ export default async function ServicePage({
         <section className="border-t border-[var(--color-line)] py-16 md:py-20">
           <div className="mx-auto max-w-3xl px-5 md:px-8">
             <h2 className="text-xl font-semibold text-[var(--color-ink)]">Réalisations</h2>
-            <div className="mt-6 grid grid-cols-2 gap-px bg-[var(--color-line)] sm:grid-cols-3">
-              {[1, 2, 3].map((i) => (
-                <PlaceholderMedia key={i} label="Photo à venir" className="aspect-square w-full border-none" />
-              ))}
-            </div>
+            <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
+              Nos prochains chantiers de {service.title.toLowerCase()} viendront illustrer cette
+              section.
+            </p>
+            <PlaceholderMedia label="Photos à venir" className="mt-6 aspect-[21/9] w-full" />
           </div>
         </section>
       </Reveal>
 
       {/* CTA band */}
       <Reveal>
-        <section className="section-dark">
+        <section className="section-dark grain">
           <div className="mx-auto flex max-w-3xl flex-col items-start gap-5 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-8">
             <p className="text-lg font-semibold text-white">Un projet de {service.title.toLowerCase()} ?</p>
             <div className="flex flex-wrap gap-3">

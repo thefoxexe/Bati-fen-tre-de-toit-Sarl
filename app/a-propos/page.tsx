@@ -4,11 +4,12 @@ import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { Reveal } from "@/components/Reveal";
+import { Magnetic } from "@/components/Magnetic";
 import { serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: `Découvrez ${site.name}, votre installateur de fenêtres de toit.`,
+  description: `${site.name} : installateur Velux agréé à ${site.address.city}, canton de Vaud. Découvrez notre savoir-faire et nos valeurs.`,
   alternates: { canonical: "/a-propos" },
 };
 
@@ -71,7 +72,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal>
-        <section className="section-dark">
+        <section className="section-dark grain">
           <div className="mx-auto max-w-5xl px-5 py-16 md:px-8">
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
               <div>
@@ -82,9 +83,11 @@ export default function AboutPage() {
                   Basés dans le canton de Vaud, nous intervenons notamment à :
                 </p>
               </div>
-              <Link href="/contact" className="btn btn-primary shrink-0">
-                Nous contacter
-              </Link>
+              <Magnetic>
+                <Link href="/contact" className="btn btn-primary shrink-0">
+                  Nous contacter
+                </Link>
+              </Magnetic>
             </div>
             <ul className="mt-8 flex flex-wrap gap-2.5">
               {serviceAreas.map((city) => (
