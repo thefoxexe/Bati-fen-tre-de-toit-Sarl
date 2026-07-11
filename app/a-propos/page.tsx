@@ -13,6 +13,21 @@ export const metadata: Metadata = {
   alternates: { canonical: "/a-propos" },
 };
 
+const lightBenefits = [
+  {
+    title: "Un bienfait pour la santé",
+    text: "La lumière naturelle aide à réguler le rythme circadien, réduit le stress et améliore l'humeur au quotidien.",
+  },
+  {
+    title: "Conçues pour en profiter",
+    text: "Les fenêtres de toit Velux apportent un maximum de lumière naturelle, dans une large gamme de dimensions et de styles.",
+  },
+  {
+    title: "Un accompagnement de A à Z",
+    text: "De l'étude de votre comble à la pose finale, nous vous conseillons le modèle le plus adapté à votre intérieur.",
+  },
+];
+
 const values = [
   {
     title: "Sérieux & précision",
@@ -38,21 +53,26 @@ export default function AboutPage() {
           L&rsquo;installation de fenêtres de toit, un métier de précision.
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-ink-soft)]">
-          {site.name}{" "}
-          accompagne les particuliers dans leurs projets de fenêtres de toit : remplacement,
-          stores Velux, entretien et dépannage. Notre approche : comprendre votre projet,
-          vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
+          Basée à {site.address.city}, dans le canton de Vaud, {site.name} accompagne depuis{" "}
+          {site.foundedYear} les particuliers dans leurs projets de fenêtres de toit :
+          remplacement, stores Velux, entretien et dépannage. Notre approche : comprendre votre
+          projet, vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
           rendez-vous à la dernière finition.
         </p>
-        <a
-          href="https://www.velux.ch"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Velux Expert (velux.ch, nouvel onglet)"
-          className="mt-6 inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
-        >
-          <Image src="/velux-expert.png" alt="Velux Expert" width={3235} height={463} className="h-5 w-auto" />
-        </a>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <span className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
+            Depuis {site.foundedYear}
+          </span>
+          <a
+            href="https://www.velux.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Velux Expert (velux.ch, nouvel onglet)"
+            className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
+          >
+            <Image src="/velux-expert.png" alt="Velux Expert" width={3235} height={463} className="h-5 w-auto" />
+          </a>
+        </div>
       </section>
 
       <Reveal>
@@ -64,6 +84,22 @@ export default function AboutPage() {
                 <div key={value.title} className="py-6 md:px-8 md:py-0 md:first:pl-0">
                   <h3 className="text-base font-semibold text-[var(--color-ink)]">{value.title}</h3>
                   <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{value.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] py-20 md:py-28">
+          <div className="mx-auto max-w-5xl px-5 md:px-8">
+            <SectionHeading eyebrow="Pourquoi la lumière naturelle" bold="Plus qu'un confort," rest="un vrai bienfait au quotidien." />
+            <div className="mt-12 grid gap-8 sm:grid-cols-3">
+              {lightBenefits.map((item) => (
+                <div key={item.title}>
+                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{item.title}</h3>
+                  <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{item.text}</p>
                 </div>
               ))}
             </div>

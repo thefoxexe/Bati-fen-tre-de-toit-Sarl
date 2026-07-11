@@ -15,6 +15,9 @@ export const site = {
   veluxExpert: true,
   legalForm: "Sàrl",
   manager: "Hasan Bati",
+  foundedYear: 2018,
+  // Verified against the client's existing site (real handle, not invented).
+  instagramUrl: "https://www.instagram.com/bati_fenetre_de_toit.ch/",
   address: {
     street: "Route de Sorge 2",
     postalCode: "1030",
@@ -103,7 +106,7 @@ export const services: Service[] = [
     title: "Installation de stores Velux",
     summary: "Occultation, protection solaire et confort d'été avec les stores et volets roulants Velux.",
     description:
-      "Pose de stores occultants, stores pare-soleil ou volets roulants Velux, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant. Une solution simple pour gérer la lumière et la chaleur selon la saison.",
+      "Pose de stores occultants, stores pare-soleil ou volets roulants Velux, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant. Selon vos besoins : occulter pour la nuit, se protéger de la chaleur, isoler du froid, tamiser et décorer, ou simplement préserver votre intimité.",
     avantages: [
       "Confort d'été : jusqu'à 94% de chaleur solaire réfléchie",
       "Occultation totale pour les chambres",

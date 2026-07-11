@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site } from "@/lib/site";
 import { Logo } from "@/components/Logo";
+import { InstagramIcon } from "@/components/icons";
 
 export function Footer() {
   return (
@@ -19,6 +20,15 @@ export function Footer() {
               {site.email}
             </a>
           </p>
+          <a
+            href={site.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bati Fenêtre de Toit sur Instagram (nouvel onglet)"
+            className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-white/40 hover:text-white"
+          >
+            <InstagramIcon className="h-4 w-4" />
+          </a>
         </div>
 
         <div>
