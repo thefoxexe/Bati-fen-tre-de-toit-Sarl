@@ -49,6 +49,12 @@ export const nav = [
 
 export type FaqItem = { question: string; answer: string };
 
+export type ProductGroup = {
+  title: string;
+  subtitle: string;
+  items: { name: string; text: string }[];
+};
+
 export type Service = {
   slug: string;
   title: string;
@@ -56,6 +62,9 @@ export type Service = {
   description: string;
   avantages: string[];
   etapes: string[];
+  /** Optional: only "installation-stores-velux" has enough distinct real
+   * product variants (from the client's existing site) to warrant this. */
+  productGroups?: ProductGroup[];
   faq: FaqItem[];
 };
 
@@ -119,6 +128,62 @@ export const services: Service[] = [
       "Devis et commande",
       "Pose sans percement, en général sous une heure",
     ],
+    productGroups: [
+      {
+        title: "Occulter la lumière",
+        subtitle: "Pour une bonne nuit de sommeil ou une sieste réparatrice en journée.",
+        items: [
+          {
+            name: "Store occultant",
+            text: "Obscurcit la pièce à toute heure du jour : idéal pour les chambres d'enfant et à coucher.",
+          },
+          {
+            name: "Volet roulant",
+            text: "Jusqu'à 92% de réduction de chaleur, obscurcissement complet, réduction du bruit de pluie et de grêle, meilleure isolation thermique.",
+          },
+          {
+            name: "Store énergie",
+            text: "Un revêtement spécial qui garde la chaleur en hiver tout en obscurcissant la pièce.",
+          },
+        ],
+      },
+      {
+        title: "Tamiser la lumière",
+        subtitle: "Une lumière douce et agréable à tout moment de la journée.",
+        items: [
+          {
+            name: "Store vénitien",
+            text: "Facile d'entretien et résistant à l'humidité, il permet de régler l'ombre et la lumière comme vous le souhaitez.",
+          },
+          {
+            name: "Store plissé",
+            text: "Une lumière douce et élégante, réglable, avec vue vers l'extérieur conservée et des accents décoratifs.",
+          },
+          {
+            name: "Store confort",
+            text: "Protège des regards indiscrets, atténue la lumière vive du soleil et évite la décoloration de vos meubles.",
+          },
+        ],
+      },
+      {
+        title: "Protéger du chaud et des insectes",
+        subtitle: "Une température confortable toute l'année, aérer sans les moustiques.",
+        items: [
+          {
+            name: "Volet roulant",
+            text: "Jusqu'à 92% de réduction de chaleur et une meilleure isolation thermique, en plus de l'obscurcissement.",
+          },
+          {
+            name: "Marquisette",
+            text: "Montée à l'extérieur, elle arrête les rayons du soleil avant qu'ils ne frappent la vitre : jusqu'à 74% de réduction de chaleur.",
+          },
+          {
+            name: "Moustiquaire",
+            text: "Montée sur le plafond, à commande manuelle : protection à 100% contre les insectes.",
+          },
+        ],
+      },
+    ],
     faq: [
       {
         question: "Les stores Velux s'adaptent-ils à toutes les fenêtres de toit ?",
@@ -160,11 +225,11 @@ export const services: Service[] = [
     title: "Réparation / dépannage",
     summary: "Intervention rapide en cas de fuite, de blocage ou de vitrage cassé.",
     description:
-      "Diagnostic sur place et réparation ou remplacement des pièces défectueuses : vitrage, mécanisme d'ouverture, joints d'étanchéité. Intervention rapide pour éviter l'aggravation des dégâts.",
+      "Diagnostic sur place et réparation ou remplacement des pièces défectueuses : vitrage, mécanisme d'ouverture, joints d'étanchéité, moteur ou télécommande. Intervention rapide pour éviter l'aggravation des dégâts.",
     avantages: [
       "Intervention rapide, y compris en urgence",
       "Diagnostic précis avant toute réparation",
-      "Pièces compatibles Velux",
+      "Pièces compatibles Velux, y compris les moteurs et commandes",
       "Devis clair avant intervention",
     ],
     etapes: [
@@ -177,6 +242,10 @@ export const services: Service[] = [
       {
         question: "Ma fenêtre de toit fuit, que faire en urgence ?",
         answer: "Contactez-nous au plus vite par téléphone : nous priorisons les urgences pour limiter les dégâts en attendant l'intervention.",
+      },
+      {
+        question: "Mon store ou ma fenêtre motorisée ne répond plus, que faire ?",
+        answer: "Un problème sur un produit électrique Velux (moteur, télécommande, capteur solaire) se diagnostique généralement sur place : batterie, capteur ou moteur défectueux. Contactez-nous pour un dépannage.",
       },
     ],
   },

@@ -140,6 +140,33 @@ export default async function ServicePage({
         </section>
       </Reveal>
 
+      {/* Gammes de produits (stores : occulter / tamiser / protéger) */}
+      {service.productGroups ? (
+        <Reveal>
+          <section className="border-t border-[var(--color-line)] py-16 md:py-20">
+            <div className="mx-auto max-w-5xl px-5 md:px-8">
+              <h2 className="text-xl font-semibold text-[var(--color-ink)]">Nos gammes de stores</h2>
+              <div className="mt-8 grid gap-10 md:grid-cols-3">
+                {service.productGroups.map((group) => (
+                  <div key={group.title}>
+                    <h3 className="text-base font-semibold text-[var(--color-ink)]">{group.title}</h3>
+                    <p className="mt-1.5 text-sm text-[var(--color-ink-soft)]">{group.subtitle}</p>
+                    <ul className="mt-5 space-y-4">
+                      {group.items.map((item) => (
+                        <li key={item.name}>
+                          <p className="text-sm font-semibold text-[var(--color-ink)]">{item.name}</p>
+                          <p className="mt-1 text-sm text-[var(--color-ink-soft)]">{item.text}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </Reveal>
+      ) : null}
+
       {/* Déroulement */}
       <Reveal>
         <section className="border-t border-[var(--color-line)] py-16 md:py-20">
