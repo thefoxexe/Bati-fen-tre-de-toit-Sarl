@@ -68,16 +68,16 @@ export function Header() {
           context, instead of being trapped inside header's own stacking
           context, where it would lose to BottomNav despite the higher z-index. */}
       <div
-        className={`nav-panel fixed inset-0 z-50 flex flex-col bg-[var(--color-hero)] text-white md:hidden ${open ? "is-open" : ""}`}
+        className={`nav-panel fixed inset-0 z-50 flex flex-col bg-white text-[var(--color-ink)] md:hidden ${open ? "is-open" : ""}`}
         aria-hidden={!open}
       >
         <div className="flex items-center justify-between px-5 py-5">
-          <Logo onDark />
+          <Logo />
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Fermer le menu"
-            className="hamburger is-open flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
+            className="hamburger is-open flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)]"
           >
             <span />
             <span />
@@ -91,7 +91,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="border-b border-white/10 py-4 text-3xl font-medium"
+              className="border-b border-[var(--color-line)] py-4 text-3xl font-medium"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {item.label}
@@ -99,12 +99,12 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="space-y-2 border-t border-white/10 px-8 py-8 text-sm text-white/60">
-          <a href={site.phoneHref} className="flex items-center gap-3 text-white/80">
+        <div className="space-y-2 border-t border-[var(--color-line)] px-8 py-8 text-sm text-[var(--color-ink-soft)]">
+          <a href={site.phoneHref} className="flex items-center gap-3 text-[var(--color-ink)]">
             <PhoneIcon className="h-4 w-4 text-[var(--color-accent)]" />
             {site.phoneDisplay}
           </a>
-          <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-white/80">
+          <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-[var(--color-ink)]">
             <MailIcon className="h-4 w-4 text-[var(--color-accent)]" />
             {site.email}
           </a>
