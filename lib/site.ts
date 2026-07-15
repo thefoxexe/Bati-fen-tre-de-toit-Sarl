@@ -16,6 +16,8 @@ export const site = {
   legalForm: "Sàrl",
   manager: "Hasan Bati",
   foundedYear: 2018,
+  // From the client's own copy: Hasan Bati's hands-on experience predates the company's founding.
+  experienceSinceYear: 2010,
   // Verified against the client's existing site (real handle, not invented).
   instagramUrl: "https://www.instagram.com/bati_fenetre_de_toit.ch/",
   address: {
@@ -74,7 +76,7 @@ export const services: Service[] = [
     title: "Remplacement de fenêtres de toit",
     summary: "Remplacez votre ancienne fenêtre de toit par un modèle Velux neuf : plus d'isolation, moins de bruit, une étanchéité durable.",
     description:
-      "Partenaire certifié Velux Expert installé à Bussigny/Crissier, nous intervenons rapidement dans tout l'arc lémanique (Lausanne, Morges, Riviera, La Côte) pour remplacer votre ancienne fenêtre de toit par un modèle Velux de nouvelle génération. Une fenêtre de toit a une durée de vie de 20 à 25 ans : condensation entre les vitres, bois qui s'abîme ou difficulté à la fermeture sont les signes qu'il est temps de la changer, avant les pertes d'énergie ou les infiltrations.",
+      "Partenaire certifié Velux Expert basé à Bussigny, aux portes de Crissier, nous intervenons rapidement dans tout l'arc lémanique (Lausanne, Morges, Riviera, La Côte) pour remplacer votre ancienne fenêtre de toit par un modèle Velux de nouvelle génération. Une fenêtre de toit a une durée de vie de 20 à 25 ans : condensation entre les vitres, bois qui s'abîme ou difficulté à la fermeture sont les signes qu'il est temps de la changer, avant les pertes d'énergie ou les infiltrations.",
     avantages: [
       "Économie d'énergie : isolation thermique renforcée, la chaleur reste en hiver et la fraîcheur extérieure est stoppée",
       "Confort d'été : vitrages à contrôle solaire, la chaleur sous les combles est drastiquement réduite",
@@ -111,14 +113,47 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "entretien-reparation",
+    title: "Entretien et réparation",
+    summary: "Contrôle, entretien et dépannage rapide de vos fenêtres de toit, stores et volets roulants Velux, vitrages cassés compris.",
+    description:
+      "Une fenêtre de toit bien entretenue dure plus longtemps et évite les mauvaises surprises. Nous assurons le contrôle et la maintenance de vos fenêtres de toit, stores et volets roulants Velux, et intervenons rapidement en cas de panne : vitrage cassé, fuite, blocage mécanique ou produit motorisé qui ne répond plus.",
+    avantages: [
+      "Contrôle complet : vitrage, joints d'étanchéité, mécanisme, raccords de toiture",
+      "Intervention rapide en cas de panne, y compris en urgence",
+      "Remplacement des vitrages cassés et des pièces défectueuses",
+      "Diagnostic sur place avant toute réparation, devis clair",
+    ],
+    etapes: [
+      "Prise de contact et description du problème ou de la demande d'entretien",
+      "Diagnostic complet sur place : vitrage, joints, mécanisme, raccords",
+      "Devis clair avant toute intervention",
+      "Réparation ou remplacement des pièces nécessaires, puis contrôle final",
+    ],
+    faq: [
+      {
+        question: "À quelle fréquence faut-il entretenir une fenêtre de toit ?",
+        answer: "Un contrôle tous les 2 à 3 ans est recommandé, ou après un épisode météo marquant (grêle, tempête).",
+      },
+      {
+        question: "Ma fenêtre de toit fuit, que faire en urgence ?",
+        answer: "Contactez-nous au plus vite par téléphone : nous priorisons les urgences pour limiter les dégâts en attendant l'intervention.",
+      },
+      {
+        question: "Mon store ou ma fenêtre motorisée ne répond plus, que faire ?",
+        answer: "Un problème sur un produit électrique Velux (moteur, télécommande, capteur solaire) se diagnostique généralement sur place : batterie, capteur ou moteur défectueux. Contactez-nous pour un dépannage.",
+      },
+    ],
+  },
+  {
     slug: "installation-stores-velux",
-    title: "Installation de stores Velux",
+    title: "Stores et volets roulants Velux",
     summary: "Occultation, protection solaire et confort d'été avec les stores et volets roulants Velux.",
     description:
       "Pose de stores occultants, stores pare-soleil ou volets roulants Velux, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant. Selon vos besoins : occulter pour la nuit, se protéger de la chaleur, isoler du froid, tamiser et décorer, ou simplement préserver votre intimité.",
     avantages: [
-      "Confort d'été : jusqu'à 94% de chaleur solaire réfléchie",
-      "Occultation totale pour les chambres",
+      "Jusqu'à 92% de réduction de chaleur avec le volet roulant extérieur",
+      "Occultation totale pour les chambres, avec les stores obscurcissants",
       "Compatibles avec la plupart des fenêtres de toit existantes",
       "Version motorisée disponible (télécommande, capteur solaire)",
     ],
@@ -196,65 +231,11 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "entretien-maintenance",
-    title: "Entretien et maintenance",
-    summary: "Contrôle et entretien régulier pour prolonger la durée de vie de vos fenêtres de toit.",
-    description:
-      "Contrôle des joints d'étanchéité, du mécanisme d'ouverture, du vitrage et des raccords de toiture. Un entretien régulier évite les infiltrations et les pannes prématurées.",
-    avantages: [
-      "Prévient les infiltrations avant qu'elles n'apparaissent",
-      "Prolonge la durée de vie de vos équipements",
-      "Contrôle complet : vitrage, joints, mécanisme, raccords",
-      "Rapport détaillé après intervention",
-    ],
-    etapes: [
-      "Diagnostic complet de la fenêtre et de ses raccords",
-      "Nettoyage et contrôle du mécanisme d'ouverture",
-      "Reprise des joints d'étanchéité si nécessaire",
-      "Rapport et recommandations",
-    ],
-    faq: [
-      {
-        question: "À quelle fréquence faut-il entretenir une fenêtre de toit ?",
-        answer: "Un contrôle tous les 2 à 3 ans est recommandé, ou après un épisode météo marquant (grêle, tempête).",
-      },
-    ],
-  },
-  {
-    slug: "reparation-depannage",
-    title: "Réparation / dépannage",
-    summary: "Intervention rapide en cas de fuite, de blocage ou de vitrage cassé.",
-    description:
-      "Diagnostic sur place et réparation ou remplacement des pièces défectueuses : vitrage, mécanisme d'ouverture, joints d'étanchéité, moteur ou télécommande. Intervention rapide pour éviter l'aggravation des dégâts.",
-    avantages: [
-      "Intervention rapide, y compris en urgence",
-      "Diagnostic précis avant toute réparation",
-      "Pièces compatibles Velux, y compris les moteurs et commandes",
-      "Devis clair avant intervention",
-    ],
-    etapes: [
-      "Prise de contact et description du problème",
-      "Diagnostic sur place",
-      "Devis de réparation",
-      "Intervention et contrôle final",
-    ],
-    faq: [
-      {
-        question: "Ma fenêtre de toit fuit, que faire en urgence ?",
-        answer: "Contactez-nous au plus vite par téléphone : nous priorisons les urgences pour limiter les dégâts en attendant l'intervention.",
-      },
-      {
-        question: "Mon store ou ma fenêtre motorisée ne répond plus, que faire ?",
-        answer: "Un problème sur un produit électrique Velux (moteur, télécommande, capteur solaire) se diagnostique généralement sur place : batterie, capteur ou moteur défectueux. Contactez-nous pour un dépannage.",
-      },
-    ],
-  },
-  {
     slug: "fenetres-toit-plat",
     title: "Fenêtres pour toit plat",
-    summary: "Coupoles et fenêtres pour toits plats : lumière naturelle et ventilation pour vos combles ou extensions.",
+    summary: "Profitez pleinement de vos espaces sous toiture plate grâce aux fenêtres Velux dédiées : lumière naturelle et confort optimal.",
     description:
-      "Fourniture et pose de fenêtres et coupoles pour toits plats, avec une étanchéité adaptée à ce type de toiture. Une solution pour apporter de la lumière naturelle et de la ventilation à des combles, une extension ou un local sans possibilité de fenêtre verticale.",
+      "Velux propose des fenêtres spécifiquement conçues pour les toits plats, avec des performances d'isolation et d'étanchéité qui n'ont rien à envier aux modèles pour toiture inclinée. Une solution pour apporter de la lumière naturelle et profiter pleinement de vos combles, d'une extension ou d'un local sans possibilité de fenêtre verticale.",
     avantages: [
       "Lumière naturelle abondante, même sur une toiture plate",
       "Étanchéité renforcée, spécifique aux toitures plates",
@@ -275,93 +256,6 @@ export const services: Service[] = [
       {
         question: "Peut-on ouvrir une fenêtre de toit plat pour ventiler la pièce ?",
         answer: "Certains modèles sont ouvrants (manuellement ou de façon motorisée) et permettent une ventilation naturelle, en plus de l'apport de lumière.",
-      },
-    ],
-  },
-  {
-    slug: "verrieres-modulaires-skylight",
-    title: "Verrières modulaires Skylight",
-    summary: "Verrières modulaires sur mesure pour combles, vérandas ou extensions, en configuration fixe ou ouvrante.",
-    description:
-      "Les verrières modulaires Skylight s'assemblent en ligne pour couvrir de grandes surfaces vitrées, une solution idéale pour une extension, une véranda ou un couloir de toiture. Chaque module peut être fixe ou ouvrant, avec une étanchéité continue sur l'ensemble de la verrière.",
-    avantages: [
-      "Grandes surfaces vitrées grâce à l'assemblage modulaire",
-      "Modules fixes ou ouvrants selon les besoins",
-      "Étanchéité continue sur toute la longueur de la verrière",
-      "Solution sur mesure adaptée à votre projet",
-    ],
-    etapes: [
-      "Étude du projet et prise de mesures sur site",
-      "Devis détaillé avec plan d'implantation des modules",
-      "Pose de la structure et des modules vitrés",
-      "Étanchéité, finitions et contrôle qualité",
-    ],
-    faq: [
-      {
-        question: "Une verrière modulaire Skylight convient-elle pour une véranda ?",
-        answer: "Oui, c'est l'un des usages les plus courants : elle permet de couvrir une grande longueur de toiture vitrée avec un rendu continu et soigné.",
-      },
-      {
-        question: "Faut-il une autorisation pour installer une verrière modulaire ?",
-        answer: "Selon la taille du projet et la commune, une autorisation de construire est généralement nécessaire. Nous vous accompagnons dans cette démarche.",
-      },
-    ],
-  },
-  {
-    slug: "smart-home-velux-active",
-    title: "Smart home Velux Active",
-    summary: "Pilotez vos fenêtres, stores et volets Velux depuis votre smartphone avec la solution connectée Velux Active.",
-    description:
-      "Installation, configuration et programmation de la solution domotique Velux Active : vos fenêtres de toit, stores et volets roulants deviennent pilotables depuis une application, avec des capteurs qui ajustent automatiquement l'ouverture selon la température et la qualité de l'air intérieur.",
-    avantages: [
-      "Pilotage à distance des fenêtres, stores et volets depuis un smartphone",
-      "Capteurs de température et de qualité de l'air pour une gestion automatique",
-      "Programmation selon vos horaires ou la météo",
-      "Compatible avec la plupart des fenêtres et stores Velux motorisés",
-    ],
-    etapes: [
-      "Vérification de la compatibilité de vos équipements Velux",
-      "Installation de la passerelle et des capteurs Velux Active",
-      "Configuration de l'application et des automatisations",
-      "Programmation et prise en main avec vous",
-    ],
-    faq: [
-      {
-        question: "Faut-il remplacer mes fenêtres Velux pour installer Velux Active ?",
-        answer: "Non, si vos fenêtres et stores Velux sont déjà motorisés (version solaire ou électrique), la solution Velux Active s'y connecte directement sans remplacement.",
-      },
-      {
-        question: "Velux Active fonctionne-t-il sans connexion internet ?",
-        answer: "La passerelle nécessite une connexion Wi-Fi pour le pilotage à distance et les automatisations ; un fonctionnement manuel reste possible en cas de coupure.",
-      },
-    ],
-  },
-  {
-    slug: "puits-de-lumiere-sun-tunnel",
-    title: "Puits de lumière Sun-Tunnel",
-    summary: "Amenez la lumière naturelle dans les pièces sans accès direct au toit grâce au tunnel de lumière Velux.",
-    description:
-      "Le puits de lumière Sun-Tunnel capte la lumière naturelle en toiture et la redirige, via un conduit réfléchissant, vers une pièce qui n'a pas d'accès direct au toit : couloir, salle de bains, dressing. Une solution rapide à poser et sans gros travaux.",
-    avantages: [
-      "Apporte de la lumière naturelle aux pièces sans fenêtre possible",
-      "Installation rapide, sans gros travaux ni perte de surface habitable",
-      "Peu de déperdition de chaleur comparé à une fenêtre classique",
-      "Idéal pour couloirs, salles de bains, dressings ou buanderies",
-    ],
-    etapes: [
-      "Visite technique et repérage du meilleur tracé entre toiture et pièce",
-      "Devis avec choix du diamètre et de la longueur du tunnel",
-      "Pose de la coupole en toiture et du conduit réfléchissant",
-      "Finitions intérieures et contrôle de l'étanchéité",
-    ],
-    faq: [
-      {
-        question: "Un Sun-Tunnel éclaire-t-il autant qu'une vraie fenêtre ?",
-        answer: "Il apporte un éclairage naturel confortable adapté à des pièces de passage ou secondaires ; il ne remplace pas une fenêtre de toit dans une pièce de vie principale.",
-      },
-      {
-        question: "Peut-on installer un Sun-Tunnel sur tous les types de toiture ?",
-        answer: "Il s'adapte à la plupart des toitures inclinées et plates ; la longueur et le tracé du conduit sont étudiés selon la configuration de votre comble.",
       },
     ],
   },

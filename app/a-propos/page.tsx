@@ -53,15 +53,20 @@ export default function AboutPage() {
           L&rsquo;installation de fenêtres de toit, un métier de précision.
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-ink-soft)]">
-          Basée à {site.address.city}, dans le canton de Vaud, {site.name} accompagne depuis{" "}
-          {site.foundedYear} les particuliers dans leurs projets de fenêtres de toit :
-          remplacement, stores Velux, entretien et dépannage. Notre approche : comprendre votre
-          projet, vous conseiller sur le bon modèle, et livrer un travail soigné, du premier
-          rendez-vous à la dernière finition.
+          Basée à {site.address.city}, dans le canton de Vaud, {site.name}{" "}
+          accompagne les particuliers dans leurs projets de fenêtres de toit : remplacement,
+          stores Velux, entretien et dépannage. Spécialisé dans l&rsquo;installation de fenêtres de
+          toit depuis {site.experienceSinceYear}, Hasan Bati a fondé l&rsquo;entreprise en{" "}
+          {site.foundedYear} pour en faire un partenaire de confiance en Suisse Romande. Notre
+          approche : comprendre votre projet, vous conseiller sur le bon modèle, et livrer un
+          travail soigné, du premier rendez-vous à la dernière finition.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <span className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
-            Depuis {site.foundedYear}
+            Expérience depuis {site.experienceSinceYear}
+          </span>
+          <span className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
+            Entreprise depuis {site.foundedYear}
           </span>
           <a
             href="https://www.velux.ch"

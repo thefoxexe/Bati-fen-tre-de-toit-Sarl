@@ -151,10 +151,11 @@ export default async function ServicePage({
                   <div key={group.title}>
                     <h3 className="text-base font-semibold text-[var(--color-ink)]">{group.title}</h3>
                     <p className="mt-1.5 text-sm text-[var(--color-ink-soft)]">{group.subtitle}</p>
-                    <ul className="mt-5 space-y-4">
+                    <ul className="mt-5 space-y-5">
                       {group.items.map((item) => (
                         <li key={item.name}>
-                          <p className="text-sm font-semibold text-[var(--color-ink)]">{item.name}</p>
+                          <PlaceholderMedia label="Photo à venir" className="aspect-[4/3] w-full" />
+                          <p className="mt-3 text-sm font-semibold text-[var(--color-ink)]">{item.name}</p>
                           <p className="mt-1 text-sm text-[var(--color-ink-soft)]">{item.text}</p>
                         </li>
                       ))}
