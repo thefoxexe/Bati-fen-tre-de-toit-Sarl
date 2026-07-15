@@ -241,21 +241,60 @@ details.faq[open] > summary .faq-icon {
   transform: rotate(45deg);
 }
 
-/* Mobile nav via checkbox hack, no client JS required — full-screen takeover panel */
-.nav-toggle {
-  display: none;
-}
+/* Mobile full-screen nav takeover: a liquid blob clip-path expanding from the
+   hamburger button's corner, rather than a plain fade/scale. */
 .nav-panel {
   visibility: hidden;
   opacity: 0;
-  transform: scale(0.98);
-  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.25s;
+  clip-path: circle(4% at calc(100% - 44px) 44px);
+  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, visibility 0s linear 0.6s;
 }
-.nav-toggle:checked ~ .nav-panel {
+.nav-panel.is-open {
   visibility: visible;
   opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  clip-path: circle(150% at calc(100% - 44px) 44px);
+  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Hamburger: three lines morphing into a cross, with an elastic overshoot for
+   a "liquid" feel. Color/border/size come from Tailwind utility classes on
+   the button itself; this only owns the line shapes and their motion. */
+.hamburger {
+  position: relative;
+}
+.hamburger span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: margin-top 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55), transform 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.25s ease;
+}
+.hamburger span:nth-child(1) {
+  margin-top: -6px;
+  transform: translateX(-50%);
+}
+.hamburger span:nth-child(2) {
+  margin-top: -0.75px;
+  transform: translateX(-50%);
+}
+.hamburger span:nth-child(3) {
+  margin-top: 4.5px;
+  transform: translateX(-50%);
+}
+.hamburger.is-open span:nth-child(1) {
+  margin-top: -0.75px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+}
+.hamburger.is-open span:nth-child(3) {
+  margin-top: -0.75px;
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 :focus-visible {
@@ -414,6 +453,9 @@ details.faq[open] > summary .faq-icon {
     animation: none;
   }
   .nav-panel {
+    transition: none;
+  }
+  .hamburger span {
     transition: none;
   }
   .word-mask > span {

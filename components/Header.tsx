@@ -1,10 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { nav, site } from "@/lib/site";
-import { MenuIcon, CloseIcon, MailIcon, PhoneIcon } from "@/components/icons";
+import { MailIcon, PhoneIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 import { Magnetic } from "@/components/Magnetic";
 
 export function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  // Re-derive from the URL whenever it changes, without an effect: this
+  // render-time adjustment (React's documented pattern for "resetting state
+  // when a prop changes") closes the menu on navigation, avoiding the extra
+  // render an effect-based setState would cause. See BottomNav for the same pattern.
+  const [trackedPathname, setTrackedPathname] = useState(pathname);
+  if (pathname !== trackedPathname) {
+    setTrackedPathname(pathname);
+    setOpen(false);
+  }
+
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-white">
@@ -33,34 +49,40 @@ export function Header() {
             </Magnetic>
           </div>
 
-          <label
-            htmlFor="nav-toggle"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)] md:hidden"
-            aria-label="Ouvrir le menu"
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            className={`hamburger flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)] md:hidden ${open ? "is-open" : ""}`}
           >
-            <MenuIcon className="h-5 w-5" />
-          </label>
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </header>
 
-      {/* Full-screen takeover menu, pure CSS checkbox toggle. The checkbox and
-          panel must be direct siblings (both rendered here, outside <header>)
-          for the `.nav-toggle:checked ~ .nav-panel` selector in globals.css to
-          apply, and so the panel's z-50 is compared against BottomNav's z-40
-          in the same (body-level) stacking context instead of being trapped
-          inside header's own stacking context, where it would lose to
-          BottomNav despite the higher z-index. */}
-      <input id="nav-toggle" type="checkbox" className="nav-toggle" aria-hidden="true" />
-      <div className="nav-panel fixed inset-0 z-50 flex flex-col bg-[var(--color-hero)] text-white md:hidden">
+      {/* Full-screen takeover menu. Rendered outside <header> so its z-50 is
+          compared against BottomNav's z-40 in the same (body-level) stacking
+          context, instead of being trapped inside header's own stacking
+          context, where it would lose to BottomNav despite the higher z-index. */}
+      <div
+        className={`nav-panel fixed inset-0 z-50 flex flex-col bg-[var(--color-hero)] text-white md:hidden ${open ? "is-open" : ""}`}
+        aria-hidden={!open}
+      >
         <div className="flex items-center justify-between px-5 py-5">
-          <Logo markOnly onDark size="h-14" />
-          <label
-            htmlFor="nav-toggle"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
+          <Logo onDark />
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
             aria-label="Fermer le menu"
+            className="hamburger is-open flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
           >
-            <CloseIcon className="h-4 w-4" />
-          </label>
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
 
         <nav className="flex flex-1 flex-col justify-center gap-1 px-8">
@@ -68,6 +90,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setOpen(false)}
               className="border-b border-white/10 py-4 text-3xl font-medium"
               style={{ fontFamily: "var(--font-display)" }}
             >
