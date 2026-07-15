@@ -6,7 +6,7 @@ import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { DevisForm } from "@/components/DevisForm";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
-import { CheckIcon } from "@/components/icons";
+import { CheckIcon, RoofWindowIllustration } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
@@ -201,12 +201,19 @@ export default async function ServicePage({
         </section>
       </Reveal>
 
-      {/* CTA band */}
+      {/* CTA band, la pointe spécifique à ce service plutôt qu'un gabarit générique */}
       <Reveal>
-        <section className="section-dark grain">
-          <div className="mx-auto flex max-w-3xl flex-col items-start gap-5 px-5 py-12 md:flex-row md:items-center md:justify-between md:px-8">
-            <p className="text-lg font-semibold text-white">Un projet de {service.title.toLowerCase()} ?</p>
-            <div className="flex flex-wrap gap-3">
+        <section className="section-dark grain relative overflow-hidden">
+          <div className="relative mx-auto max-w-2xl px-5 py-16 text-center md:px-8 md:py-20">
+            <RoofWindowIllustration
+              variant={service.cta.illustration}
+              className="mx-auto h-20 w-20 text-white/40"
+            />
+            <p className="balance mt-6 text-xl font-semibold text-white md:text-2xl">
+              {service.cta.headline}
+            </p>
+            <p className="mx-auto mt-3 max-w-md text-sm text-white/60">{service.cta.text}</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               <a href="#devis" className="btn btn-primary">
                 Demander un devis
               </a>

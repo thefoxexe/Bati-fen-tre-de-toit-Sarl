@@ -68,6 +68,9 @@ export type Service = {
    * product variants (from the client's existing site) to warrant this. */
   productGroups?: ProductGroup[];
   faq: FaqItem[];
+  /** Bespoke closing pitch, specific to this service rather than a
+   * generic "Un projet de {service} ?" template. */
+  cta: { headline: string; text: string; illustration: "single" | "twin" | "dormer" };
 };
 
 export const services: Service[] = [
@@ -111,6 +114,11 @@ export const services: Service[] = [
         answer: "Le modèle en bois verni est idéal pour les pièces sèches comme les chambres ou les salons. Pour les pièces humides (salles de bains, cuisines), nous recommandons vivement la finition en polyuréthane blanc : elle possède un cœur en bois enrobé d'une coque étanche, ce qui la rend ultra-résistante à l'humidité et ne nécessite aucun entretien de peinture.",
       },
     ],
+    cta: {
+      headline: "Il est temps de changer d'air, et de lumière.",
+      text: "Un remplacement propre et rapide, sans mauvaise surprise sur le chantier.",
+      illustration: "single",
+    },
   },
   {
     slug: "entretien-reparation",
@@ -144,6 +152,11 @@ export const services: Service[] = [
         answer: "Un problème sur un produit électrique Velux (moteur, télécommande, capteur solaire) se diagnostique généralement sur place : batterie, capteur ou moteur défectueux. Contactez-nous pour un dépannage.",
       },
     ],
+    cta: {
+      headline: "Un doute sur l'état de votre Velux ?",
+      text: "Un diagnostic clair avant toute intervention, et un devis qui ne cache rien.",
+      illustration: "twin",
+    },
   },
   {
     slug: "installation-stores-velux",
@@ -229,6 +242,11 @@ export const services: Service[] = [
         answer: "Selon le modèle, un remplacement par une version solaire ou électrique est souvent possible sans intervention lourde.",
       },
     ],
+    cta: {
+      headline: "La bonne lumière, au bon moment.",
+      text: "Occultant, tamisant ou pare-soleil : le store qui correspond vraiment à la pièce.",
+      illustration: "dormer",
+    },
   },
   {
     slug: "fenetres-toit-plat",
@@ -258,6 +276,11 @@ export const services: Service[] = [
         answer: "Certains modèles sont ouvrants (manuellement ou de façon motorisée) et permettent une ventilation naturelle, en plus de l'apport de lumière.",
       },
     ],
+    cta: {
+      headline: "Un toit plat n'empêche pas la lumière d'entrer.",
+      text: "Des fenêtres pensées pour l'étanchéité et le confort, même sans pente.",
+      illustration: "twin",
+    },
   },
 ];
 
