@@ -73,7 +73,10 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-white/45 md:flex-row md:items-center md:justify-between md:px-8">
-          <p>&copy; {new Date().getFullYear()} {site.name}</p>
+          <p className="flex items-center gap-2.5">
+            <Logo markOnly onDark size="h-5" />
+            <span>&copy; {new Date().getFullYear()} {site.name}</span>
+          </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/mentions-legales" className="hover:text-white/70">
               Mentions légales

@@ -10,7 +10,7 @@ export function Header() {
       <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 md:px-8">
           <Link href="/" aria-label={site.name}>
-            <Logo />
+            <Logo priority />
           </Link>
 
           <nav className="hidden items-center gap-7 md:flex">
@@ -53,7 +53,7 @@ export function Header() {
       <input id="nav-toggle" type="checkbox" className="nav-toggle" aria-hidden="true" />
       <div className="nav-panel fixed inset-0 z-50 flex flex-col bg-[var(--color-hero)] text-white md:hidden">
         <div className="flex items-center justify-between px-5 py-5">
-          <Logo onDark />
+          <Logo markOnly onDark size="h-14" />
           <label
             htmlFor="nav-toggle"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
