@@ -7,41 +7,16 @@ import { InstagramIcon } from "@/components/icons";
 export function Footer() {
   return (
     <footer className="bg-[var(--color-footer)] text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3 md:px-8">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr_1.2fr] md:px-8">
         <div>
           <Logo onDark />
           <p className="mt-3 max-w-xs text-sm text-white/60">{site.tagline}</p>
-          <a
-            href="https://www.velux.ch"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-            className="mt-4 inline-flex items-center rounded-md bg-white px-2.5 py-2"
-          >
-            <Image
-              src="/logo/velux-expert-partenaire-agree-carre.png"
-              alt="Velux Expert, partenaire agréé"
-              width={3196}
-              height={3620}
-              className="h-14 w-auto"
-            />
-          </a>
-          <p className="mt-6 text-sm text-white/80">
-            <a href={site.phoneHref} className="hover:text-white">
-              {site.phoneDisplay}
-            </a>
-          </p>
-          <p className="text-sm text-white/80">
-            <a href={`mailto:${site.email}`} className="hover:text-white">
-              {site.email}
-            </a>
-          </p>
           <a
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Bati Fenêtre de Toit sur Instagram (nouvel onglet)"
-            className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-white/40 hover:text-white"
+            className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-white/40 hover:text-white"
           >
             <InstagramIcon className="h-4 w-4" />
           </a>
@@ -61,13 +36,49 @@ export function Footer() {
         </div>
 
         <div>
+          <p className="text-xs font-bold uppercase tracking-wider text-white/50">Contact</p>
+          <p className="mt-4 text-sm text-white/80">
+            <a href={site.phoneHref} className="hover:text-white">
+              {site.phoneDisplay}
+            </a>
+          </p>
+          <p className="mt-1.5 text-sm text-white/80">
+            <a href={`mailto:${site.email}`} className="hover:text-white">
+              {site.email}
+            </a>
+          </p>
+          <p className="mt-4 text-sm text-white/60">
+            {site.address.street}
+            <br />
+            {site.address.postalCode} {site.address.city}
+          </p>
+        </div>
+
+        <div>
           <p className="text-xs font-bold uppercase tracking-wider text-white/50">Un projet ?</p>
           <p className="mt-4 text-sm text-white/80">
             Demandez un devis gratuit, réponse sous 48h.
           </p>
-          <Link href="/devis" className="btn btn-primary btn-sm mt-4 inline-flex">
-            Demander un devis
-          </Link>
+          <div className="mt-4 flex flex-col items-start gap-4">
+            <Link href="/devis" className="btn btn-primary btn-sm inline-flex">
+              Demander un devis
+            </Link>
+            <a
+              href="https://www.velux.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
+              className="inline-flex items-center rounded-md bg-white px-2.5 py-2"
+            >
+              <Image
+                src="/logo/velux-expert-partenaire-agree-carre.png"
+                alt="Velux Expert, partenaire agréé"
+                width={3196}
+                height={3620}
+                className="h-12 w-auto"
+              />
+            </a>
+          </div>
         </div>
       </div>
 
