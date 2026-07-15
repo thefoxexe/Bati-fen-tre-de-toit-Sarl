@@ -110,10 +110,10 @@ export default function HomePage() {
                 className="block"
               >
                 <Image
-                  src="/velux-expert.png"
-                  alt="Velux Expert"
-                  width={3235}
-                  height={463}
+                  src="/logo/velux-expert-partenaire-agree.png"
+                  alt="Velux Expert, partenaire agréé"
+                  width={7000}
+                  height={1002}
                   className="h-auto w-full"
                 />
               </a>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav, site } from "@/lib/site";
 import { Logo } from "@/components/Logo";
 import { InstagramIcon } from "@/components/icons";
@@ -10,6 +11,21 @@ export function Footer() {
         <div>
           <Logo onDark />
           <p className="mt-3 max-w-xs text-sm text-white/60">{site.tagline}</p>
+          <a
+            href="https://www.velux.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
+            className="mt-4 inline-flex items-center rounded-md bg-white px-2.5 py-2"
+          >
+            <Image
+              src="/logo/velux-expert-partenaire-agree-carre.png"
+              alt="Velux Expert, partenaire agréé"
+              width={3196}
+              height={3620}
+              className="h-14 w-auto"
+            />
+          </a>
           <p className="mt-6 text-sm text-white/80">
             <a href={site.phoneHref} className="hover:text-white">
               {site.phoneDisplay}

@@ -1,24 +1,43 @@
+import Image from "next/image";
+
 type LogoProps = {
   className?: string;
-  /** Use light border/text on a dark background (footer). */
+  /** Wrap in a white chip so the logo's true brand colors stay legible on a dark background (footer, mobile menu). */
   onDark?: boolean;
-  /** Narrower box, no room implied for a wordmark. */
+  /** Use the compact square mark instead of the full horizontal wordmark. */
   markOnly?: boolean;
 };
 
-/**
- * Placeholder standing in for the real HD logo file, which hasn't been
- * delivered yet. Deliberately plain (not a hand-recreated guess at the real
- * mark) so it reads unmistakably as "swap this" rather than a finished asset.
- */
 export function Logo({ className, onDark, markOnly }: LogoProps) {
+  const image = markOnly ? (
+    <Image
+      src="/logo/bati-fenetre-de-toit-logo-carre.png"
+      alt="Bati Fenêtre de Toit Sàrl"
+      width={2071}
+      height={2130}
+      className="h-9 w-auto"
+    />
+  ) : (
+    <Image
+      src="/logo/bati-fenetre-de-toit-logo.png"
+      alt="Bati Fenêtre de Toit Sàrl, Velux Expert"
+      width={2725}
+      height={1068}
+      className="h-9 w-auto"
+    />
+  );
+
+  if (!onDark) {
+    return (
+      <span className={`inline-flex items-center ${className ?? ""}`}>
+        {image}
+      </span>
+    );
+  }
+
   return (
-    <span
-      className={`inline-flex h-9 items-center justify-center border border-dashed px-4 text-[10px] font-semibold uppercase tracking-[0.2em] ${
-        onDark ? "border-white/25 text-white/60" : "border-[var(--color-line)] text-[var(--color-ink-soft)]"
-      } ${markOnly ? "w-9 px-0" : "w-auto"} ${className ?? ""}`}
-    >
-      Logo
+    <span className={`inline-flex items-center rounded-md bg-white px-3 py-1.5 ${className ?? ""}`}>
+      {image}
     </span>
   );
 }

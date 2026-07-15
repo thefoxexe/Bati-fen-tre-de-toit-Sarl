@@ -70,7 +70,13 @@ export default function AboutPage() {
             aria-label="Velux Expert (velux.ch, nouvel onglet)"
             className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
           >
-            <Image src="/velux-expert.png" alt="Velux Expert" width={3235} height={463} className="h-5 w-auto" />
+            <Image
+              src="/logo/velux-expert-partenaire-agree.png"
+              alt="Velux Expert, partenaire agréé"
+              width={7000}
+              height={1002}
+              className="h-5 w-auto"
+            />
           </a>
         </div>
       </section>
