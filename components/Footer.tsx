@@ -93,6 +93,14 @@ export function Footer() {
               Politique de confidentialité
             </Link>
             <p>Canton de Vaud</p>
+            <a
+              href="https://webalp.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white/70"
+            >
+              Powered by Webalp.ch
+            </a>
           </div>
         </div>
       </div>

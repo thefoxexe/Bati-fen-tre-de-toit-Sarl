@@ -183,7 +183,7 @@ export default function HomePage() {
       </Reveal>
 
       {/* Services teaser */}
-      <section className="border-t border-[var(--color-line)] py-20 md:py-28">
+      <section className="border-t border-[var(--color-line)] bg-[#f7f5f2] py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
           <Reveal>
             <SectionHeading eyebrow="Nos prestations" bold="Un service complet," rest="du remplacement au dépannage." />

@@ -3,14 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { nav, site } from "@/lib/site";
-import { MailIcon, PhoneIcon } from "@/components/icons";
+import { nav, services, site } from "@/lib/site";
+import { MailIcon, PhoneIcon, ChevronDownIcon } from "@/components/icons";
 import { Logo } from "@/components/Logo";
 import { Magnetic } from "@/components/Magnetic";
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   // Re-derive from the URL whenever it changes, without an effect: this
   // render-time adjustment (React's documented pattern for "resetting state
   // when a prop changes") closes the menu on navigation, avoiding the extra
@@ -19,6 +21,8 @@ export function Header() {
   if (pathname !== trackedPathname) {
     setTrackedPathname(pathname);
     setOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
   }
 
   return (
@@ -30,15 +34,57 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-7 md:flex">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-semibold text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) =>
+              item.href === "/services" ? (
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-1 text-sm font-semibold text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
+                  >
+                    {item.label}
+                    <ChevronDownIcon
+                      className={`h-3.5 w-3.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                    />
+                  </Link>
+                  <div
+                    className={`absolute left-1/2 top-full w-72 -translate-x-1/2 pt-3 transition duration-200 ${
+                      servicesOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden rounded-2xl border border-[var(--color-line)] bg-white p-2 shadow-xl shadow-black/[0.08]">
+                      {services.map((service) => (
+                        <Link
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
+                          className="block rounded-xl px-4 py-2.5 text-sm font-medium text-[var(--color-ink)] transition hover:bg-[#f7f5f2]"
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/services"
+                        className="mt-1 block rounded-xl border-t border-[var(--color-line)] px-4 pb-1 pt-3 text-sm font-semibold text-[var(--color-accent)]"
+                      >
+                        Tous les services
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-semibold text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
           <div className="hidden md:block">
@@ -85,18 +131,56 @@ export function Header() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col justify-center gap-1 px-8">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="border-b border-[var(--color-line)] py-4 text-3xl font-medium"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-8">
+          {nav.map((item) =>
+            item.href === "/services" ? (
+              <div key={item.href} className="border-b border-[var(--color-line)]">
+                <button
+                  type="button"
+                  onClick={() => setMobileServicesOpen((v) => !v)}
+                  aria-expanded={mobileServicesOpen}
+                  className="flex w-full items-center justify-between py-4 text-3xl font-medium"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {item.label}
+                  <ChevronDownIcon
+                    className={`h-5 w-5 shrink-0 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {mobileServicesOpen && (
+                  <div className="flex flex-col gap-1 pb-5">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        onClick={() => setOpen(false)}
+                        className="py-2 text-base text-[var(--color-ink-soft)]"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/services"
+                      onClick={() => setOpen(false)}
+                      className="py-2 text-base font-semibold text-[var(--color-accent)]"
+                    >
+                      Tous les services
+                    </Link>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-[var(--color-line)] py-4 text-3xl font-medium"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="space-y-2 border-t border-[var(--color-line)] px-8 py-8 text-sm text-[var(--color-ink-soft)]">
