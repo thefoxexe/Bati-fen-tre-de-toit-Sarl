@@ -139,8 +139,7 @@ export function Header() {
                   type="button"
                   onClick={() => setMobileServicesOpen((v) => !v)}
                   aria-expanded={mobileServicesOpen}
-                  className="flex w-full items-center justify-between py-4 text-3xl font-medium"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="flex w-full items-center justify-between py-4 text-3xl font-bold"
                 >
                   {item.label}
                   <ChevronDownIcon
@@ -174,8 +173,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-[var(--color-line)] py-4 text-3xl font-medium"
-                style={{ fontFamily: "var(--font-display)" }}
+                className="border-b border-[var(--color-line)] py-4 text-3xl font-bold"
               >
                 {item.label}
               </Link>

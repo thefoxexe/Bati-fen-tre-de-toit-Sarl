@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,21 +8,12 @@ import { site, serviceAreas } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 
 // Same geometric sans family as the client's existing logo ("BATI" / "FENÊTRE DE TOIT"),
-// used for UI, buttons and body copy.
+// used everywhere, including headlines: one confident rounded sans rather than
+// a serif/sans pairing, closer to the reference the client pointed to.
 const brand = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-brand",
-});
-
-// Paired display serif for headlines only (globals.css scopes it to h1/h2) — the
-// contrast against the geometric sans is what reads as a deliberate type system
-// instead of "one Google Font for everything".
-const display = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -67,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`h-full antialiased ${brand.variable} ${display.variable}`}>
+    <html lang="fr" className={`h-full antialiased ${brand.variable}`}>
       <body className="flex min-h-full flex-col pb-16 md:pb-0">
         <JsonLd data={localBusinessJsonLd} />
         <Header />
