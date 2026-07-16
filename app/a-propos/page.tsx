@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
+import { SunIcon, HomeIcon, UserIcon, ShieldIcon, PhoneIcon, CheckIcon } from "@/components/icons";
 import { serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,14 +17,17 @@ const lightBenefits = [
   {
     title: "Un bienfait pour la santé",
     text: "La lumière naturelle aide à réguler le rythme circadien, réduit le stress et améliore l'humeur au quotidien.",
+    icon: SunIcon,
   },
   {
     title: "Conçues pour en profiter",
     text: "Les fenêtres de toit Velux apportent un maximum de lumière naturelle, dans une large gamme de dimensions et de styles.",
+    icon: HomeIcon,
   },
   {
     title: "Un accompagnement de A à Z",
     text: "De l'étude de votre comble à la pose finale, nous vous conseillons le modèle le plus adapté à votre intérieur.",
+    icon: UserIcon,
   },
 ];
 
@@ -31,14 +35,17 @@ const values = [
   {
     title: "Sérieux & précision",
     text: "Une pose soignée, des finitions propres et une étanchéité durable, sur chaque chantier, sans exception.",
+    icon: ShieldIcon,
   },
   {
     title: "Proximité & réactivité",
     text: "Un interlocuteur unique du premier appel à la remise des clés, disponible pour répondre à vos questions.",
+    icon: PhoneIcon,
   },
   {
     title: "Travail garanti",
     text: "Nous nous tenons responsables de la qualité de nos installations après la fin du chantier.",
+    icon: CheckIcon,
   },
 ];
 
@@ -60,10 +67,10 @@ export default function AboutPage() {
           travail soigné, du premier rendez-vous à la dernière finition.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
+          <span className="inline-flex items-center rounded-full border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
             Expérience depuis {site.experienceSinceYear}
           </span>
-          <span className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
+          <span className="inline-flex items-center rounded-full border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
             Entreprise depuis {site.foundedYear}
           </span>
           <a
@@ -71,7 +78,7 @@ export default function AboutPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Velux Expert (velux.ch, nouvel onglet)"
-            className="inline-flex items-center border border-[var(--color-line)] px-4 py-2.5 transition hover:border-[var(--color-accent)]"
+            className="inline-flex items-center rounded-full border border-[var(--color-line)] px-6 py-2.5 transition hover:border-[var(--color-accent)]"
           >
             <Image
               src="/logo/velux-expert-partenaire-agree.png"
@@ -85,13 +92,16 @@ export default function AboutPage() {
       </section>
 
       <Reveal>
-        <section className="border-t border-[var(--color-line)] py-20 md:py-28">
+        <section className="border-t border-[var(--color-line)] bg-[#f7f5f2] py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             <SectionHeading bold="Nos valeurs," rest="au cœur de chaque chantier." />
-            <div className="mt-12 grid divide-y divide-[var(--color-line)] md:grid-cols-3 md:divide-x md:divide-y-0">
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
               {values.map((value) => (
-                <div key={value.title} className="py-6 md:px-8 md:py-0 md:first:pl-0">
-                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{value.title}</h3>
+                <div key={value.title} className="panel p-7">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+                    <value.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-[var(--color-ink)]">{value.title}</h3>
                   <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{value.text}</p>
                 </div>
               ))}
@@ -104,10 +114,13 @@ export default function AboutPage() {
         <section className="border-t border-[var(--color-line)] py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             <SectionHeading eyebrow="Pourquoi la lumière naturelle" bold="Plus qu'un confort," rest="un vrai bienfait au quotidien." />
-            <div className="mt-12 grid gap-8 sm:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-3">
               {lightBenefits.map((item) => (
-                <div key={item.title}>
-                  <h3 className="text-base font-semibold text-[var(--color-ink)]">{item.title}</h3>
+                <div key={item.title} className="panel p-7">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+                    <item.icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-[var(--color-ink)]">{item.title}</h3>
                   <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{item.text}</p>
                 </div>
               ))}

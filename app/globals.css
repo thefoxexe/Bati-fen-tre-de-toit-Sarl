@@ -79,7 +79,7 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 10px;
+  border-radius: 9999px;
   padding: 0.9rem 1.9rem;
   font-family: var(--font-brand), sans-serif;
   font-weight: 600;
@@ -226,6 +226,19 @@ h3 {
 }
 .link-underline:hover {
   text-decoration-color: var(--color-ink);
+}
+/* Variant paired with an arrow icon: drop the underline in favor of a
+   colored arrow that nudges forward on hover, closer to the reference site. */
+.link-underline:has(svg) {
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-underline:has(svg) svg {
+  color: var(--color-accent);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:has(svg):hover svg {
+  transform: translateX(4px);
 }
 
 /* FAQ disclosure */
