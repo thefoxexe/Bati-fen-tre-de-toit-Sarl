@@ -7,7 +7,7 @@ import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
 import { Magnetic } from "@/components/Magnetic";
-import { serviceAreas, services, site } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit sous 48h" },
@@ -120,21 +120,6 @@ export default function HomePage() {
           </a>
         </div>
       </section>
-
-      {/* Zone d'intervention ticker */}
-      <div className="marquee-wrap overflow-hidden border-b border-white/10 bg-[var(--color-hero)] py-3 text-white">
-        <div className="marquee-track">
-          {[...serviceAreas, ...serviceAreas].map((city, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-3 pr-10 text-xs font-semibold uppercase tracking-[0.2em] text-white/60"
-            >
-              {city}
-              <span className="text-[var(--color-accent)]">✦</span>
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* Reassurance bar */}
       <section className="border-b border-[var(--color-line)]">

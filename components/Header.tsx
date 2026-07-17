@@ -146,27 +146,37 @@ export function Header() {
                     className={`h-5 w-5 shrink-0 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
                   />
                 </button>
-                {mobileServicesOpen && (
-                  <div className="flex flex-col gap-1 pb-5">
-                    {services.map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={`/services/${service.slug}`}
-                        onClick={() => setOpen(false)}
-                        className="py-2 text-base text-[var(--color-ink-soft)]"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
-                    <Link
-                      href="/services"
-                      onClick={() => setOpen(false)}
-                      className="py-2 text-base font-semibold text-[var(--color-accent)]"
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    mobileServicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div
+                      className={`flex flex-col gap-1 pb-5 transition-opacity duration-300 ${
+                        mobileServicesOpen ? "opacity-100 delay-100" : "opacity-0"
+                      }`}
                     >
-                      Tous les services
-                    </Link>
+                      {services.map((service) => (
+                        <Link
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
+                          onClick={() => setOpen(false)}
+                          className="py-2 text-base text-[var(--color-ink-soft)]"
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                      <Link
+                        href="/services"
+                        onClick={() => setOpen(false)}
+                        className="py-2 text-base font-semibold text-[var(--color-accent)]"
+                      >
+                        Tous les services
+                      </Link>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             ) : (
               <Link

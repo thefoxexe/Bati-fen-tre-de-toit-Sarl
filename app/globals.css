@@ -404,24 +404,6 @@ details.faq[open] > summary .faq-icon {
   animation: word-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Infinite scrolling strip (service areas / trust marks) */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-.marquee-wrap:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* Page transitions: app/template.tsx remounts this wrapper on every navigation */
 @keyframes page-enter {
   from {
@@ -470,8 +452,5 @@ details.faq[open] > summary .faq-icon {
   .word-mask > span {
     animation: none;
     opacity: 1;
-  }
-  .marquee-track {
-    animation: none;
   }
 }
