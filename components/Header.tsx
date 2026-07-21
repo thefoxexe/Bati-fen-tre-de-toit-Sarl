@@ -117,7 +117,7 @@ export function Header() {
         className={`nav-panel fixed inset-0 z-50 flex flex-col bg-white text-[var(--color-ink)] lg:hidden ${open ? "is-open" : ""}`}
         aria-hidden={!open}
       >
-        <div className="flex items-center justify-between px-5 py-5">
+        <div className="flex shrink-0 items-center justify-between px-5 py-5">
           <Logo />
           <button
             type="button"
@@ -131,7 +131,7 @@ export function Header() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-8">
+        <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto px-8 py-2">
           {nav.map((item) =>
             item.href === "/services" ? (
               <div key={item.href} className="border-b border-[var(--color-line)]">
@@ -191,7 +191,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="space-y-2 border-t border-[var(--color-line)] px-8 py-8 text-sm text-[var(--color-ink-soft)]">
+        <div className="shrink-0 space-y-2 border-t border-[var(--color-line)] px-8 py-6 text-sm text-[var(--color-ink-soft)]">
           <a href={site.phoneHref} className="flex items-center gap-3 text-[var(--color-ink)]">
             <PhoneIcon className="h-4 w-4 text-[var(--color-accent)]" />
             {site.phoneDisplay}
