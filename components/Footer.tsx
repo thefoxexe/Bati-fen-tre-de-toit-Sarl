@@ -71,11 +71,11 @@ export function Footer() {
               className="inline-flex items-center rounded-md bg-white px-2.5 py-2"
             >
               <Image
-                src="/logo/velux-expert-partenaire-agree-carre.png"
+                src="/logo/velux-expert-partenaire-agree.png"
                 alt="Velux Expert, partenaire agréé"
-                width={3196}
-                height={3620}
-                className="h-12 w-auto"
+                width={7000}
+                height={1002}
+                className="h-8 w-auto"
               />
             </a>
           </div>

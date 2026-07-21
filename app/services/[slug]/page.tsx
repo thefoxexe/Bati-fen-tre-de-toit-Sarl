@@ -94,11 +94,10 @@ export default async function ServicePage({
 
       {/* Hero */}
       <section style={{ background: "var(--color-hero)" }} className="grain text-white">
-        <div className="mx-auto grid max-w-5xl gap-8 px-5 py-16 md:grid-cols-[auto_1fr] md:items-center md:px-8 md:py-20">
-          <PlaceholderMedia onDark className="h-24 w-24" />
+        <div className="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-12 md:px-8 md:py-20">
           <div>
             <p className="eyebrow eyebrow-on-dark mb-4">Services</p>
-            <h1 className="balance text-3xl font-semibold leading-tight text-white md:text-4xl">{service.title}</h1>
+            <h1 className="balance text-3xl font-bold leading-tight text-white md:text-4xl">{service.title}</h1>
             <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Magnetic>
@@ -113,6 +112,7 @@ export default async function ServicePage({
               </Magnetic>
             </div>
           </div>
+          <PlaceholderMedia onDark label="Photo à venir" className="aspect-[4/3] w-full rounded-2xl" />
         </div>
       </section>
 
@@ -196,7 +196,7 @@ export default async function ServicePage({
               Nos prochains chantiers de {service.title.toLowerCase()} viendront illustrer cette
               section.
             </p>
-            <PlaceholderMedia label="Photos à venir" className="mt-6 aspect-[21/9] w-full" />
+            <PlaceholderMedia label="Photos à venir" className="mt-6 aspect-[16/9] w-full" />
           </div>
         </section>
       </Reveal>

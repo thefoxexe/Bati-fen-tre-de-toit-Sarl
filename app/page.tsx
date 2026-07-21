@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, ShieldIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, RoofWindowIllustration, ShieldIcon } from "@/components/icons";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
@@ -51,73 +51,70 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section style={{ background: "var(--color-hero)" }} className="grain relative overflow-hidden text-white">
-        <svg
-          viewBox="0 0 200 90"
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[46rem] w-auto -translate-x-1/2 -translate-y-1/2 opacity-[0.06] md:h-[58rem]"
-        >
-          <path
-            d="M30 78 L55 20 L85 62 L112 32 L138 62 L165 45"
-            fill="none"
-            stroke="#fff"
-            strokeWidth="7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/3 rounded-full opacity-20 blur-3xl"
+          className="pointer-events-none absolute right-0 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-25 blur-3xl md:translate-x-1/3"
           style={{ background: "radial-gradient(circle, var(--color-glow) 0%, transparent 70%)" }}
         />
-        <div className="relative mx-auto max-w-3xl px-5 pb-20 pt-20 text-center md:pb-28 md:pt-28">
-          <p className="eyebrow eyebrow-on-dark hero-fade mb-5 justify-center">Installateur de fenêtres de toit</p>
-          <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
-            <SplitWords text="Plus de lumière chez vous." startDelay={80} />
-          </h1>
-          <p
-            className="hero-fade mx-auto mt-5 max-w-xl text-lg text-white/70"
-            style={{ animationDelay: "260ms" }}
-          >
-            Installation et rénovation de fenêtres de toit par des artisans qualifiés.
-          </p>
-          <p
-            className="hero-fade mx-auto mt-4 max-w-xl text-sm text-white/50"
-            style={{ animationDelay: "380ms" }}
-          >
-            De la première visite technique à la dernière finition, {site.shortName}{" "}
-            s&rsquo;occupe de tout : une fenêtre de toit bien posée, bien isolée, qui tient dans
-            la durée.
-          </p>
-          <div className="hero-fade mt-9 flex flex-wrap justify-center gap-3" style={{ animationDelay: "500ms" }}>
-            <Magnetic>
-              <Link href="/devis" className="btn btn-primary">
-                Demander un devis gratuit
-              </Link>
-            </Magnetic>
-            <Magnetic>
-              <a href={site.phoneHref} className="btn btn-on-photo">
-                {site.phoneDisplay}
-              </a>
-            </Magnetic>
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-16 text-center md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-8 md:px-8 md:pb-28 md:pt-20 md:text-left">
+          <div>
+            <p className="eyebrow eyebrow-on-dark hero-fade mb-5 justify-center md:justify-start">
+              Installateur de fenêtres de toit
+            </p>
+            <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
+              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
+            </h1>
+            <p
+              className="hero-fade mx-auto mt-5 max-w-xl text-lg text-white/70 md:mx-0"
+              style={{ animationDelay: "260ms" }}
+            >
+              Installation et rénovation de fenêtres de toit par des artisans qualifiés.
+            </p>
+            <p
+              className="hero-fade mx-auto mt-4 max-w-xl text-sm text-white/50 md:mx-0"
+              style={{ animationDelay: "380ms" }}
+            >
+              De la première visite technique à la dernière finition, {site.shortName}{" "}
+              s&rsquo;occupe de tout : une fenêtre de toit bien posée, bien isolée, qui tient dans
+              la durée.
+            </p>
+            <div
+              className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
+              style={{ animationDelay: "500ms" }}
+            >
+              <Magnetic>
+                <Link href="/devis" className="btn btn-primary">
+                  Demander un devis gratuit
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a href={site.phoneHref} className="btn btn-on-photo">
+                  {site.phoneDisplay}
+                </a>
+              </Magnetic>
+            </div>
+            <a
+              href="https://www.velux.ch"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
+              className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 transition hover:border-white/30 hover:bg-white/10"
+              style={{ animationDelay: "600ms" }}
+            >
+              <Image
+                src="/logo/velux-expert-partenaire-agree.png"
+                alt=""
+                width={7000}
+                height={1002}
+                className="h-4 w-auto"
+              />
+              <span className="text-xs font-medium text-white/70">Partenaire agréé Velux Expert</span>
+            </a>
           </div>
-          <a
-            href="https://www.velux.ch"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-            className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 transition hover:border-white/30 hover:bg-white/10"
-            style={{ animationDelay: "600ms" }}
-          >
-            <Image
-              src="/logo/velux-expert-partenaire-agree.png"
-              alt=""
-              width={7000}
-              height={1002}
-              className="h-4 w-auto"
-            />
-            <span className="text-xs font-medium text-white/70">Partenaire agréé Velux Expert</span>
-          </a>
+
+          <div className="hero-fade relative hidden md:block" style={{ animationDelay: "220ms" }}>
+            <RoofWindowIllustration variant="single" className="mx-auto h-auto w-full max-w-md text-white/90" />
+          </div>
         </div>
       </section>
 
