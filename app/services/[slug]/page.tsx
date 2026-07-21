@@ -93,12 +93,12 @@ export default async function ServicePage({
       {faqJsonLd ? <JsonLd data={faqJsonLd} /> : null}
 
       {/* Hero */}
-      <section style={{ background: "var(--color-hero)" }} className="grain text-white">
+      <section className="grain border-b border-[var(--color-line)] bg-white">
         <div className="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-12 md:px-8 md:py-20">
           <div>
-            <p className="eyebrow eyebrow-on-dark mb-4">Services</p>
-            <h1 className="balance text-3xl font-bold leading-tight text-white md:text-4xl">{service.title}</h1>
-            <p className="mt-4 max-w-xl text-white/70">{service.summary}</p>
+            <p className="eyebrow mb-4">Services</p>
+            <h1 className="balance text-3xl font-bold leading-tight text-[var(--color-ink)] md:text-4xl">{service.title}</h1>
+            <p className="mt-4 max-w-xl text-[var(--color-ink-soft)]">{service.summary}</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Magnetic>
                 <a href="#devis" className="btn btn-primary">
@@ -106,13 +106,13 @@ export default async function ServicePage({
                 </a>
               </Magnetic>
               <Magnetic>
-                <a href={site.phoneHref} className="btn btn-on-photo">
+                <a href={site.phoneHref} className="btn btn-outline">
                   {site.phoneDisplay}
                 </a>
               </Magnetic>
             </div>
           </div>
-          <PlaceholderMedia onDark label="Photo à venir" className="aspect-[4/3] w-full rounded-2xl" />
+          <PlaceholderMedia label="Photo à venir" className="aspect-[4/3] w-full rounded-2xl" />
         </div>
       </section>
 
@@ -203,18 +203,18 @@ export default async function ServicePage({
 
       {/* CTA band, la pointe spécifique à ce service plutôt qu'un gabarit générique */}
       <Reveal>
-        <section className="section-dark grain relative overflow-hidden">
+        <section className="section-accent grain relative overflow-hidden">
           <div className="relative mx-auto max-w-2xl px-5 py-16 text-center md:px-8 md:py-20">
             <RoofWindowIllustration
               variant={service.cta.illustration}
-              className="mx-auto h-20 w-20 text-white/40"
+              className="mx-auto h-20 w-20 text-white/70"
             />
             <p className="balance mt-6 text-xl font-semibold text-white md:text-2xl">
               {service.cta.headline}
             </p>
-            <p className="mx-auto mt-3 max-w-md text-sm text-white/60">{service.cta.text}</p>
+            <p className="mx-auto mt-3 max-w-md text-sm text-white/70">{service.cta.text}</p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <a href="#devis" className="btn btn-primary">
+              <a href="#devis" className="btn btn-on-accent">
                 Demander un devis
               </a>
               <a href={site.phoneHref} className="btn btn-on-photo">

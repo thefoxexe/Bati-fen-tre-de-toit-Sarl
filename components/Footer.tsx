@@ -6,28 +6,28 @@ import { InstagramIcon } from "@/components/icons";
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-footer)] text-white">
+    <footer className="border-t border-[var(--color-line)] bg-white text-[var(--color-ink)]">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr_1.2fr] md:px-8">
         <div>
-          <Logo onDark />
-          <p className="mt-3 max-w-xs text-sm text-white/60">{site.tagline}</p>
+          <Logo />
+          <p className="mt-3 max-w-xs text-sm text-[var(--color-ink-soft)]">{site.tagline}</p>
           <a
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Bati Fenêtre de Toit sur Instagram (nouvel onglet)"
-            className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-white/40 hover:text-white"
+            className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink-soft)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
           >
             <InstagramIcon className="h-4 w-4" />
           </a>
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-white/50">Navigation</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">Navigation</p>
           <ul className="mt-4 space-y-2.5">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-white/80 hover:text-white">
+                <Link href={item.href} className="text-sm text-[var(--color-ink-soft)] hover:text-[var(--color-accent)]">
                   {item.label}
                 </Link>
               </li>
@@ -36,18 +36,18 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-white/50">Contact</p>
-          <p className="mt-4 text-sm text-white/80">
-            <a href={site.phoneHref} className="hover:text-white">
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">Contact</p>
+          <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
+            <a href={site.phoneHref} className="hover:text-[var(--color-accent)]">
               {site.phoneDisplay}
             </a>
           </p>
-          <p className="mt-1.5 text-sm text-white/80">
-            <a href={`mailto:${site.email}`} className="hover:text-white">
+          <p className="mt-1.5 text-sm text-[var(--color-ink-soft)]">
+            <a href={`mailto:${site.email}`} className="hover:text-[var(--color-accent)]">
               {site.email}
             </a>
           </p>
-          <p className="mt-4 text-sm text-white/60">
+          <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
             {site.address.street}
             <br />
             {site.address.postalCode} {site.address.city}
@@ -55,8 +55,8 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-white/50">Un projet ?</p>
-          <p className="mt-4 text-sm text-white/80">
+          <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">Un projet ?</p>
+          <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
             Demandez un devis gratuit, réponse sous 48h.
           </p>
           <div className="mt-4 flex flex-col items-start gap-4">
@@ -68,7 +68,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-              className="inline-flex items-center rounded-md bg-white px-2.5 py-2"
+              className="inline-flex items-center rounded-md border border-[var(--color-line)] px-2.5 py-2 transition hover:border-[var(--color-accent)]"
             >
               <Image
                 src="/logo/velux-expert-partenaire-agree.png"
@@ -82,14 +82,14 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-white/45 md:flex-row md:items-center md:justify-between md:px-8">
+      <div className="border-t border-[var(--color-line)]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-5 text-xs text-[var(--color-ink-soft)] md:flex-row md:items-center md:justify-between md:px-8">
           <p>&copy; {new Date().getFullYear()} {site.name}</p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/mentions-legales" className="hover:text-white/70">
+            <Link href="/mentions-legales" className="hover:text-[var(--color-accent)]">
               Mentions légales
             </Link>
-            <Link href="/politique-de-confidentialite" className="hover:text-white/70">
+            <Link href="/politique-de-confidentialite" className="hover:text-[var(--color-accent)]">
               Politique de confidentialité
             </Link>
             <p>Canton de Vaud</p>
@@ -97,7 +97,7 @@ export function Footer() {
               href="https://webalp.ch"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white/70"
+              className="hover:text-[var(--color-accent)]"
             >
               Powered by Webalp.ch
             </a>

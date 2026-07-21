@@ -50,28 +50,28 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section style={{ background: "var(--color-hero)" }} className="grain relative overflow-hidden text-white">
+      <section className="grain relative overflow-hidden border-b border-[var(--color-line)] bg-white">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-25 blur-3xl md:translate-x-1/3"
-          style={{ background: "radial-gradient(circle, var(--color-glow) 0%, transparent 70%)" }}
+          className="pointer-events-none absolute right-0 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-[0.07] blur-3xl md:translate-x-1/3"
+          style={{ background: "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)" }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-16 text-center md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-8 md:px-8 md:pb-28 md:pt-20 md:text-left">
           <div>
-            <p className="eyebrow eyebrow-on-dark hero-fade mb-5 justify-center md:justify-start">
+            <p className="eyebrow hero-fade mb-5 justify-center md:justify-start">
               Installateur de fenêtres de toit
             </p>
-            <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
+            <h1 className="balance text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] md:text-6xl">
               <SplitWords text="Plus de lumière chez vous." startDelay={80} />
             </h1>
             <p
-              className="hero-fade mx-auto mt-5 max-w-xl text-lg text-white/70 md:mx-0"
+              className="hero-fade mx-auto mt-5 max-w-xl text-lg text-[var(--color-ink-soft)] md:mx-0"
               style={{ animationDelay: "260ms" }}
             >
               Installation et rénovation de fenêtres de toit par des artisans qualifiés.
             </p>
             <p
-              className="hero-fade mx-auto mt-4 max-w-xl text-sm text-white/50 md:mx-0"
+              className="hero-fade mx-auto mt-4 max-w-xl text-sm text-[var(--color-ink-soft)] md:mx-0"
               style={{ animationDelay: "380ms" }}
             >
               De la première visite technique à la dernière finition, {site.shortName}{" "}
@@ -88,7 +88,7 @@ export default function HomePage() {
                 </Link>
               </Magnetic>
               <Magnetic>
-                <a href={site.phoneHref} className="btn btn-on-photo">
+                <a href={site.phoneHref} className="btn btn-outline">
                   {site.phoneDisplay}
                 </a>
               </Magnetic>
@@ -98,7 +98,7 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-              className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 transition hover:border-white/30 hover:bg-white/10"
+              className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-[var(--color-line)] px-4 py-2 transition hover:border-[var(--color-accent)]"
               style={{ animationDelay: "600ms" }}
             >
               <Image
@@ -108,12 +108,12 @@ export default function HomePage() {
                 height={1002}
                 className="h-4 w-auto"
               />
-              <span className="text-xs font-medium text-white/70">Partenaire agréé Velux Expert</span>
+              <span className="text-xs font-medium text-[var(--color-ink-soft)]">Partenaire agréé Velux Expert</span>
             </a>
           </div>
 
           <div className="hero-fade relative hidden md:block" style={{ animationDelay: "220ms" }}>
-            <RoofWindowIllustration variant="single" className="mx-auto h-auto w-full max-w-md text-white/90" />
+            <RoofWindowIllustration variant="single" className="mx-auto h-auto w-full max-w-md text-[var(--color-accent)]" />
           </div>
         </div>
       </section>
@@ -215,7 +215,7 @@ export default function HomePage() {
       </Reveal>
 
       {/* Pourquoi nous choisir */}
-      <section className="section-dark grain">
+      <section className="section-accent grain">
         <div className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <SectionHeading eyebrow="Pourquoi nous choisir" bold="Un partenaire de confiance," rest="pas juste un installateur." onDark />
@@ -223,12 +223,12 @@ export default function HomePage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {whyUs.map((item, i) => (
               <Reveal key={item.title} delay={i * 90}>
-                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-white/20 hover:bg-white/[0.06]">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-accent)]/15 text-[var(--color-accent)]">
+                <div className="h-full rounded-2xl border border-white/15 bg-white/10 p-6 transition hover:border-white/25 hover:bg-white/15">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[var(--color-accent)]">
                     <CheckIcon className="h-5 w-5" />
                   </span>
                   <h3 className="mt-4 text-base font-semibold text-white">{item.title}</h3>
-                  <p className="mt-1.5 text-sm text-white/60">{item.text}</p>
+                  <p className="mt-1.5 text-sm text-white/70">{item.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -259,17 +259,17 @@ export default function HomePage() {
 
       {/* Final CTA */}
       <Reveal>
-        <section className="section-dark grain">
+        <section className="section-accent grain">
           <div className="mx-auto flex max-w-5xl flex-col items-start gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8">
             <div>
               <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
                 Une idée de projet&nbsp;? Parlons-en sans engagement.
               </h2>
-              <p className="mt-2 text-sm text-white/60">Visite technique, devis chiffré sous 48h.</p>
+              <p className="mt-2 text-sm text-white/70">Visite technique, devis chiffré sous 48h.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Magnetic>
-                <Link href="/devis" className="btn btn-primary">
+                <Link href="/devis" className="btn btn-on-accent">
                   Obtenir mon devis
                 </Link>
               </Magnetic>

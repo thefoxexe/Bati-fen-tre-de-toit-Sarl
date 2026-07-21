@@ -130,31 +130,31 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal>
-        <section className="section-dark grain">
+        <section className="section-accent grain">
           <div className="mx-auto max-w-5xl px-5 py-16 md:px-8">
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
                   Zone d&rsquo;intervention
                 </h2>
-                <p className="mt-2 max-w-md text-sm text-white/60">
+                <p className="mt-2 max-w-md text-sm text-white/70">
                   Basés dans le canton de Vaud, nous intervenons notamment à :
                 </p>
               </div>
               <Magnetic>
-                <Link href="/contact" className="btn btn-primary shrink-0">
+                <Link href="/contact" className="btn btn-on-accent shrink-0">
                   Nous contacter
                 </Link>
               </Magnetic>
             </div>
             <ul className="mt-8 flex flex-wrap gap-2.5">
               {serviceAreas.map((city) => (
-                <li key={city} className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80">
+                <li key={city} className="rounded-full border border-white/25 px-4 py-1.5 text-sm text-white/90">
                   {city}
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-white/50">
+            <p className="mt-4 text-sm text-white/70">
               Votre commune n&rsquo;apparaît pas dans la liste ? Contactez-nous, nous intervenons
               plus largement dans la région.
             </p>

@@ -2,20 +2,15 @@
 
 :root {
   /* Colors sampled directly from the client's existing logo (screenshot pixel
-     analysis) rather than invented, so the new site matches the real brand. */
+     analysis) rather than invented, so the new site matches the real brand.
+     White and red only, per the client's request — no dark/near-black
+     "highlight" sections anywhere on the site. */
   --color-bg: #fffefd;
   --color-ink: #3d3d3b;
   --color-ink-soft: #767370;
   --color-accent: #cc322e;
   --color-accent-dark: #9e2723;
   --color-line: #e6e2df;
-  --color-footer: #211f1d;
-  /* Hero: a night-roof-to-daylight concept — the product's whole promise is
-     light flooding a dark space, so the hero leans into that literally. */
-  --color-hero: #17140f;
-  --color-hero-line: #322c24;
-  --color-glow: #ffd9a0;
-  --color-glow-soft: #ffe9c7;
 }
 
 @theme inline {
@@ -25,9 +20,6 @@
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
   --color-line: var(--color-line);
-  --color-footer: var(--color-footer);
-  --color-hero: var(--color-hero);
-  --color-glow: var(--color-glow);
   --font-sans: var(--font-brand);
 }
 
@@ -128,16 +120,26 @@ h1, h2 {
   background: #fff;
   color: var(--color-ink);
 }
+/* For buttons sitting on a .section-accent (red) band: white cutout instead
+   of a red-on-red button that would disappear. */
+.btn-on-accent {
+  border: 1px solid #fff;
+  color: var(--color-accent);
+  background: #fff;
+}
+.btn-on-accent:hover {
+  background: transparent;
+  color: #fff;
+}
 .btn-sm {
   padding: 0.65rem 1.4rem;
   font-size: 0.85rem;
 }
 
-/* Section rhythm: alternate plain white and near-black warm (hero-matched) bands.
-   Same dark as the hero, not a separate flat gray, so the palette reads as one
-   deliberate choice instead of a generic "light section / bootstrap gray section". */
-.section-dark {
-  background: var(--color-hero);
+/* Section rhythm: alternate plain white bands with bold red ones, so contrast
+   comes from the brand's own red instead of a near-black "highlight" tone. */
+.section-accent {
+  background: var(--color-accent);
   color: #fff;
   border-radius: clamp(1.25rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem) 0 0;
 }
