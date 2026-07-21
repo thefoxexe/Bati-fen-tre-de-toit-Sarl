@@ -92,7 +92,6 @@ export function Footer() {
             <Link href="/politique-de-confidentialite" className="hover:text-[var(--color-accent)]">
               Politique de confidentialité
             </Link>
-            <p>Canton de Vaud</p>
             <a
               href="https://webalp.ch"
               target="_blank"

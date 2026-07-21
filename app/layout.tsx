@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`h-full antialiased ${brand.variable}`}>
-      <body className="flex min-h-full flex-col pb-16 md:pb-0">
+      <body className="flex min-h-full flex-col pb-16 lg:pb-0">
         <JsonLd data={localBusinessJsonLd} />
         <Header />
         <main className="flex-1">{children}</main>

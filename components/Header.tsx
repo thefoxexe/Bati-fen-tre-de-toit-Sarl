@@ -33,7 +33,7 @@ export function Header() {
             <Logo priority />
           </Link>
 
-          <nav className="hidden items-center gap-7 md:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {nav.map((item) =>
               item.href === "/services" ? (
                 <div
@@ -87,7 +87,7 @@ export function Header() {
             )}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Magnetic strength={8}>
               <Link href="/devis" className="btn btn-primary btn-sm">
                 Devis gratuit
@@ -100,7 +100,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            className={`hamburger flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)] md:hidden ${open ? "is-open" : ""}`}
+            className={`hamburger flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-ink)] lg:hidden ${open ? "is-open" : ""}`}
           >
             <span />
             <span />
@@ -114,7 +114,7 @@ export function Header() {
           context, instead of being trapped inside header's own stacking
           context, where it would lose to BottomNav despite the higher z-index. */}
       <div
-        className={`nav-panel fixed inset-0 z-50 flex flex-col bg-white text-[var(--color-ink)] md:hidden ${open ? "is-open" : ""}`}
+        className={`nav-panel fixed inset-0 z-50 flex flex-col bg-white text-[var(--color-ink)] lg:hidden ${open ? "is-open" : ""}`}
         aria-hidden={!open}
       >
         <div className="flex items-center justify-between px-5 py-5">
