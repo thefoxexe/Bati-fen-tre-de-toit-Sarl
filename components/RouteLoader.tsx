@@ -3,16 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
+const MIN_VISIBLE_MS = 350;
+const FADE_MS = 180;
+
 /**
- * Thin progress bar at the very top of the viewport, shown while a page
- * transition is in flight. Starts on any internal link click (so it appears
- * instantly, before Next.js has even fetched the destination), and completes
- * as soon as the pathname actually changes.
+ * Full white overlay with a small progress bar, shown for well under a
+ * second during page transitions. Starts on any internal link click (so it
+ * appears instantly, before Next.js has fetched the destination), and clears
+ * once the new page has actually rendered.
  */
 export function RouteLoader() {
   const pathname = usePathname();
+  const [visible, setVisible] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [fading, setFading] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const shownAtRef = useRef(0);
   const prevPathname = useRef(pathname);
 
   useEffect(() => {
@@ -25,10 +31,13 @@ export function RouteLoader() {
       if (link.target === "_blank") return;
 
       if (intervalRef.current) clearInterval(intervalRef.current);
-      setProgress(15);
+      shownAtRef.current = Date.now();
+      setFading(false);
+      setVisible(true);
+      setProgress(20);
       intervalRef.current = setInterval(() => {
-        setProgress((p) => (p < 82 ? p + (82 - p) * 0.15 : p));
-      }, 120);
+        setProgress((p) => (p < 85 ? p + (85 - p) * 0.2 : p));
+      }, 100);
     }
 
     document.addEventListener("click", handleClick);
@@ -38,24 +47,39 @@ export function RouteLoader() {
   useEffect(() => {
     if (prevPathname.current === pathname) return;
     prevPathname.current = pathname;
+    if (!shownAtRef.current) return;
+
     if (intervalRef.current) clearInterval(intervalRef.current);
     setProgress(100);
-    const t = setTimeout(() => setProgress(0), 260);
+
+    const elapsed = Date.now() - shownAtRef.current;
+    const wait = Math.max(MIN_VISIBLE_MS - elapsed, 0);
+    const t = setTimeout(() => {
+      setFading(true);
+      const t2 = setTimeout(() => {
+        setVisible(false);
+        setProgress(0);
+        shownAtRef.current = 0;
+      }, FADE_MS);
+      return () => clearTimeout(t2);
+    }, wait);
     return () => clearTimeout(t);
   }, [pathname]);
 
-  if (progress === 0) return null;
+  if (!visible) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[3px]" aria-hidden="true">
-      <div
-        className="h-full bg-[var(--color-accent)] shadow-[0_0_10px_var(--color-accent)]"
-        style={{
-          width: `${progress}%`,
-          opacity: progress === 100 ? 0 : 1,
-          transition: progress === 100 ? "width 0.2s ease, opacity 0.3s ease 0.1s" : "width 0.2s ease",
-        }}
-      />
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-white"
+      style={{ opacity: fading ? 0 : 1, transition: `opacity ${FADE_MS}ms ease` }}
+      aria-hidden="true"
+    >
+      <div className="h-[3px] w-32 overflow-hidden rounded-full bg-[var(--color-line)]">
+        <div
+          className="h-full rounded-full bg-[var(--color-accent)]"
+          style={{ width: `${progress}%`, transition: "width 0.2s ease" }}
+        />
+      </div>
     </div>
   );
 }
