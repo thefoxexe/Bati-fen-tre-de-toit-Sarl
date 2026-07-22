@@ -174,7 +174,17 @@ export default function HomePage() {
             {services.map((service, i) => (
               <Reveal key={service.slug} delay={i * 90}>
                 <Link href={`/services/${service.slug}`} className="panel panel-hover group block h-full overflow-hidden">
-                  <PlaceholderMedia className="aspect-[4/3] w-full" />
+                  {service.heroImage ? (
+                    <Image
+                      src={service.heroImage.src}
+                      alt={service.heroImage.alt}
+                      width={service.heroImage.width}
+                      height={service.heroImage.height}
+                      className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <PlaceholderMedia className="aspect-[4/3] w-full" />
+                  )}
                   <div className="p-6">
                     <h3 className="text-base font-semibold text-[var(--color-ink)]">{service.title}</h3>
                     <p className="mt-2 text-sm text-[var(--color-ink-soft)]">{service.summary}</p>

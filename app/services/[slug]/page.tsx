@@ -276,7 +276,17 @@ export default async function ServicePage({
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {otherServices.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="panel panel-hover p-5">
-              <PlaceholderMedia label="Photo" className="h-12 w-12" />
+              {s.heroImage ? (
+                <Image
+                  src={s.heroImage.src}
+                  alt={s.heroImage.alt}
+                  width={s.heroImage.width}
+                  height={s.heroImage.height}
+                  className="h-12 w-12 rounded-lg object-cover"
+                />
+              ) : (
+                <PlaceholderMedia label="Photo" className="h-12 w-12" />
+              )}
               <h3 className="mt-3 text-sm font-semibold text-[var(--color-ink)]">{s.title}</h3>
             </Link>
           ))}
