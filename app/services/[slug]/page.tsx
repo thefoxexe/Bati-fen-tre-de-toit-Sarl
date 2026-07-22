@@ -7,7 +7,7 @@ import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { DevisForm } from "@/components/DevisForm";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
-import { CheckIcon, RoofWindowIllustration } from "@/components/icons";
+import { CheckIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
@@ -217,11 +217,7 @@ export default async function ServicePage({
       <Reveal>
         <section className="section-accent grain relative overflow-hidden">
           <div className="relative mx-auto max-w-2xl px-5 py-16 text-center md:px-8 md:py-20">
-            <RoofWindowIllustration
-              variant={service.cta.illustration}
-              className="mx-auto h-20 w-20 text-white/70"
-            />
-            <p className="balance mt-6 text-xl font-semibold text-white md:text-2xl">
+            <p className="balance text-xl font-semibold text-white md:text-2xl">
               {service.cta.headline}
             </p>
             <p className="mx-auto mt-3 max-w-md text-sm text-white/70">{service.cta.text}</p>
