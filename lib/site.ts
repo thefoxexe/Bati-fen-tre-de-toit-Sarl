@@ -166,6 +166,12 @@ export const services: Service[] = [
       text: "Un diagnostic clair avant toute intervention, et un devis qui ne cache rien.",
       illustration: "twin",
     },
+    heroImage: {
+      src: "/photos/entretien-reparation-fenetre-de-toit-velux.jpg",
+      alt: "Technicien intervenant sur une fenêtre de toit Velux en cours d'installation",
+      width: 2126,
+      height: 1418,
+    },
   },
   {
     slug: "installation-stores-velux",
@@ -295,6 +301,12 @@ export const services: Service[] = [
       headline: "Un toit plat n'empêche pas la lumière d'entrer.",
       text: "Des fenêtres pensées pour l'étanchéité et le confort, même sans pente.",
       illustration: "twin",
+    },
+    heroImage: {
+      src: "/photos/fenetre-toit-plat-velux-toiture-terrasse.jpg",
+      alt: "Fenêtre de toit plat Velux ouverte sur une toiture terrasse",
+      width: 2126,
+      height: 1418,
     },
   },
 ];
