@@ -10,7 +10,7 @@ import { Magnetic } from "@/components/Magnetic";
 import { services, site } from "@/lib/site";
 
 const reassurance = [
-  { icon: QuoteIcon, text: "Devis gratuit sous 48h" },
+  { icon: QuoteIcon, text: "Devis gratuit" },
   { icon: CheckIcon, text: "Partenaire agréé Velux Expert" },
   { icon: PhoneIcon, text: "Dépannage rapide, urgences comprises" },
   { icon: ShieldIcon, text: "Travaux garantis dans la durée" },
@@ -30,7 +30,7 @@ const process = [
   {
     step: "03",
     title: "Devis détaillé",
-    text: "Vous recevez un devis clair et chiffré, sans engagement, sous 48h ouvrées.",
+    text: "Vous recevez un devis clair et chiffré, sans engagement.",
   },
   {
     step: "04",
@@ -41,7 +41,7 @@ const process = [
 
 const whyUs = [
   { title: "Partenaire Velux Expert", text: "Un agrément qui garantit une pose conforme aux standards du fabricant." },
-  { title: "Rapidité d'intervention", text: "Réponse sous 48h, intervention rapide y compris pour les urgences." },
+  { title: "Rapidité d'intervention", text: "Une réponse rapide, intervention rapide y compris pour les urgences." },
   { title: "Devis gratuit", text: "Une visite technique et un devis détaillé, sans engagement." },
   { title: "Travaux garantis", text: "Nous restons responsables de la qualité de nos installations dans la durée." },
 ];
@@ -265,7 +265,7 @@ export default function HomePage() {
               <h2 className="balance text-2xl font-semibold text-white md:text-3xl">
                 Une idée de projet&nbsp;? Parlons-en sans engagement.
               </h2>
-              <p className="mt-2 text-sm text-white/70">Visite technique, devis chiffré sous 48h.</p>
+              <p className="mt-2 text-sm text-white/70">Visite technique, devis chiffré, sans engagement.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Magnetic>

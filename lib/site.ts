@@ -71,6 +71,9 @@ export type Service = {
   /** Bespoke closing pitch, specific to this service rather than a
    * generic "Un projet de {service} ?" template. */
   cta: { headline: string; text: string; illustration: "single" | "twin" | "dormer" };
+  /** Optional: real hero photo, where the client has supplied one. Falls
+   * back to a PlaceholderMedia box otherwise. */
+  heroImage?: { src: string; alt: string; width: number; height: number };
 };
 
 export const services: Service[] = [
@@ -118,6 +121,12 @@ export const services: Service[] = [
       headline: "Il est temps de changer d'air, et de lumière.",
       text: "Un remplacement propre et rapide, sans mauvaise surprise sur le chantier.",
       illustration: "single",
+    },
+    heroImage: {
+      src: "/photos/remplacement-fenetre-de-toit-velux-salon.jpg",
+      alt: "Fenêtres de toit Velux ouvertes dans un salon lumineux",
+      width: 2126,
+      height: 1595,
     },
   },
   {
@@ -247,6 +256,12 @@ export const services: Service[] = [
       text: "Occultant, tamisant ou pare-soleil : le store qui correspond vraiment à la pièce.",
       illustration: "dormer",
     },
+    heroImage: {
+      src: "/photos/store-velux-fenetre-de-toit-chambre.jpg",
+      alt: "Stores occultants Velux installés sur deux fenêtres de toit dans une chambre",
+      width: 2126,
+      height: 1594,
+    },
   },
   {
     slug: "fenetres-toit-plat",
@@ -293,7 +308,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Quel est le délai moyen d'intervention ?",
     answer:
-      "Nous répondons aux demandes de devis sous 48h. Le délai de réalisation des travaux dépend de la disponibilité du matériel et de la nature du chantier ; il vous est communiqué avec le devis.",
+      "Nous répondons rapidement aux demandes de devis. Le délai de réalisation des travaux dépend de la disponibilité du matériel et de la nature du chantier ; il vous est communiqué avec le devis.",
   },
   {
     question: "Faut-il une autorisation pour installer une fenêtre de toit ?",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { services, serviceAreas, site } from "@/lib/site";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
@@ -112,7 +113,18 @@ export default async function ServicePage({
               </Magnetic>
             </div>
           </div>
-          <PlaceholderMedia label="Photo à venir" className="aspect-[4/3] w-full rounded-2xl" />
+          {service.heroImage ? (
+            <Image
+              src={service.heroImage.src}
+              alt={service.heroImage.alt}
+              width={service.heroImage.width}
+              height={service.heroImage.height}
+              className="aspect-[4/3] w-full rounded-2xl object-cover"
+              priority
+            />
+          ) : (
+            <PlaceholderMedia label="Photo à venir" className="aspect-[4/3] w-full rounded-2xl" />
+          )}
         </div>
       </section>
 
@@ -251,7 +263,7 @@ export default async function ServicePage({
       <section id="devis" className="border-t border-[var(--color-line)] py-16 md:py-20">
         <div className="mx-auto max-w-xl px-5 md:px-8">
           <h2 className="text-xl font-semibold text-[var(--color-ink)]">Demander un devis pour ce service</h2>
-          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Réponse sous 48h ouvrées.</p>
+          <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Réponse rapide, sans engagement.</p>
           <div className="mt-8">
             <DevisForm initialService={service.slug} />
           </div>

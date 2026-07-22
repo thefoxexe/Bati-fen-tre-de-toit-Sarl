@@ -57,7 +57,7 @@ export function Footer() {
         <div>
           <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-ink-soft)]">Un projet ?</p>
           <p className="mt-4 text-sm text-[var(--color-ink-soft)]">
-            Demandez un devis gratuit, réponse sous 48h.
+            Demandez un devis gratuit, sans engagement.
           </p>
           <div className="mt-4 flex flex-col items-start gap-4">
             <Link href="/devis" className="btn btn-primary btn-sm inline-flex">

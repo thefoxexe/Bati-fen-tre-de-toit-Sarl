@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: `${site.name} - ${site.tagline} en Suisse`,
     template: `%s - ${site.shortName}`,
   },
-  description: `Installateur Velux agréé à ${site.address.city} et dans tout le canton de Vaud : fenêtres de toit, verrières, stores et domotique. Devis gratuit sous 48h.`,
+  description: `Installateur Velux agréé à ${site.address.city} et dans tout le canton de Vaud : fenêtres de toit, verrières, stores et domotique. Devis gratuit.`,
   alternates: {
     canonical: "/",
   },

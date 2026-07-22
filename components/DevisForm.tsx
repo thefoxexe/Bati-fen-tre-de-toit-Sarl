@@ -52,7 +52,7 @@ export function DevisForm({ initialService }: { initialService?: string }) {
       <div className="panel rounded-2xl p-10 text-center">
         <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre demande de devis a bien été envoyée.</p>
         <p className="mt-2 text-sm text-[var(--color-ink-soft)]">
-          Nous revenons vers vous sous 48h ouvrées avec un devis personnalisé.
+          Nous revenons vers vous rapidement avec un devis personnalisé.
         </p>
       </div>
     );

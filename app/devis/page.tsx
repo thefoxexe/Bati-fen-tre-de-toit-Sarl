@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Devis gratuit",
-  description: `Demandez un devis gratuit à ${site.shortName}, réponse sous 48h.`,
+  description: `Demandez un devis gratuit à ${site.shortName}, sans engagement.`,
   alternates: { canonical: "/devis" },
 };
 
@@ -25,7 +25,7 @@ export default async function DevisPage({
             Demandez votre devis gratuit.
           </h1>
           <p className="mt-4 max-w-sm text-sm text-[var(--color-ink-soft)]">
-            Décrivez votre projet, nous revenons vers vous sous 48h ouvrées avec un devis
+            Décrivez votre projet, nous revenons vers vous rapidement avec un devis
             personnalisé.
           </p>
 
@@ -44,7 +44,7 @@ export default async function DevisPage({
             Disponibilité
           </p>
           <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
-            Du lundi au vendredi, réponse sous 24 à 48h.
+            Du lundi au vendredi.
           </p>
         </div>
 
