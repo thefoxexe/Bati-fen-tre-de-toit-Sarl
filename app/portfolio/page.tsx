@@ -32,11 +32,11 @@ export default function PortfolioPage() {
       <section className="mx-auto max-w-5xl px-5 pb-8 md:px-8">
         <div className="flex flex-col items-start gap-4 border border-[var(--color-line)] p-6 md:flex-row md:items-center md:justify-between">
           <p className="max-w-xl text-sm text-[var(--color-ink-soft)]">
-            Cette galerie attend vos photos de chantier. Envoyez vos photos avant/après pour
-            remplacer les gabarits ci-dessous.
+            Cette galerie de chantiers récents est en cours de constitution. Pour des exemples
+            correspondant à votre projet, contactez-nous directement.
           </p>
           <Link href="/contact" className="btn btn-outline btn-sm shrink-0">
-            Envoyer des photos
+            Nous contacter
           </Link>
         </div>
       </section>

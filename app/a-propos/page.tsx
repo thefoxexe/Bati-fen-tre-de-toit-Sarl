@@ -9,42 +9,42 @@ import { serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: `${site.name} : installateur Velux agréé à ${site.address.city}, canton de Vaud. Découvrez notre savoir-faire et nos valeurs.`,
+  description: `${site.name} : installateur Velux agréé à ${site.address.city}, canton de Vaud. Depuis ${site.experienceSinceYear}, la même méthode : étudier la toiture avant de proposer un modèle.`,
   alternates: { canonical: "/a-propos" },
 };
 
 const lightBenefits = [
   {
-    title: "Un bienfait pour la santé",
-    text: "La lumière naturelle aide à réguler le rythme circadien, réduit le stress et améliore l'humeur au quotidien.",
+    title: "Un vrai effet sur le sommeil",
+    text: "La lumière naturelle règle l'horloge interne. Une pièce sous toiture bien éclairée se ressent dès les premiers jours.",
     icon: SunIcon,
   },
   {
-    title: "Conçues pour en profiter",
-    text: "Les fenêtres de toit Velux apportent un maximum de lumière naturelle, dans une large gamme de dimensions et de styles.",
+    title: "Une gamme large, un choix précis",
+    text: "Velux décline ses fenêtres de toit en de nombreuses tailles et finitions : on choisit celle qui correspond à votre comble, pas l'inverse.",
     icon: HomeIcon,
   },
   {
-    title: "Un accompagnement de A à Z",
-    text: "De l'étude de votre comble à la pose finale, nous vous conseillons le modèle le plus adapté à votre intérieur.",
+    title: "Un conseil avant la vente",
+    text: "L'étude de votre toiture précède toujours le choix du modèle, jamais l'inverse.",
     icon: UserIcon,
   },
 ];
 
 const values = [
   {
-    title: "Sérieux & précision",
-    text: "Une pose soignée, des finitions propres et une étanchéité durable, sur chaque chantier, sans exception.",
+    title: "Précision",
+    text: "Un raccord d'étanchéité mal repris se voit à la première pluie. On ne quitte pas un chantier sur ce doute.",
     icon: ShieldIcon,
   },
   {
-    title: "Proximité & réactivité",
-    text: "Un interlocuteur unique du premier appel à la remise des clés, disponible pour répondre à vos questions.",
+    title: "Un seul interlocuteur",
+    text: "La même personne répond au téléphone, établit le devis et monte sur le toit, du premier appel à la remise des clés.",
     icon: PhoneIcon,
   },
   {
     title: "Travail garanti",
-    text: "Nous nous tenons responsables de la qualité de nos installations après la fin du chantier.",
+    text: "Un problème après notre passage reste notre problème, pas le vôtre.",
     icon: CheckIcon,
   },
 ];
@@ -55,16 +55,14 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-5 pb-16 pt-16 text-center md:px-8 md:pb-24 md:pt-24">
         <p className="eyebrow mb-6 justify-center">À propos</p>
         <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
-          L&rsquo;installation de fenêtres de toit, un métier de précision.
+          Une fenêtre de toit mal posée, ça se voit. Et ça se sent au premier hiver.
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-ink-soft)]">
-          Basée à {site.address.city}, dans le canton de Vaud, {site.name}{" "}
-          accompagne les particuliers dans leurs projets de fenêtres de toit : remplacement,
-          stores Velux, entretien et dépannage. Spécialisé dans l&rsquo;installation de fenêtres de
-          toit depuis {site.experienceSinceYear}, Hasan Bati a fondé l&rsquo;entreprise en{" "}
-          {site.foundedYear} pour en faire un partenaire de confiance en Suisse Romande. Notre
-          approche : comprendre votre projet, vous conseiller sur le bon modèle, et livrer un
-          travail soigné, du premier rendez-vous à la dernière finition.
+          Hasan Bati pose des fenêtres de toit depuis {site.experienceSinceYear}. Il fonde{" "}
+          {site.name} en {site.foundedYear}, à {site.address.city}, dans le canton de Vaud :
+          remplacement, stores Velux, entretien et dépannage. La méthode n&rsquo;a pas changé
+          depuis le premier chantier : comprendre la toiture avant de proposer un modèle, et ne
+          quitter les lieux qu&rsquo;une fois l&rsquo;étanchéité vérifiée.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <span className="inline-flex items-center rounded-full border border-[var(--color-line)] px-4 py-2.5 text-sm font-medium text-[var(--color-ink)]">
@@ -94,7 +92,7 @@ export default function AboutPage() {
       <Reveal>
         <section className="border-t border-[var(--color-line)] bg-[#f7f5f2] py-20 md:py-28">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
-            <SectionHeading bold="Nos valeurs," rest="au cœur de chaque chantier." />
+            <SectionHeading bold="Trois principes," rest="qui ne changent pas d'un chantier à l'autre." />
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {values.map((value) => (
                 <div key={value.title} className="panel p-7">

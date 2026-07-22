@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Une question pour ${site.shortName} ? Contactez-nous, réponse sous 24 à 48h.`,
+  description: `Une question pour ${site.shortName} ? Contactez-nous, réponse rapide.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -21,11 +21,11 @@ export default function ContactPage() {
           </h1>
           <p className="mt-4 max-w-sm text-sm text-[var(--color-ink-soft)]">
             Suivi de dossier, question générale, remarque : ce formulaire n&rsquo;est pas pour un
-            devis.{" "}
+            devis. Vous cherchez plutôt à{" "}
             <Link href="/devis" className="link-underline">
-              Demander un devis
+              demander un devis
             </Link>
-            {" "}plutôt ?
+            {" "}?
           </p>
 
           <div className="mt-8 space-y-3">
@@ -43,7 +43,7 @@ export default function ContactPage() {
             Disponibilité
           </p>
           <p className="mt-1 text-sm text-[var(--color-ink-soft)]">
-            Du lundi au vendredi, réponse sous 24 à 48h.
+            Du lundi au vendredi.
           </p>
         </div>
 

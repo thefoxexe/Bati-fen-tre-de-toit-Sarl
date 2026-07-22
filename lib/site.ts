@@ -80,41 +80,41 @@ export const services: Service[] = [
   {
     slug: "remplacement-fenetre-de-toit",
     title: "Remplacement de fenêtres de toit",
-    summary: "Remplacez votre ancienne fenêtre de toit par un modèle Velux neuf : plus d'isolation, moins de bruit, une étanchéité durable.",
+    summary: "Une fenêtre qui condense, qui grince ou qui laisse passer le froid ne s'arrange pas avec le temps : on la remplace par un modèle Velux neuf.",
     description:
-      "Partenaire certifié Velux Expert basé à Bussigny, aux portes de Crissier, nous intervenons rapidement dans tout l'arc lémanique (Lausanne, Morges, Riviera, La Côte) pour remplacer votre ancienne fenêtre de toit par un modèle Velux de nouvelle génération. Une fenêtre de toit a une durée de vie de 20 à 25 ans : condensation entre les vitres, bois qui s'abîme ou difficulté à la fermeture sont les signes qu'il est temps de la changer, avant les pertes d'énergie ou les infiltrations.",
+      "Basés à Bussigny, aux portes de Crissier, nous intervenons dans tout l'arc lémanique : Lausanne, Morges, la Riviera, La Côte. Notre travail consiste à remplacer une fenêtre de toit fatiguée par un modèle Velux de dernière génération. Une fenêtre de toit tient en moyenne vingt à vingt-cinq ans. Passé ce cap, la condensation s'installe entre les vitres, le bois travaille, la fermeture se durcit : les signes ne trompent pas, et attendre ne fait qu'ajouter les pertes de chaleur et les infiltrations à la facture.",
     avantages: [
-      "Économie d'énergie : isolation thermique renforcée, la chaleur reste en hiver et la fraîcheur extérieure est stoppée",
-      "Confort d'été : vitrages à contrôle solaire, la chaleur sous les combles est drastiquement réduite",
-      "Isolation phonique : moins de bruit de pluie et de nuisances sonores extérieures",
-      "Sécurité accrue : systèmes de fermeture modernes et vitrages feuilletés résistants",
+      "Isolation thermique renforcée : la chaleur reste dedans l'hiver, dehors l'été",
+      "Vitrage à contrôle solaire : moins de chaleur accumulée sous les combles en été",
+      "Isolation phonique : le bruit de la pluie sur le toit devient presque inaudible",
+      "Fermeture récente et vitrage feuilleté : une résistance accrue à l'effraction",
     ],
     etapes: [
-      "Dépose soignée de votre ancienne installation",
-      "Adaptation de la structure si nécessaire et pose de la nouvelle fenêtre de toit",
-      "Pose du nouveau raccord d'étanchéité et isolation périphérique si nécessaire",
-      "Intégration de vos équipements préférés (stores occultants, volets roulants solaires)",
+      "Dépose soignée de l'ancienne fenêtre, sans dégât sur la toiture environnante",
+      "Adaptation du bâti si nécessaire, puis pose de la nouvelle fenêtre de toit",
+      "Raccord d'étanchéité neuf et reprise de l'isolation périphérique",
+      "Intégration des équipements choisis : store occultant, volet roulant solaire",
     ],
     faq: [
       {
         question: "Quand faut-il remplacer un Velux ?",
-        answer: "En général, une fenêtre de toit a une durée de vie de 20 à 25 ans. Si vous constatez des traces de condensation entre les vitres, du bois qui s'abîme ou des difficultés à la fermeture, il est temps de la remplacer pour éviter des pertes d'énergie ou des infiltrations.",
+        answer: "Une fenêtre de toit tient en moyenne vingt à vingt-cinq ans. De la condensation entre les vitres, du bois qui s'abîme ou une fermeture qui résiste sont les premiers signes : mieux vaut la remplacer avant les pertes d'énergie ou les infiltrations.",
       },
       {
         question: "Combien de temps prend la pose d'un nouveau Velux ?",
-        answer: "Pour un remplacement standard (ancienne fenêtre contre une neuve de même taille), l'intervention est très rapide et prend généralement entre 4 et 5 heures seulement, sans gros travaux dans votre pièce.",
+        answer: "Pour un remplacement à l'identique, même taille et même emplacement, comptez quatre à cinq heures de chantier, sans gros travaux dans la pièce.",
       },
       {
         question: "Est-il possible d'ajouter un volet roulant après coup ?",
-        answer: "Oui, tout à fait. Nous pouvons installer des volets roulants ou des stores intérieurs sur des fenêtres de toit existantes. Les modèles Velux à énergie solaire sont idéaux car ils ne nécessitent aucun passage de câble électrique à travers vos murs.",
+        answer: "Oui. Nous posons des volets roulants et des stores intérieurs sur des fenêtres de toit déjà en place. Les modèles Velux à énergie solaire sont particulièrement pratiques : aucun câble à faire passer dans vos murs.",
       },
       {
         question: "Faut-il une autorisation de construire pour changer un Velux en Suisse ?",
-        answer: "Pour un remplacement standard (à l'identique, sans modification de taille ou de forme), une simple annonce de travaux ou une dispense d'autorisation suffit généralement dans la plupart des communes du canton de Vaud. En revanche, si vous créez une nouvelle ouverture ou agrandissez la fenêtre existante, une demande d'autorisation (procédure simplifiée) est nécessaire.",
+        answer: "Pour un remplacement à l'identique, sans changement de taille ni de forme, une simple annonce de travaux suffit dans la plupart des communes vaudoises. Créer une nouvelle ouverture ou agrandir la fenêtre existante demande en revanche une autorisation, en procédure simplifiée.",
       },
       {
         question: "Quelle est la différence entre un Velux en bois et un Velux en polyuréthane (blanc) ?",
-        answer: "Le modèle en bois verni est idéal pour les pièces sèches comme les chambres ou les salons. Pour les pièces humides (salles de bains, cuisines), nous recommandons vivement la finition en polyuréthane blanc : elle possède un cœur en bois enrobé d'une coque étanche, ce qui la rend ultra-résistante à l'humidité et ne nécessite aucun entretien de peinture.",
+        answer: "Le bois verni convient bien aux pièces sèches : chambres, salons. Dans les pièces humides, salle de bains ou cuisine, nous recommandons la finition polyuréthane blanche. Son cœur en bois est enrobé d'une coque étanche, insensible à l'humidité et sans entretien de peinture.",
       },
     ],
     cta: {
@@ -132,14 +132,14 @@ export const services: Service[] = [
   {
     slug: "entretien-reparation",
     title: "Entretien et réparation",
-    summary: "Contrôle, entretien et dépannage rapide de vos fenêtres de toit, stores et volets roulants Velux, vitrages cassés compris.",
+    summary: "Contrôle, entretien et dépannage de vos fenêtres de toit, stores et volets roulants Velux : vitrage cassé, fuite ou mécanisme grippé.",
     description:
-      "Une fenêtre de toit bien entretenue dure plus longtemps et évite les mauvaises surprises. Nous assurons le contrôle et la maintenance de vos fenêtres de toit, stores et volets roulants Velux, et intervenons rapidement en cas de panne : vitrage cassé, fuite, blocage mécanique ou produit motorisé qui ne répond plus.",
+      "Une fenêtre de toit entretenue dure plus longtemps qu'une fenêtre livrée à elle-même. Nous contrôlons et entretenons vos fenêtres de toit, stores et volets roulants Velux, et intervenons rapidement en cas de panne : vitrage cassé, fuite, mécanisme grippé ou moteur qui ne répond plus.",
     avantages: [
       "Contrôle complet : vitrage, joints d'étanchéité, mécanisme, raccords de toiture",
-      "Intervention rapide en cas de panne, y compris en urgence",
-      "Remplacement des vitrages cassés et des pièces défectueuses",
-      "Diagnostic sur place avant toute réparation, devis clair",
+      "Intervention rapide, urgences comprises",
+      "Remplacement du vitrage cassé et des pièces défectueuses",
+      "Diagnostic sur place avant toute réparation, devis clair avant intervention",
     ],
     etapes: [
       "Prise de contact et description du problème ou de la demande d'entretien",
@@ -158,7 +158,7 @@ export const services: Service[] = [
       },
       {
         question: "Mon store ou ma fenêtre motorisée ne répond plus, que faire ?",
-        answer: "Un problème sur un produit électrique Velux (moteur, télécommande, capteur solaire) se diagnostique généralement sur place : batterie, capteur ou moteur défectueux. Contactez-nous pour un dépannage.",
+        answer: "Un produit motorisé Velux (moteur, télécommande, capteur solaire) se diagnostique presque toujours sur place : batterie, capteur ou moteur en cause. Appelez-nous, nous nous en occupons.",
       },
     ],
     cta: {
@@ -176,9 +176,9 @@ export const services: Service[] = [
   {
     slug: "installation-stores-velux",
     title: "Stores et volets roulants Velux",
-    summary: "Occultation, protection solaire et confort d'été avec les stores et volets roulants Velux.",
+    summary: "Stores occultants, pare-soleil et volets roulants Velux : la bonne lumière dans chaque pièce, à chaque heure du jour.",
     description:
-      "Pose de stores occultants, stores pare-soleil ou volets roulants Velux, motorisés ou manuels, adaptés à votre modèle de fenêtre de toit existant. Selon vos besoins : occulter pour la nuit, se protéger de la chaleur, isoler du froid, tamiser et décorer, ou simplement préserver votre intimité.",
+      "Nous posons des stores occultants, des stores pare-soleil et des volets roulants Velux, manuels ou motorisés, adaptés à votre modèle de fenêtre de toit. Occulter pour la nuit, se protéger de la chaleur d'été, tamiser la lumière ou simplement préserver l'intimité d'une chambre : chaque pièce a ses propres besoins, et le store se choisit en fonction.",
     avantages: [
       "Jusqu'à 92% de réduction de chaleur avec le volet roulant extérieur",
       "Occultation totale pour les chambres, avec les stores obscurcissants",
@@ -198,7 +198,7 @@ export const services: Service[] = [
         items: [
           {
             name: "Store occultant",
-            text: "Obscurcit la pièce à toute heure du jour : idéal pour les chambres d'enfant et à coucher.",
+            text: "Obscurcit la pièce à toute heure : idéal pour une chambre d'enfant ou une sieste en pleine journée.",
           },
           {
             name: "Volet roulant",
@@ -216,11 +216,11 @@ export const services: Service[] = [
         items: [
           {
             name: "Store vénitien",
-            text: "Facile d'entretien et résistant à l'humidité, il permet de régler l'ombre et la lumière comme vous le souhaitez.",
+            text: "Résistant à l'humidité et facile d'entretien : on règle l'ombre et la lumière lame par lame.",
           },
           {
             name: "Store plissé",
-            text: "Une lumière douce et élégante, réglable, avec vue vers l'extérieur conservée et des accents décoratifs.",
+            text: "Une lumière douce et réglable, la vue sur l'extérieur conservée, avec un vrai choix de teintes et de motifs.",
           },
           {
             name: "Store confort",
@@ -272,9 +272,9 @@ export const services: Service[] = [
   {
     slug: "fenetres-toit-plat",
     title: "Fenêtres pour toit plat",
-    summary: "Profitez pleinement de vos espaces sous toiture plate grâce aux fenêtres Velux dédiées : lumière naturelle et confort optimal.",
+    summary: "Des fenêtres Velux conçues spécifiquement pour les toits plats : lumière naturelle et étanchéité, même sans pente.",
     description:
-      "Velux propose des fenêtres spécifiquement conçues pour les toits plats, avec des performances d'isolation et d'étanchéité qui n'ont rien à envier aux modèles pour toiture inclinée. Une solution pour apporter de la lumière naturelle et profiter pleinement de vos combles, d'une extension ou d'un local sans possibilité de fenêtre verticale.",
+      "Velux fabrique une gamme de fenêtres pensée pour les toits plats, avec une isolation et une étanchéité qui n'ont rien à envier aux modèles pour toiture inclinée. De quoi apporter de la lumière naturelle dans des combles, une extension ou un local qui n'a pas la place pour une fenêtre verticale.",
     avantages: [
       "Lumière naturelle abondante, même sur une toiture plate",
       "Étanchéité renforcée, spécifique aux toitures plates",

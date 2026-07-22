@@ -13,7 +13,7 @@ const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit" },
   { icon: CheckIcon, text: "Partenaire agréé Velux Expert" },
   { icon: PhoneIcon, text: "Dépannage rapide, urgences comprises" },
-  { icon: ShieldIcon, text: "Travaux garantis dans la durée" },
+  { icon: ShieldIcon, text: "Garantie sur la pose et l'étanchéité" },
 ];
 
 const process = [
@@ -41,9 +41,9 @@ const process = [
 
 const whyUs = [
   { title: "Partenaire Velux Expert", text: "Un agrément qui garantit une pose conforme aux standards du fabricant." },
-  { title: "Rapidité d'intervention", text: "Une réponse rapide, intervention rapide y compris pour les urgences." },
+  { title: "Rapidité d'intervention", text: "Le téléphone décroché, une visite planifiée sous quelques jours, une urgence traitée en priorité." },
   { title: "Devis gratuit", text: "Une visite technique et un devis détaillé, sans engagement." },
-  { title: "Travaux garantis", text: "Nous restons responsables de la qualité de nos installations dans la durée." },
+  { title: "Travaux garantis", text: "Un problème après la pose ? Nous revenons le régler, sans discussion." },
 ];
 
 export default function HomePage() {
@@ -62,21 +62,21 @@ export default function HomePage() {
               Installateur de fenêtres de toit
             </p>
             <h1 className="balance text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] md:text-6xl">
-              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
+              <SplitWords text="La lumière entre. L'eau reste dehors." startDelay={80} />
             </h1>
             <p
               className="hero-fade mx-auto mt-5 max-w-xl text-lg text-[var(--color-ink-soft)] md:mx-0"
               style={{ animationDelay: "260ms" }}
             >
-              Installation et rénovation de fenêtres de toit par des artisans qualifiés.
+              Remplacement, installation et entretien de fenêtres de toit Velux, dans tout le canton de Vaud.
             </p>
             <p
               className="hero-fade mx-auto mt-4 max-w-xl text-sm text-[var(--color-ink-soft)] md:mx-0"
               style={{ animationDelay: "380ms" }}
             >
-              De la première visite technique à la dernière finition, {site.shortName}{" "}
-              s&rsquo;occupe de tout : une fenêtre de toit bien posée, bien isolée, qui tient dans
-              la durée.
+              De la première visite au dernier joint d&rsquo;étanchéité, {site.shortName}{" "}
+              prend en charge l&rsquo;ensemble du chantier : une pose qui respecte votre toiture, et
+              une fenêtre qui ne bougera plus pendant vingt ans.
             </p>
             <div
               className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
@@ -136,15 +136,15 @@ export default function HomePage() {
         <section className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
           <div className="grid gap-10 md:grid-cols-2">
             <SectionHeading
-              bold="Un artisan à votre écoute."
-              rest="Chaque toiture a ses contraintes. On les étudie avant de sortir le premier outil."
+              bold="Chaque toiture a ses contraintes."
+              rest="On les étudie avant de sortir le premier outil."
             />
             <div>
               <p className="text-base text-[var(--color-ink-soft)]">
                 {site.name}{" "}
-                installe, rénove et dépanne des fenêtres de toit dans tout le canton de Vaud, avec
-                le même soin à chaque étape : une étanchéité qui tient, des finitions propres et des
-                délais tenus.
+                installe, rénove et dépanne des fenêtres de toit dans tout le canton de Vaud. Une
+                toiture inclinée, une toiture plate, un bâti ancien ou une extension récente : la
+                pose change à chaque fois, la rigueur non.
               </p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {["Étanchéité", "Isolation", "Finitions soignées"].map((tag) => (
@@ -228,7 +228,7 @@ export default function HomePage() {
       <section className="section-accent grain">
         <div className="mx-auto max-w-5xl px-5 py-20 md:px-8 md:py-28">
           <Reveal>
-            <SectionHeading eyebrow="Pourquoi nous choisir" bold="Un partenaire de confiance," rest="pas juste un installateur." onDark />
+            <SectionHeading eyebrow="Pourquoi nous choisir" bold="On reste après la pose," rest="pas seulement le temps du chantier." onDark />
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {whyUs.map((item, i) => (

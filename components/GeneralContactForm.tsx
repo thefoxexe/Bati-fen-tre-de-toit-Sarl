@@ -50,7 +50,7 @@ export function GeneralContactForm() {
     return (
       <div className="panel rounded-2xl p-10 text-center">
         <p className="text-lg font-bold text-[var(--color-ink)]">Merci, votre message a bien été envoyé.</p>
-        <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Nous vous répondons sous 24 à 48h.</p>
+        <p className="mt-2 text-sm text-[var(--color-ink-soft)]">Nous vous répondons rapidement.</p>
       </div>
     );
   }
