@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, RoofWindowIllustration, ShieldIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon, PhoneIcon, QuoteIcon, ShieldIcon } from "@/components/icons";
 import { PlaceholderMedia } from "@/components/PlaceholderMedia";
 import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
@@ -112,7 +112,14 @@ export default function HomePage() {
           </div>
 
           <div className="hero-fade relative hidden md:block" style={{ animationDelay: "220ms" }}>
-            <RoofWindowIllustration variant="single" className="mx-auto h-auto w-full max-w-md text-[var(--color-accent)]" />
+            <Image
+              src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
+              alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
+              width={1600}
+              height={2400}
+              className="aspect-[3/4] w-full rounded-2xl object-cover shadow-lg"
+              priority
+            />
           </div>
         </div>
       </section>
