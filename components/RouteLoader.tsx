@@ -5,12 +5,13 @@ import { usePathname } from "next/navigation";
 
 const MIN_VISIBLE_MS = 350;
 const FADE_MS = 180;
+const SESSION_KEY = "route-loader-shown";
 
 /**
- * Full white overlay with a small progress bar, shown for well under a
- * second during page transitions. Starts on any internal link click (so it
- * appears instantly, before Next.js has fetched the destination), and clears
- * once the new page has actually rendered.
+ * Full white overlay with a small progress bar. Shown once per browser
+ * session, on the very first internal navigation only — after that, the
+ * site behaves like a normal set of static pages with no loader getting in
+ * the way when clicking around (services, à propos, etc.).
  */
 export function RouteLoader() {
   const pathname = usePathname();
@@ -24,12 +25,14 @@ export function RouteLoader() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (sessionStorage.getItem(SESSION_KEY)) return;
       const link = (event.target as HTMLElement)?.closest("a");
       if (!link) return;
       const href = link.getAttribute("href");
       if (!href || href.startsWith("#") || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
       if (link.target === "_blank") return;
 
+      sessionStorage.setItem(SESSION_KEY, "1");
       if (intervalRef.current) clearInterval(intervalRef.current);
       shownAtRef.current = Date.now();
       setFading(false);

@@ -62,7 +62,7 @@ export default function HomePage() {
               Installateur de fenêtres de toit
             </p>
             <h1 className="balance text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] md:text-6xl">
-              <SplitWords text="La lumière entre. L'eau reste dehors." startDelay={80} />
+              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
             </h1>
             <p
               className="hero-fade mx-auto mt-5 max-w-xl text-lg text-[var(--color-ink-soft)] md:mx-0"
@@ -74,9 +74,8 @@ export default function HomePage() {
               className="hero-fade mx-auto mt-4 max-w-xl text-sm text-[var(--color-ink-soft)] md:mx-0"
               style={{ animationDelay: "380ms" }}
             >
-              De la première visite au dernier joint d&rsquo;étanchéité, {site.shortName}{" "}
-              prend en charge l&rsquo;ensemble du chantier : une pose qui respecte votre toiture, et
-              une fenêtre qui ne bougera plus pendant vingt ans.
+              Devis gratuit, visite technique sur place et pose soignée : {site.shortName}{" "}
+              s&rsquo;occupe de votre projet du premier appel à la dernière finition.
             </p>
             <div
               className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"

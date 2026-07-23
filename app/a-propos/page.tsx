@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-5 pb-16 pt-16 text-center md:px-8 md:pb-24 md:pt-24">
         <p className="eyebrow mb-6 justify-center">À propos</p>
         <h1 className="balance text-4xl font-semibold leading-tight text-[var(--color-ink)] md:text-5xl">
-          Une fenêtre de toit mal posée, ça se voit. Et ça se sent au premier hiver.
+          L&rsquo;installation de fenêtres de toit, un métier de précision.
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-ink-soft)]">
           Hasan Bati pose des fenêtres de toit depuis {site.experienceSinceYear}. Il fonde{" "}
