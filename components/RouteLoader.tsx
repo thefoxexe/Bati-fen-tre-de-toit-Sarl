@@ -25,6 +25,10 @@ export function RouteLoader() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      // Something upstream (e.g. the Services dropdown trigger on touch)
+      // already cancelled the navigation this click would have caused —
+      // don't show a loader for a page transition that isn't happening.
+      if (event.defaultPrevented) return;
       if (sessionStorage.getItem(SESSION_KEY)) return;
       const link = (event.target as HTMLElement)?.closest("a");
       if (!link) return;

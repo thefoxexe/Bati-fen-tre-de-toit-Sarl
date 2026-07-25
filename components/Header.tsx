@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, services, site } from "@/lib/site";
@@ -13,6 +13,22 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+
+  // Desktop dropdown normally opens on hover, but touch devices (iPad in
+  // particular) never fire hover events, so tapping the trigger has to open
+  // it too. Once it's opened by a tap, there's no mouseleave to close it, so
+  // close on the next tap anywhere outside the dropdown.
+  useEffect(() => {
+    if (!servicesOpen) return;
+    function handlePointerDown(event: PointerEvent) {
+      if (!servicesRef.current?.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    }
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [servicesOpen]);
   // Re-derive from the URL whenever it changes, without an effect: this
   // render-time adjustment (React's documented pattern for "resetting state
   // when a prop changes") closes the menu on navigation, avoiding the extra
@@ -38,12 +54,27 @@ export function Header() {
               item.href === "/services" ? (
                 <div
                   key={item.href}
+                  ref={servicesRef}
                   className="relative"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
                   <Link
                     href={item.href}
+                    onClick={(event) => {
+                      // Touch devices (iPad in particular) never fire the
+                      // hover above, so the tap has to open the dropdown
+                      // instead of navigating straight through. Force it
+                      // open rather than toggling: touch emulation can fire
+                      // a compatibility mouseenter right before the click,
+                      // which would otherwise immediately toggle it shut.
+                      if (window.matchMedia("(hover: none)").matches) {
+                        event.preventDefault();
+                        setServicesOpen(true);
+                      }
+                    }}
+                    aria-expanded={servicesOpen}
+                    aria-haspopup="true"
                     className="flex items-center gap-1 text-sm font-semibold text-[var(--color-ink-soft)] transition hover:text-[var(--color-ink)]"
                   >
                     {item.label}
