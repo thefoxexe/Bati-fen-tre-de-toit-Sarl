@@ -59,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`h-full antialiased ${brand.variable}`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`h-full antialiased ${brand.variable}`}>
       <body className="flex min-h-full flex-col pb-16 lg:pb-0">
         <JsonLd data={localBusinessJsonLd} />
         <RouteLoader />

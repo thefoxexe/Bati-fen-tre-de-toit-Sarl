@@ -56,7 +56,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — full-bleed photo instead of a split text/image layout */}
-      <section className="grain relative flex min-h-[100svh] items-end overflow-hidden text-white md:items-center">
+      <section className="grain relative flex min-h-[100svh] items-center overflow-hidden text-white">
         <Image
           src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
           alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
@@ -67,7 +67,7 @@ export default function HomePage() {
         <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-28 text-center md:px-8 md:pb-28 md:pt-32 md:text-left">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-24 text-center md:px-8 md:py-20 md:text-left">
           <p className="eyebrow hero-fade mb-5 justify-center text-white/90 md:justify-start">
             Installateur de fenêtres de toit
           </p>
