@@ -8,12 +8,22 @@ import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
 import { Magnetic } from "@/components/Magnetic";
 import { StatCounter } from "@/components/StatCounter";
-import { services, site } from "@/lib/site";
+import { faqs, services, site } from "@/lib/site";
 
 const stats = [
   { value: new Date().getFullYear() - site.experienceSinceYear, suffix: "+", label: "ans d'expérience terrain" },
   { value: 99, suffix: "%", label: "clients satisfaits" },
 ];
+
+// The 4 questions a first-time visitor is most likely to have, pulled from
+// the full FAQ list rather than duplicated — everything else stays on /faq.
+const homeFaqQuestions = [
+  "Combien coûte l'installation d'une fenêtre de toit ?",
+  "Quel est le délai moyen d'intervention ?",
+  "Le devis est-il vraiment gratuit et sans engagement ?",
+  "Intervenez-vous aussi pour du dépannage ?",
+];
+const homeFaqs = faqs.filter((faq) => homeFaqQuestions.includes(faq.question));
 
 const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit" },
@@ -56,7 +66,10 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — full-bleed photo instead of a split text/image layout */}
-      <section className="grain relative flex min-h-[100svh] items-center overflow-hidden text-white">
+      {/* min-h leaves room for the fixed bottom nav on mobile (lg:hidden,
+          ~4rem tall) — otherwise centered content that fills a true 100svh
+          ends up with its bottom edge (the CTAs) hidden behind that bar. */}
+      <section className="grain relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden text-white lg:min-h-[100svh]">
         <Image
           src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
           alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
@@ -67,7 +80,7 @@ export default function HomePage() {
         <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-24 text-center md:px-8 md:py-20 md:text-left">
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-14 text-center md:px-8 md:py-20 md:text-left">
           <p className="eyebrow hero-fade mb-5 justify-center text-white/90 md:justify-start">
             Installateur de fenêtres de toit
           </p>
@@ -283,6 +296,31 @@ export default function HomePage() {
             <Link href="/portfolio" className="link-underline inline-flex items-center gap-2 text-sm">
               Voir nos réalisations <ArrowIcon className="h-3.5 w-3.5" />
             </Link>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* FAQ preview */}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] bg-[#f7f5f2] py-20 md:py-28">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <SectionHeading eyebrow="Questions fréquentes" bold="Ce qu'on nous demande" rest="le plus souvent." />
+            <div className="mt-10 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+              {homeFaqs.map((faq) => (
+                <details key={faq.question} className="faq group py-5">
+                  <summary className="flex items-center justify-between gap-4">
+                    <span className="text-base font-medium text-[var(--color-ink)]">{faq.question}</span>
+                    <span className="faq-icon shrink-0 text-xl font-light text-[var(--color-ink-soft)]">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link href="/faq" className="link-underline inline-flex items-center gap-2 text-sm">
+                Voir toutes les questions <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </section>
       </Reveal>

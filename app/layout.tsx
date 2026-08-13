@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BottomNav } from "@/components/BottomNav";
 import { RouteLoader } from "@/components/RouteLoader";
+import { ScrollResetOnSameLink } from "@/components/ScrollResetOnSameLink";
 import { site, serviceAreas } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col pb-16 lg:pb-0">
         <JsonLd data={localBusinessJsonLd} />
         <RouteLoader />
+        <ScrollResetOnSameLink />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

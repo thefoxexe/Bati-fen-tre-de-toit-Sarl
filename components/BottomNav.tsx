@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GridIcon, HelpIcon, HomeIcon, MailIcon } from "@/components/icons";
@@ -34,16 +34,6 @@ export function BottomNav() {
     setActiveIndex(matchIndex(pathname));
   }
 
-  function handleHomeClick(event: MouseEvent<HTMLAnchorElement>) {
-    setActiveIndex(0);
-    // Already on the home page: there's no navigation for Link to trigger a
-    // scroll reset on, so do it ourselves instead of letting the click no-op.
-    if (pathname === "/") {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
-
   return (
     <nav
       className="fixed inset-x-0 bottom-0 z-40 flex items-stretch border-t border-[var(--color-line)] bg-white lg:hidden"
@@ -58,7 +48,7 @@ export function BottomNav() {
         <Link
           key={item.href}
           href={item.href}
-          onClick={(event) => (item.href === "/" ? handleHomeClick(event) : setActiveIndex(i))}
+          onClick={() => setActiveIndex(i)}
           className="relative flex flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] font-medium transition active:scale-95"
         >
           <span className="flex h-9 w-9 items-center justify-center">
