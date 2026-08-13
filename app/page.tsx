@@ -7,7 +7,14 @@ import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
 import { Magnetic } from "@/components/Magnetic";
-import { services, site } from "@/lib/site";
+import { StatCounter } from "@/components/StatCounter";
+import { services, serviceAreas, site } from "@/lib/site";
+
+const stats = [
+  { value: new Date().getFullYear() - site.experienceSinceYear, suffix: "+", label: "ans d'expérience terrain" },
+  { value: serviceAreas.length, suffix: "", label: "villes couvertes dans le canton de Vaud" },
+  { value: 100, suffix: "%", label: "devis gratuits, sans engagement" },
+];
 
 const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit" },
@@ -49,78 +56,70 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="grain relative overflow-hidden border-b border-[var(--color-line)] bg-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-[0.07] blur-3xl md:translate-x-1/3"
-          style={{ background: "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)" }}
+      {/* Hero — full-bleed photo instead of a split text/image layout */}
+      <section className="grain relative flex min-h-[100svh] items-end overflow-hidden text-white md:items-center">
+        <Image
+          src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
+          alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
+          fill
+          priority
+          className="object-cover"
         />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-16 text-center md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-8 md:px-8 md:pb-28 md:pt-20 md:text-left">
-          <div>
-            <p className="eyebrow hero-fade mb-5 justify-center md:justify-start">
-              Installateur de fenêtres de toit
-            </p>
-            <h1 className="balance text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] md:text-6xl">
-              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
-            </h1>
-            <p
-              className="hero-fade mx-auto mt-5 max-w-xl text-lg text-[var(--color-ink-soft)] md:mx-0"
-              style={{ animationDelay: "260ms" }}
-            >
-              Remplacement, installation et entretien de fenêtres de toit Velux, dans tout le canton de Vaud.
-            </p>
-            <p
-              className="hero-fade mx-auto mt-4 max-w-xl text-sm text-[var(--color-ink-soft)] md:mx-0"
-              style={{ animationDelay: "380ms" }}
-            >
-              Devis gratuit, visite technique sur place et pose soignée : {site.shortName}{" "}
-              s&rsquo;occupe de votre projet du premier appel à la dernière finition.
-            </p>
-            <div
-              className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
-              style={{ animationDelay: "500ms" }}
-            >
-              <Magnetic>
-                <Link href="/devis" className="btn btn-primary">
-                  Demander un devis gratuit
-                </Link>
-              </Magnetic>
-              <Magnetic>
-                <a href={site.phoneHref} className="btn btn-outline">
-                  {site.phoneDisplay}
-                </a>
-              </Magnetic>
-            </div>
-            <a
-              href="https://www.velux.ch"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-              className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-[var(--color-line)] px-4 py-2 transition hover:border-[var(--color-accent)]"
-              style={{ animationDelay: "600ms" }}
-            >
-              <Image
-                src="/logo/velux-expert-partenaire-agree.png"
-                alt=""
-                width={7000}
-                height={1002}
-                className="h-4 w-auto"
-              />
-              <span className="text-xs font-medium text-[var(--color-ink-soft)]">Partenaire agréé Velux Expert</span>
-            </a>
-          </div>
+        <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-          <div className="hero-fade relative hidden md:block" style={{ animationDelay: "220ms" }}>
-            <Image
-              src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
-              alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
-              width={1600}
-              height={2400}
-              className="aspect-[3/4] w-full rounded-2xl object-cover shadow-lg"
-              priority
-            />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-28 text-center md:px-8 md:pb-28 md:pt-32 md:text-left">
+          <p className="eyebrow hero-fade mb-5 justify-center text-white/90 md:justify-start">
+            Installateur de fenêtres de toit
+          </p>
+          <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
+            <SplitWords text="Plus de lumière chez vous." startDelay={80} />
+          </h1>
+          <p
+            className="hero-fade mx-auto mt-5 max-w-xl text-lg text-white/85 md:mx-0"
+            style={{ animationDelay: "260ms" }}
+          >
+            Remplacement, installation et entretien de fenêtres de toit Velux, dans tout le canton de Vaud.
+          </p>
+          <p
+            className="hero-fade mx-auto mt-4 max-w-xl text-sm text-white/70 md:mx-0"
+            style={{ animationDelay: "380ms" }}
+          >
+            Devis gratuit, visite technique sur place et pose soignée : {site.shortName}{" "}
+            s&rsquo;occupe de votre projet du premier appel à la dernière finition.
+          </p>
+          <div
+            className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
+            style={{ animationDelay: "500ms" }}
+          >
+            <Magnetic>
+              <Link href="/devis" className="btn btn-primary">
+                Demander un devis gratuit
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <a href={site.phoneHref} className="btn btn-on-photo">
+                {site.phoneDisplay}
+              </a>
+            </Magnetic>
           </div>
+          <a
+            href="https://www.velux.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
+            className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2 shadow-lg transition hover:shadow-xl"
+            style={{ animationDelay: "600ms" }}
+          >
+            <Image
+              src="/logo/velux-expert-partenaire-agree.png"
+              alt=""
+              width={7000}
+              height={1002}
+              className="h-4 w-auto"
+            />
+            <span className="text-xs font-medium text-[var(--color-ink-soft)]">Partenaire agréé Velux Expert</span>
+          </a>
         </div>
       </section>
 
@@ -136,6 +135,30 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* Chiffres clés — the "décompte" the client liked on the agency's own site */}
+      <Reveal>
+        <section className="border-b border-[var(--color-line)] py-16 md:py-20">
+          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-5 sm:grid-cols-4 md:px-8">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 90} className="text-center">
+                <p className="text-3xl font-extrabold text-[var(--color-accent)] md:text-4xl">
+                  <StatCounter value={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="mt-2 text-xs font-medium text-[var(--color-ink-soft)] md:text-sm">{stat.label}</p>
+              </Reveal>
+            ))}
+            <Reveal delay={stats.length * 90} className="text-center">
+              <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-accent)] text-white">
+                <CheckIcon className="h-5 w-5" />
+              </span>
+              <p className="mt-3 text-xs font-medium text-[var(--color-ink-soft)] md:text-sm">
+                Partenaire agréé Velux Expert
+              </p>
+            </Reveal>
+          </div>
+        </section>
+      </Reveal>
 
       {/* About teaser */}
       <Reveal>

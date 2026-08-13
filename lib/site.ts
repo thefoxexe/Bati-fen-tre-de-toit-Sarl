@@ -341,4 +341,39 @@ export const faqs: FaqItem[] = [
     question: "Dans quelles villes intervenez-vous ?",
     answer: `Nous intervenons dans tout le canton de Vaud, notamment à ${serviceAreas.slice(0, -1).join(", ")} et ${serviceAreas[serviceAreas.length - 1]}. Contactez-nous avec votre localité pour confirmer rapidement votre éligibilité.`,
   },
+  {
+    question: "Le devis est-il vraiment gratuit et sans engagement ?",
+    answer:
+      "Oui. La visite technique et le devis détaillé sont gratuits et sans engagement, quel que soit le type d'intervention (remplacement, store ou dépannage).",
+  },
+  {
+    question: "Quelle est la durée de vie d'une fenêtre de toit Velux ?",
+    answer:
+      "Une fenêtre de toit tient en moyenne vingt à vingt-cinq ans. De la condensation entre les vitres, du bois qui s'abîme ou une fermeture qui résiste sont les premiers signes qu'un remplacement devient nécessaire.",
+  },
+  {
+    question: "Quelle est la différence entre un Velux en bois et un Velux en polyuréthane (blanc) ?",
+    answer:
+      "Le bois verni convient bien aux pièces sèches : chambres, salons. Dans les pièces humides, salle de bains ou cuisine, nous recommandons la finition polyuréthane blanche, dont le cœur en bois est enrobé d'une coque étanche, insensible à l'humidité et sans entretien de peinture.",
+  },
+  {
+    question: "Les volets roulants Velux réduisent-ils vraiment la chaleur en été ?",
+    answer:
+      "Oui : jusqu'à 92% de réduction de chaleur avec un volet roulant extérieur, en plus de l'obscurcissement complet et d'une meilleure isolation thermique et phonique.",
+  },
+  {
+    question: "Peut-on motoriser un store Velux déjà installé ?",
+    answer:
+      "Selon le modèle, un remplacement par une version à énergie solaire ou électrique est souvent possible sans intervention lourde ni câblage dans les murs.",
+  },
+  {
+    question: "Proposez-vous un entretien préventif, ou seulement du dépannage ?",
+    answer:
+      "Les deux. Un contrôle tous les 2 à 3 ans (vitrage, joints, mécanisme, raccords de toiture) limite les pannes, et nous intervenons aussi rapidement en dépannage : vitrage cassé, fuite ou mécanisme grippé, urgences comprises.",
+  },
+  {
+    question: "Intervenez-vous uniquement sur des fenêtres de marque Velux ?",
+    answer:
+      "Nous sommes partenaire agréé Velux Expert et installons principalement des fenêtres Velux. Pour l'entretien, la réparation ou la pose de stores, nous étudions aussi la compatibilité avec d'autres marques selon les dimensions existantes.",
+  },
 ];
