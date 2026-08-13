@@ -8,12 +8,11 @@ import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
 import { Magnetic } from "@/components/Magnetic";
 import { StatCounter } from "@/components/StatCounter";
-import { services, serviceAreas, site } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 const stats = [
   { value: new Date().getFullYear() - site.experienceSinceYear, suffix: "+", label: "ans d'expérience terrain" },
-  { value: serviceAreas.length, suffix: "", label: "villes couvertes dans le canton de Vaud" },
-  { value: 100, suffix: "%", label: "devis gratuits, sans engagement" },
+  { value: 99, suffix: "%", label: "clients satisfaits" },
 ];
 
 const reassurance = [
@@ -139,23 +138,15 @@ export default function HomePage() {
       {/* Chiffres clés — the "décompte" the client liked on the agency's own site */}
       <Reveal>
         <section className="border-b border-[var(--color-line)] py-16 md:py-20">
-          <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-5 sm:grid-cols-4 md:px-8">
+          <div className="mx-auto grid max-w-sm grid-cols-2 gap-8 px-5 md:px-8">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={i * 90} className="text-center">
-                <p className="text-3xl font-extrabold text-[var(--color-accent)] md:text-4xl">
+                <p className="text-4xl font-extrabold text-[var(--color-accent)] md:text-5xl">
                   <StatCounter value={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="mt-2 text-xs font-medium text-[var(--color-ink-soft)] md:text-sm">{stat.label}</p>
               </Reveal>
             ))}
-            <Reveal delay={stats.length * 90} className="text-center">
-              <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-accent)] text-white">
-                <CheckIcon className="h-5 w-5" />
-              </span>
-              <p className="mt-3 text-xs font-medium text-[var(--color-ink-soft)] md:text-sm">
-                Partenaire agréé Velux Expert
-              </p>
-            </Reveal>
           </div>
         </section>
       </Reveal>
