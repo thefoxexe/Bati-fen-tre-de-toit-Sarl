@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GridIcon, HomeIcon, MailIcon, QuoteIcon } from "@/components/icons";
+import { GridIcon, HelpIcon, HomeIcon, MailIcon } from "@/components/icons";
 
 const items = [
   { href: "/", label: "Accueil", icon: HomeIcon, match: (p: string) => p === "/" },
   { href: "/services", label: "Services", icon: GridIcon, match: (p: string) => p.startsWith("/services") },
-  { href: "/devis", label: "Devis", icon: QuoteIcon, match: (p: string) => p === "/devis" },
+  { href: "/faq", label: "FAQ", icon: HelpIcon, match: (p: string) => p === "/faq" },
   { href: "/contact", label: "Contact", icon: MailIcon, match: (p: string) => p === "/contact" },
 ];
 
@@ -17,8 +17,9 @@ function matchIndex(pathname: string) {
   return index === -1 ? 0 : index;
 }
 
-/** Fixed bottom tab bar for mobile — the active tab's icon sits inside a red
- * roundel that slides between tabs instead of Devis carrying a permanent one. */
+/** Fixed bottom tab bar for mobile, docked flush to the screen edge — like
+ * WhatsApp's tab bar, not a floating pill. The active tab's icon sits inside
+ * a red roundel that slides between tabs instead of a permanent one. */
 export function BottomNav() {
   const pathname = usePathname();
   const [trackedPathname, setTrackedPathname] = useState(pathname);

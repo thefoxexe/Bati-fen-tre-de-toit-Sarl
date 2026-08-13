@@ -7,7 +7,23 @@ import { RoofDivider } from "@/components/RoofDivider";
 import { Reveal } from "@/components/Reveal";
 import { SplitWords } from "@/components/SplitWords";
 import { Magnetic } from "@/components/Magnetic";
-import { services, site } from "@/lib/site";
+import { StatCounter } from "@/components/StatCounter";
+import { faqs, services, site } from "@/lib/site";
+
+const stats = [
+  { value: new Date().getFullYear() - site.experienceSinceYear, suffix: "+", label: "ans d'expérience terrain" },
+  { value: 99, suffix: "%", label: "clients satisfaits" },
+];
+
+// The 4 questions a first-time visitor is most likely to have, pulled from
+// the full FAQ list rather than duplicated — everything else stays on /faq.
+const homeFaqQuestions = [
+  "Combien coûte l'installation d'une fenêtre de toit ?",
+  "Quel est le délai moyen d'intervention ?",
+  "Le devis est-il vraiment gratuit et sans engagement ?",
+  "Intervenez-vous aussi pour du dépannage ?",
+];
+const homeFaqs = faqs.filter((faq) => homeFaqQuestions.includes(faq.question));
 
 const reassurance = [
   { icon: QuoteIcon, text: "Devis gratuit" },
@@ -49,78 +65,73 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="grain relative overflow-hidden border-b border-[var(--color-line)] bg-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-1/2 h-[40rem] w-[40rem] -translate-y-1/2 translate-x-1/4 rounded-full opacity-[0.07] blur-3xl md:translate-x-1/3"
-          style={{ background: "radial-gradient(circle, var(--color-accent) 0%, transparent 70%)" }}
+      {/* Hero — full-bleed photo instead of a split text/image layout */}
+      {/* min-h leaves room for the fixed bottom nav on mobile (lg:hidden,
+          ~4rem tall) — otherwise centered content that fills a true 100svh
+          ends up with its bottom edge (the CTAs) hidden behind that bar. */}
+      <section className="grain relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden text-white lg:min-h-[100svh]">
+        <Image
+          src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
+          alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
+          fill
+          priority
+          className="object-cover"
         />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-16 text-center md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-8 md:px-8 md:pb-28 md:pt-20 md:text-left">
-          <div>
-            <p className="eyebrow hero-fade mb-5 justify-center md:justify-start">
-              Installateur de fenêtres de toit
-            </p>
-            <h1 className="balance text-4xl font-semibold leading-[1.1] text-[var(--color-ink)] md:text-6xl">
-              <SplitWords text="Plus de lumière chez vous." startDelay={80} />
-            </h1>
-            <p
-              className="hero-fade mx-auto mt-5 max-w-xl text-lg text-[var(--color-ink-soft)] md:mx-0"
-              style={{ animationDelay: "260ms" }}
-            >
-              Remplacement, installation et entretien de fenêtres de toit Velux, dans tout le canton de Vaud.
-            </p>
-            <p
-              className="hero-fade mx-auto mt-4 max-w-xl text-sm text-[var(--color-ink-soft)] md:mx-0"
-              style={{ animationDelay: "380ms" }}
-            >
-              Devis gratuit, visite technique sur place et pose soignée : {site.shortName}{" "}
-              s&rsquo;occupe de votre projet du premier appel à la dernière finition.
-            </p>
-            <div
-              className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
-              style={{ animationDelay: "500ms" }}
-            >
-              <Magnetic>
-                <Link href="/devis" className="btn btn-primary">
-                  Demander un devis gratuit
-                </Link>
-              </Magnetic>
-              <Magnetic>
-                <a href={site.phoneHref} className="btn btn-outline">
-                  {site.phoneDisplay}
-                </a>
-              </Magnetic>
-            </div>
-            <a
-              href="https://www.velux.ch"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
-              className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full border border-[var(--color-line)] px-4 py-2 transition hover:border-[var(--color-accent)]"
-              style={{ animationDelay: "600ms" }}
-            >
-              <Image
-                src="/logo/velux-expert-partenaire-agree.png"
-                alt=""
-                width={7000}
-                height={1002}
-                className="h-4 w-auto"
-              />
-              <span className="text-xs font-medium text-[var(--color-ink-soft)]">Partenaire agréé Velux Expert</span>
-            </a>
-          </div>
+        <div aria-hidden="true" className="absolute inset-0 bg-black/35" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 
-          <div className="hero-fade relative hidden md:block" style={{ animationDelay: "220ms" }}>
-            <Image
-              src="/photos/fenetre-de-toit-velux-salon-lumineux.jpg"
-              alt="Fenêtres de toit Velux ouvertes dans un salon lumineux, vue sur les arbres"
-              width={1600}
-              height={2400}
-              className="aspect-[3/4] w-full rounded-2xl object-cover shadow-lg"
-              priority
-            />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-5 py-14 text-center md:px-8 md:py-20 md:text-left">
+          <p className="eyebrow hero-fade mb-5 justify-center text-white/90 md:justify-start">
+            Installateur de fenêtres de toit
+          </p>
+          <h1 className="balance text-4xl font-semibold leading-[1.1] text-white md:text-6xl">
+            <SplitWords text="Plus de lumière chez vous." startDelay={80} />
+          </h1>
+          <p
+            className="hero-fade mx-auto mt-5 max-w-xl text-lg text-white/85 md:mx-0"
+            style={{ animationDelay: "260ms" }}
+          >
+            Remplacement, installation et entretien de fenêtres de toit Velux, dans tout le canton de Vaud.
+          </p>
+          <p
+            className="hero-fade mx-auto mt-4 max-w-xl text-sm text-white/70 md:mx-0"
+            style={{ animationDelay: "380ms" }}
+          >
+            Devis gratuit, visite technique sur place et pose soignée : {site.shortName}{" "}
+            s&rsquo;occupe de votre projet du premier appel à la dernière finition.
+          </p>
+          <div
+            className="hero-fade mt-9 flex flex-wrap justify-center gap-3 md:justify-start"
+            style={{ animationDelay: "500ms" }}
+          >
+            <Magnetic>
+              <Link href="/devis" className="btn btn-primary">
+                Demander un devis gratuit
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <a href={site.phoneHref} className="btn btn-on-photo">
+                {site.phoneDisplay}
+              </a>
+            </Magnetic>
           </div>
+          <a
+            href="https://www.velux.ch"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Velux Expert, partenaire agréé (velux.ch, nouvel onglet)"
+            className="hero-fade mt-10 inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2 shadow-lg transition hover:shadow-xl"
+            style={{ animationDelay: "600ms" }}
+          >
+            <Image
+              src="/logo/velux-expert-partenaire-agree.png"
+              alt=""
+              width={7000}
+              height={1002}
+              className="h-4 w-auto"
+            />
+            <span className="text-xs font-medium text-[var(--color-ink-soft)]">Partenaire agréé Velux Expert</span>
+          </a>
         </div>
       </section>
 
@@ -136,6 +147,22 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* Chiffres clés — the "décompte" the client liked on the agency's own site */}
+      <Reveal>
+        <section className="border-b border-[var(--color-line)] py-16 md:py-20">
+          <div className="mx-auto grid max-w-sm grid-cols-2 gap-8 px-5 md:px-8">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 90} className="text-center">
+                <p className="text-4xl font-extrabold text-[var(--color-accent)] md:text-5xl">
+                  <StatCounter value={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="mt-2 text-xs font-medium text-[var(--color-ink-soft)] md:text-sm">{stat.label}</p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
       {/* About teaser */}
       <Reveal>
@@ -269,6 +296,31 @@ export default function HomePage() {
             <Link href="/portfolio" className="link-underline inline-flex items-center gap-2 text-sm">
               Voir nos réalisations <ArrowIcon className="h-3.5 w-3.5" />
             </Link>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* FAQ preview */}
+      <Reveal>
+        <section className="border-t border-[var(--color-line)] bg-[#f7f5f2] py-20 md:py-28">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <SectionHeading eyebrow="Questions fréquentes" bold="Ce qu'on nous demande" rest="le plus souvent." />
+            <div className="mt-10 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+              {homeFaqs.map((faq) => (
+                <details key={faq.question} className="faq group py-5">
+                  <summary className="flex items-center justify-between gap-4">
+                    <span className="text-base font-medium text-[var(--color-ink)]">{faq.question}</span>
+                    <span className="faq-icon shrink-0 text-xl font-light text-[var(--color-ink-soft)]">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm text-[var(--color-ink-soft)]">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link href="/faq" className="link-underline inline-flex items-center gap-2 text-sm">
+                Voir toutes les questions <ArrowIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </section>
       </Reveal>

@@ -43,7 +43,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-[var(--color-line)] bg-white">
+      <header className="relative z-30 border-b border-[var(--color-line)] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 md:px-8">
           <Link href="/" aria-label={site.name}>
             <Logo priority />
